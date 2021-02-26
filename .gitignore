@@ -6,3 +6,5 @@ parser.cpp
 parser.hh
 
 .DS_Store
+
+build
