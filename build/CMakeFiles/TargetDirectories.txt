@@ -1,0 +1,3 @@
+/Users/rampartrange/MIPT-HW/MiniJavaCompiler/build/CMakeFiles/rebuild_cache.dir
+/Users/rampartrange/MIPT-HW/MiniJavaCompiler/build/CMakeFiles/edit_cache.dir
+/Users/rampartrange/MIPT-HW/MiniJavaCompiler/build/CMakeFiles/ParserExampleWithAst.dir
