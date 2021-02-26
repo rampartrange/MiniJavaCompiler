@@ -56,18 +56,46 @@
 %define api.token.prefix {TOK_}
 
 %token
-    END 0 "end of file"
-    ASSIGN ":="
-    MINUS "-"
-    PLUS "+"
-    STAR "*"
-    SLASH "/"
-    LPAREN "("
-    RPAREN ")"
+    EOF 0       "end of file"
+
+    BEGIN       "begin"
+    END         "end"
+
+    VAR         "var"
+
+    ASSIGN      ":="
+
+    MINUS       "-"
+    PLUS        "+"
+    STAR        "*"
+    DIV         "/"
+    MOD         "%"
+
+    AND         "&&"
+    OR          "||"
+    XOR         "^"
+    NOT         "!"
+
+    LPAREN      "("
+    RPAREN      ")"
+
+    SEMICOLON   ";"
+    POINT       "."
+    COMMA       ","i
+    COLON       ":"
 ;
 
-%token <std::string> IDENTIFIER "identifier"
-%token <int> NUMBER "number"
+%token <std::string>
+    IDENTIFIER "identifier"
+    TYPE       "type"
+
+%token <int> INTEGER "integer"
+%token <double> REAL "real"
+%token <std::string> STRING "string"
+%token <bool> BOOL "bool"
+%token <std::string> CMP
+
+
 %nterm <Expression*> exp
 %nterm <Assignment*> assignment
 %nterm <AssignmentList*> assignments
@@ -89,14 +117,14 @@ assignments:
 assignment:
     "identifier" ":=" exp {
         $$ = new Assignment($1, $3);
-        // driver.variables[$1] = $3->eval();
+        driver.variables[$1] = $3->eval();
     };
 
 %left "+" "-";
 %left "*" "/";
 
 exp:
-    "number" {$$ = new NumberExpression($1); }
+    "integer" {$$ = new NumberExpression($1); }
     | "identifier" {$$ = new IdentExpression($1); }
     | exp "+" exp { $$ = new AddExpression($1, $3); }
     | exp "-" exp { $$ = new SubstractExpression($1, $3); }
