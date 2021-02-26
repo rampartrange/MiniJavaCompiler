@@ -1,4 +1,4 @@
-*.Idea
+*.idea
 location.hh
 scanner.cpp
 scanner.hh
