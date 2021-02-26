@@ -1,13 +1,12 @@
 #pragma once
 #include "Expression.h"
-#include "../objects/PascalObject.h"
+
 #include <string>
 
 class IdentExpression: public Expression {
  public:
-    IdentExpression(std::string  ident, PascalObject value);
-    PascalObject eval() const override;
+    IdentExpression(const std::string& ident);
+    int eval() const override;
  private:
-    std::string ident;
-    PascalObject value;
+    std::string ident_;
 };

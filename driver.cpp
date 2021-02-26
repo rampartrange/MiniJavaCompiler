@@ -7,6 +7,8 @@ Driver::Driver() :
     trace_parsing(false),
     trace_scanning(false),
     scanner(*this), parser(scanner, *this) {
+    variables["one"] = 1;
+    variables["two"] = 2;
 }
 
 
@@ -17,12 +19,8 @@ int Driver::parse(const std::string& f) {
     parser.set_debug_level(trace_parsing);
     int res = parser();
 
+    std::cout << program << std::endl;
     scan_end();
-    for (const auto& now : variables) {
-        std::cout << now.second.GetType() << ": ";
-        std::cout << now.first << " := " << now.second << std::endl;
-    }
-
     return res;
 }
 

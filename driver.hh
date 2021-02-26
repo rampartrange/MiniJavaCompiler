@@ -5,13 +5,15 @@
 #include <fstream>
 #include "scanner.h"
 #include "parser.hh"
+
 #include "Program.h"
-#include "objects/PascalObject.h"
+
+
 
 class Driver {
  public:
     Driver();
-    std::map<std::string, PascalObject> variables;
+    std::map<std::string, int> variables;
     int result;
     int parse(const std::string& f);
     std::string file;

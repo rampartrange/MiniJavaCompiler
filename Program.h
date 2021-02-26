@@ -2,17 +2,11 @@
 
 #include "assignments/AssignmentList.h"
 #include "expressions/Expression.h"
-#include "assignments/DeclarationList.h"
 
 class Program {
  public:
-    Program(AssignmentList* assignments, Expression* expression, DeclarationList* declarations);
-
-    std::vector<AssignmentExpression *> GetAssigments() ;
-
+    Program(AssignmentList* assignments, Expression* expression);
  private:
-    AssignmentList* assignments;
-    Expression* expression;
-    DeclarationList* declarations;
-
+    AssignmentList* assignments_;
+    Expression* expression_;
 };

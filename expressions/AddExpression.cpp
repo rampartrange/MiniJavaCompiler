@@ -1,7 +1,7 @@
 #include "AddExpression.h"
 
-AddExpression::AddExpression(Expression *lhs, Expression *rhs): lhs(lhs), rhs(rhs) {}
+AddExpression::AddExpression(Expression *e1, Expression *e2): first(e1), second(e2) {}
 
-PascalObject AddExpression::eval() const {
-    return lhs->eval() + rhs->eval();
+int AddExpression::eval() const {
+    return first->eval() + second->eval();
 }

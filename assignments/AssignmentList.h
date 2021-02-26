@@ -1,14 +1,12 @@
 #pragma once
 
-#include "expressions/AssignmentExpression.h"
+#include "assignments/Assignment.h"
 
 #include <vector>
 
 class AssignmentList {
  public:
-    void AddAssignment(AssignmentExpression* assignment);
-    std::vector<AssignmentExpression*> GetAssigments();
+    void AddAssignment(Assignment* assignment);
  private:
-    std::vector<AssignmentExpression*> assignments_;
+    std::vector<Assignment*> assignments_;
 };
-
