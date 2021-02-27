@@ -40,7 +40,7 @@ int   [0-9]+
 blank [ \t\r]
 real  {int}"."{int}([eE][+-]{int})?
 string "\'"([^\n\'\\]*(\\[.\n])*)*"\'"
-cmp   "<"|">"|"<="|">="|"="|"<>"
+cmp   "<"|">"|"<="|">="|"=="|"!="
 type  integer|boolean|real|string
 
 
@@ -59,44 +59,49 @@ type  integer|boolean|real|string
 {blank}+   loc.step ();
 \n+        loc.lines (yyleng); loc.step ();
 
-"begin"    return yy::parser::make_BEGIN  (loc);
-"end"      return yy::parser::make_END    (loc);
+"-"        return yy::parser::make_MINUS        (loc);
+"+"        return yy::parser::make_PLUS         (loc);
+"*"        return yy::parser::make_STAR         (loc);
+"/"        return yy::parser::make_DIV          (loc);
+"%"        return yy::parser::make_MOD          (loc);
 
-"var"      return yy::parser::make_VAR    (loc);
+"&&"       return yy::parser::make_AND          (loc);
+"||"       return yy::parser::make_OR           (loc);
+"^"        return yy::parser::make_XOR          (loc);
+"!"        return yy::parser::make_NOT          (loc);
 
-"-"        return yy::parser::make_MINUS  (loc);
-"+"        return yy::parser::make_PLUS   (loc);
-"*"        return yy::parser::make_STAR   (loc);
-"div"      return yy::parser::make_DIV    (loc);
-"mod"      return yy::parser::make_MOD    (loc);
+"("        return yy::parser::make_LROUND       (loc);
+")"        return yy::parser::make_RROUND       (loc);
+"{"        return yy::parser::make_LCURLY       (loc);
+"}"        return yy::parser::make_RCURLY       (loc);
+"["        return yy::parser::make_LSQUARE      (loc);
+"]"        return yy::parser::make_RSQUARE      (loc);
 
-"and"      return yy::parser::make_AND    (loc);
-"or"       return yy::parser::make_OR     (loc);
-"xor"      return yy::parser::make_XOR    (loc);
-"not"      return yy::parser::make_NOT    (loc);
+"="       return yy::parser::make_ASSIGN       (loc);
 
-"("        return yy::parser::make_LPAREN (loc);
-")"        return yy::parser::make_RPAREN (loc);
+","        return yy::parser::make_COMMA        (loc);
+"."        return yy::parser::make_POINT        (loc);
+";"        return yy::parser::make_SEMICOLON    (loc);
+":"        return yy::parser::make_COLON        (loc);
 
-":="       return yy::parser::make_ASSIGN (loc);
+"class"    return yy::parser::make_CLASS        (loc);
+"public"   return yy::parser::make_PUBLIC       (loc);
+"static"   return yy::parser::make_STATIC       (loc);
+"void"     return yy::parser::make_VOID         (loc);
+"main"     return yy::parser::make_MAIN         (loc);
 
-","        return yy::parser::make_COMMA  (loc);
-"."        return yy::parser::make_POINT (loc);
-";"        return yy::parser::make_SEMICOLON (loc);
-":"        return yy::parser::make_COLON  (loc);
+{bool}     return make_BOOL                     (yytext, loc);
+{type}     return yy::parser::make_TYPE         (yytext, loc);
+{cmp}      return yy::parser::make_CMP          (yytext, loc);
+{id}       return yy::parser::make_IDENTIFIER   (yytext, loc);
 
-{bool}     return make_BOOL(yytext, loc);
-{type}     return yy::parser::make_TYPE(yytext, loc);
-{cmp}      return yy::parser::make_CMP    (yytext, loc);
-{id}       return yy::parser::make_IDENTIFIER(yytext, loc);
-
-{int}      return make_INTEGER(yytext, loc);
-{real}     return make_REAL(yytext, loc);
-{string}   return make_STRING(yytext, loc);
+{int}      return make_INTEGER                  (yytext, loc);
+{real}     return make_REAL                     (yytext, loc);
+{string}   return make_STRING                   (yytext, loc);
 .          {
                 throw yy::parser::syntax_error(loc, "invalid character: " + std::string(yytext));
            }
-<<EOF>>    return yy::parser::make_EOF (loc);
+<<EOF>>    return yy::parser::make_EOF          (loc);
 %%
 
 yy::parser::symbol_type make_INTEGER(
