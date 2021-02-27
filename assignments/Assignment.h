@@ -1,10 +1,10 @@
 #pragma once
 
 #include "expressions/Expression.h"
-
+#include "base_element/BaseElement.h"
 #include <string>
 
-class Assignment {
+class Assignment : BaseElement {
  public:
     Assignment(const std::string& variable, Expression* expression);
  private:

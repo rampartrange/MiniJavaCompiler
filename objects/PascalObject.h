@@ -1,5 +1,7 @@
 #pragma once
 
+#include <base_element/BaseElement.h>
+
 #include <string>
 #include <iostream>
 
@@ -18,7 +20,7 @@ enum class BooleanConstant : int {
     True = 1
 };
 
-class PascalObject {
+class PascalObject : BaseElement {
 public:
     PascalObject();
 
