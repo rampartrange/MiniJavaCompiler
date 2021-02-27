@@ -1,16 +1,16 @@
-//
-// Created by Артем Андрианов on 27.02.2021.
-//
+#pragma once
 
-#ifndef MINIJAVACOMPILER_JAVAOBJECT_H
-#define MINIJAVACOMPILER_JAVAOBJECT_H
-
-
-
-class JavaObject {
-
+enum class SimpleType {
+    INT,
+    BOOLEAN,
+    VOID
 };
 
+class JavaObject {
+public:
+    //virtual void Accept() = 0;
 
+    virtual SimpleType GetType() const = 0;
 
-#endif //MINIJAVACOMPILER_JAVAOBJECT_H
+    virtual ~JavaObject() = default;
+};

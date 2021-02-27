@@ -23,6 +23,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/rampartrange/MIPT-HW/MiniJavaCompiler/expressions/UnaryMinusExpression.cpp" "/Users/rampartrange/MIPT-HW/MiniJavaCompiler/cmake-build-debug/CMakeFiles/MiniJavaCompiler.dir/expressions/UnaryMinusExpression.cpp.o"
   "/Users/rampartrange/MIPT-HW/MiniJavaCompiler/expressions/XorExpression.cpp" "/Users/rampartrange/MIPT-HW/MiniJavaCompiler/cmake-build-debug/CMakeFiles/MiniJavaCompiler.dir/expressions/XorExpression.cpp.o"
   "/Users/rampartrange/MIPT-HW/MiniJavaCompiler/main.cpp" "/Users/rampartrange/MIPT-HW/MiniJavaCompiler/cmake-build-debug/CMakeFiles/MiniJavaCompiler.dir/main.cpp.o"
+  "/Users/rampartrange/MIPT-HW/MiniJavaCompiler/objects/Integer.cpp" "/Users/rampartrange/MIPT-HW/MiniJavaCompiler/cmake-build-debug/CMakeFiles/MiniJavaCompiler.dir/objects/Integer.cpp.o"
   "/Users/rampartrange/MIPT-HW/MiniJavaCompiler/objects/PascalObject.cpp" "/Users/rampartrange/MIPT-HW/MiniJavaCompiler/cmake-build-debug/CMakeFiles/MiniJavaCompiler.dir/objects/PascalObject.cpp.o"
   "/Users/rampartrange/MIPT-HW/MiniJavaCompiler/parser.cpp" "/Users/rampartrange/MIPT-HW/MiniJavaCompiler/cmake-build-debug/CMakeFiles/MiniJavaCompiler.dir/parser.cpp.o"
   "/Users/rampartrange/MIPT-HW/MiniJavaCompiler/scanner.cpp" "/Users/rampartrange/MIPT-HW/MiniJavaCompiler/cmake-build-debug/CMakeFiles/MiniJavaCompiler.dir/scanner.cpp.o"

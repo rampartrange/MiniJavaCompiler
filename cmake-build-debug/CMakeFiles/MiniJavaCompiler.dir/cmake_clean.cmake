@@ -21,6 +21,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/MiniJavaCompiler.dir/expressions/UnaryMinusExpression.cpp.o"
   "CMakeFiles/MiniJavaCompiler.dir/expressions/XorExpression.cpp.o"
   "CMakeFiles/MiniJavaCompiler.dir/main.cpp.o"
+  "CMakeFiles/MiniJavaCompiler.dir/objects/Integer.cpp.o"
   "CMakeFiles/MiniJavaCompiler.dir/objects/PascalObject.cpp.o"
   "CMakeFiles/MiniJavaCompiler.dir/parser.cpp.o"
   "CMakeFiles/MiniJavaCompiler.dir/scanner.cpp.o"

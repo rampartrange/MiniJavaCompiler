@@ -636,6 +636,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+objects/Integer.o: objects/Integer.cpp.o
+
+.PHONY : objects/Integer.o
+
+# target to build an object file
+objects/Integer.cpp.o:
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/objects/Integer.cpp.o
+.PHONY : objects/Integer.cpp.o
+
+objects/Integer.i: objects/Integer.cpp.i
+
+.PHONY : objects/Integer.i
+
+# target to preprocess a source file
+objects/Integer.cpp.i:
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/objects/Integer.cpp.i
+.PHONY : objects/Integer.cpp.i
+
+objects/Integer.s: objects/Integer.cpp.s
+
+.PHONY : objects/Integer.s
+
+# target to generate assembly for a file
+objects/Integer.cpp.s:
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/objects/Integer.cpp.s
+.PHONY : objects/Integer.cpp.s
+
 objects/PascalObject.o: objects/PascalObject.cpp.o
 
 .PHONY : objects/PascalObject.o
@@ -783,6 +810,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... objects/Integer.o"
+	@echo "... objects/Integer.i"
+	@echo "... objects/Integer.s"
 	@echo "... objects/PascalObject.o"
 	@echo "... objects/PascalObject.i"
 	@echo "... objects/PascalObject.s"

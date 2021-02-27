@@ -193,6 +193,12 @@
 		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/main.cpp">
 			<Option target="MiniJavaCompiler"/>
 		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/objects/Integer.cpp">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/objects/Integer.h">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
 		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/objects/PascalObject.cpp">
 			<Option target="MiniJavaCompiler"/>
 		</Unit>

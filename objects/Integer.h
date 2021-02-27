@@ -1,16 +1,20 @@
-//
-// Created by Артем Андрианов on 27.02.2021.
-//
+#pragma once
 
-#ifndef MINIJAVACOMPILER_INTEGER_H
-#define MINIJAVACOMPILER_INTEGER_H
+#include "JavaObject.h"
 
+class Integer : JavaObject {
+public:
+    Integer();
+    explicit Integer(int);
 
+    //void Accept() override {};
 
-class Integer {
+    SimpleType GetType() const override;
+
+private:
+    int value_;
 
 };
 
 
 
-#endif //MINIJAVACOMPILER_INTEGER_H

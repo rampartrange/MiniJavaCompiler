@@ -28,10 +28,12 @@ ADD_FLEX_BISON_DEPENDENCY(MyScanner MyParser)
 
 add_executable(
         MiniJavaCompiler
+
         main.cpp
         driver.cpp
         ${BISON_MyParser_OUTPUTS}
         ${FLEX_MyScanner_OUTPUTS}
+
         expressions/ObjectExpression.cpp
         expressions/MulExpression.cpp
         expressions/AddExpression.cpp
@@ -46,9 +48,13 @@ add_executable(
         expressions/XorExpression.cpp
         expressions/NotExpression.cpp
         expressions/AssignmentExpression.cpp
+
         assignments/AssignmentList.cpp
         assignments/Assignment.cpp
+
         objects/PascalObject.cpp
+        objects/Integer.cpp
+
         Program.cpp
 )
 
