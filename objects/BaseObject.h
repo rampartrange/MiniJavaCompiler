@@ -3,14 +3,16 @@
 enum class SimpleType {
     INT,
     BOOLEAN,
+    STRING,
+    DOUBLE,
     VOID
 };
 
-class JavaObject {
+class BaseObject {
 public:
-    //virtual void Accept() = 0;
+    virtual void Accept() = 0;
 
     virtual SimpleType GetType() const = 0;
 
-    virtual ~JavaObject() = default;
+    virtual ~BaseObject() = default;
 };

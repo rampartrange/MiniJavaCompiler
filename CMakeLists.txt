@@ -53,7 +53,10 @@ add_executable(
         assignments/Assignment.cpp
 
         objects/PascalObject.cpp
-        objects/Integer.cpp
+        objects/IntegerObject.cpp
+        objects/BooleanObject.cpp
+        objects/DoubleObject.cpp
+        objects/StringObject.cpp
 
         Program.cpp
 )
