@@ -149,7 +149,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=ParserExampleWithAst
+CMAKE_PROJECT_NAME:STATIC=MiniJavaCompiler
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib
@@ -223,10 +223,10 @@ FLEX_INCLUDE_DIR:PATH=FLEX_INCLUDE_DIR-NOTFOUND
 FL_LIBRARY:FILEPATH=FL_LIBRARY-NOTFOUND
 
 //Value Computed by CMake
-ParserExampleWithAst_BINARY_DIR:STATIC=/Users/rampartrange/MIPT-HW/MiniJavaCompiler/build
+MiniJavaCompiler_BINARY_DIR:STATIC=/Users/rampartrange/MIPT-HW/MiniJavaCompiler/build
 
 //Value Computed by CMake
-ParserExampleWithAst_SOURCE_DIR:STATIC=/Users/rampartrange/MIPT-HW/MiniJavaCompiler
+MiniJavaCompiler_SOURCE_DIR:STATIC=/Users/rampartrange/MIPT-HW/MiniJavaCompiler
 
 
 ########################
