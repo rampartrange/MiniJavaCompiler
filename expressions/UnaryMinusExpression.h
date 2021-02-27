@@ -2,11 +2,11 @@
 #include "Expression.h"
 #include "../objects/PascalObject.h"
 
-class AddExpression: public Expression {
- public:
-    AddExpression(Expression* lhs, Expression* rhs);
+class UnaryMinusExpression: public Expression {
+public:
+    UnaryMinusExpression(Expression* lhs);
     PascalObject eval() const override;
- private:
+private:
     Expression* lhs;
-    Expression* rhs;
+    int value;
 };

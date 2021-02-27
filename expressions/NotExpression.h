@@ -2,11 +2,10 @@
 #include "Expression.h"
 #include "../objects/PascalObject.h"
 
-class AddExpression: public Expression {
- public:
-    AddExpression(Expression* lhs, Expression* rhs);
+class NotExpression: public Expression {
+public:
+    NotExpression(Expression* lhs);
     PascalObject eval() const override;
- private:
+private:
     Expression* lhs;
-    Expression* rhs;
 };

@@ -1,9 +1,9 @@
 #include "MulExpression.h"
 
 MulExpression::MulExpression(
-    Expression *e1, Expression *e2
-): first(e1), second(e2) {}
+    Expression *lhs, Expression *rhs
+): lhs(lhs), rhs(rhs) {}
 
-int MulExpression::eval() const {
-    return first->eval() * second->eval();
+PascalObject MulExpression::eval() const {
+    return lhs->eval() * rhs->eval();
 }

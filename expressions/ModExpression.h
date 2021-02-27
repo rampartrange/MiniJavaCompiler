@@ -1,13 +1,12 @@
 #pragma once
 #include "Expression.h"
-#include <iostream>
 #include "../objects/PascalObject.h"
 
-class MulExpression: public Expression {
- public:
-    MulExpression(Expression* lhs, Expression* rhs);
+class ModExpression: public Expression {
+public:
+    ModExpression(Expression* lhs, Expression* rhs);
     PascalObject eval() const override;
- private:
+private:
     Expression* lhs;
     Expression* rhs;
 };

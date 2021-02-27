@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="MiniJavaCompiler"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/rampartrange/MIPT-HW/MiniJavaCompiler/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/rampartrange/MIPT-HW/MiniJavaCompiler/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/rampartrange/MIPT-HW/MiniJavaCompiler/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/rampartrange/MIPT-HW/MiniJavaCompiler/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/rampartrange/MIPT-HW/MiniJavaCompiler/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/rampartrange/MIPT-HW/MiniJavaCompiler/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/rampartrange/MIPT-HW/MiniJavaCompiler/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/rampartrange/MIPT-HW/MiniJavaCompiler/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/rampartrange/MIPT-HW/MiniJavaCompiler/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/rampartrange/MIPT-HW/MiniJavaCompiler/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/rampartrange/MIPT-HW/MiniJavaCompiler/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/rampartrange/MIPT-HW/MiniJavaCompiler/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MiniJavaCompiler">
+				<Option output="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/cmake-build-debug/MiniJavaCompiler" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir=""/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/rampartrange/MIPT-HW/MiniJavaCompiler"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/12.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/rampartrange/MIPT-HW/MiniJavaCompiler/cmake-build-debug/Makefile&quot;  VERBOSE=1 MiniJavaCompiler"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/rampartrange/MIPT-HW/MiniJavaCompiler/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/rampartrange/MIPT-HW/MiniJavaCompiler/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/rampartrange/MIPT-HW/MiniJavaCompiler/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MiniJavaCompiler/fast">
+				<Option output="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/cmake-build-debug/MiniJavaCompiler" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir=""/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/rampartrange/MIPT-HW/MiniJavaCompiler"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/12.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/rampartrange/MIPT-HW/MiniJavaCompiler/cmake-build-debug/Makefile&quot;  VERBOSE=1 MiniJavaCompiler/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/rampartrange/MIPT-HW/MiniJavaCompiler/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/rampartrange/MIPT-HW/MiniJavaCompiler/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/rampartrange/MIPT-HW/MiniJavaCompiler/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/Program.cpp">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/Program.h">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/assignments/Assignment.cpp">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/assignments/Assignment.h">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/assignments/AssignmentList.cpp">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/assignments/AssignmentList.h">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/driver.cpp">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/driver.hh">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/expressions/AddExpression.cpp">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/expressions/AddExpression.h">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/expressions/AndExpression.cpp">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/expressions/AndExpression.h">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/expressions/AssignmentExpression.cpp">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/expressions/AssignmentExpression.h">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/expressions/ComparisonExpression.cpp">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/expressions/ComparisonExpression.h">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/expressions/DivExpression.cpp">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/expressions/DivExpression.h">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/expressions/IdentExpression.cpp">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/expressions/IdentExpression.h">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/expressions/ModExpression.cpp">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/expressions/ModExpression.h">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/expressions/MulExpression.cpp">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/expressions/MulExpression.h">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/expressions/NotExpression.cpp">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/expressions/NotExpression.h">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/expressions/ObjectExpression.cpp">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/expressions/ObjectExpression.h">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/expressions/OrExpression.cpp">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/expressions/OrExpression.h">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/expressions/SubstractExpression.cpp">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/expressions/SubstractExpression.h">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/expressions/UnaryMinusExpression.cpp">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/expressions/UnaryMinusExpression.h">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/expressions/XorExpression.cpp">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/expressions/XorExpression.h">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/main.cpp">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/objects/PascalObject.cpp">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/objects/PascalObject.h">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/parser.cpp">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/parser.cpp.rule">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/parser.hh">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/scanner.cpp">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/scanner.cpp.rule">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/scanner.h">
+			<Option target="MiniJavaCompiler"/>
+		</Unit>
+		<Unit filename="/Users/rampartrange/MIPT-HW/MiniJavaCompiler/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

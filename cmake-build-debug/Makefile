@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named ParserExampleWithAst
+# Target rules for targets named MiniJavaCompiler
 
 # Build rule for target.
-ParserExampleWithAst: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ParserExampleWithAst
-.PHONY : ParserExampleWithAst
+MiniJavaCompiler: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 MiniJavaCompiler
+.PHONY : MiniJavaCompiler
 
 # fast build rule for target.
-ParserExampleWithAst/fast:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/build
-.PHONY : ParserExampleWithAst/fast
+MiniJavaCompiler/fast:
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/build
+.PHONY : MiniJavaCompiler/fast
 
 Program.o: Program.cpp.o
 
@@ -129,7 +129,7 @@ Program.o: Program.cpp.o
 
 # target to build an object file
 Program.cpp.o:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/Program.cpp.o
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/Program.cpp.o
 .PHONY : Program.cpp.o
 
 Program.i: Program.cpp.i
@@ -138,7 +138,7 @@ Program.i: Program.cpp.i
 
 # target to preprocess a source file
 Program.cpp.i:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/Program.cpp.i
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/Program.cpp.i
 .PHONY : Program.cpp.i
 
 Program.s: Program.cpp.s
@@ -147,7 +147,7 @@ Program.s: Program.cpp.s
 
 # target to generate assembly for a file
 Program.cpp.s:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/Program.cpp.s
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/Program.cpp.s
 .PHONY : Program.cpp.s
 
 assignments/Assignment.o: assignments/Assignment.cpp.o
@@ -156,7 +156,7 @@ assignments/Assignment.o: assignments/Assignment.cpp.o
 
 # target to build an object file
 assignments/Assignment.cpp.o:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/assignments/Assignment.cpp.o
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/assignments/Assignment.cpp.o
 .PHONY : assignments/Assignment.cpp.o
 
 assignments/Assignment.i: assignments/Assignment.cpp.i
@@ -165,7 +165,7 @@ assignments/Assignment.i: assignments/Assignment.cpp.i
 
 # target to preprocess a source file
 assignments/Assignment.cpp.i:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/assignments/Assignment.cpp.i
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/assignments/Assignment.cpp.i
 .PHONY : assignments/Assignment.cpp.i
 
 assignments/Assignment.s: assignments/Assignment.cpp.s
@@ -174,7 +174,7 @@ assignments/Assignment.s: assignments/Assignment.cpp.s
 
 # target to generate assembly for a file
 assignments/Assignment.cpp.s:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/assignments/Assignment.cpp.s
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/assignments/Assignment.cpp.s
 .PHONY : assignments/Assignment.cpp.s
 
 assignments/AssignmentList.o: assignments/AssignmentList.cpp.o
@@ -183,7 +183,7 @@ assignments/AssignmentList.o: assignments/AssignmentList.cpp.o
 
 # target to build an object file
 assignments/AssignmentList.cpp.o:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/assignments/AssignmentList.cpp.o
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/assignments/AssignmentList.cpp.o
 .PHONY : assignments/AssignmentList.cpp.o
 
 assignments/AssignmentList.i: assignments/AssignmentList.cpp.i
@@ -192,7 +192,7 @@ assignments/AssignmentList.i: assignments/AssignmentList.cpp.i
 
 # target to preprocess a source file
 assignments/AssignmentList.cpp.i:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/assignments/AssignmentList.cpp.i
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/assignments/AssignmentList.cpp.i
 .PHONY : assignments/AssignmentList.cpp.i
 
 assignments/AssignmentList.s: assignments/AssignmentList.cpp.s
@@ -201,7 +201,7 @@ assignments/AssignmentList.s: assignments/AssignmentList.cpp.s
 
 # target to generate assembly for a file
 assignments/AssignmentList.cpp.s:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/assignments/AssignmentList.cpp.s
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/assignments/AssignmentList.cpp.s
 .PHONY : assignments/AssignmentList.cpp.s
 
 driver.o: driver.cpp.o
@@ -210,7 +210,7 @@ driver.o: driver.cpp.o
 
 # target to build an object file
 driver.cpp.o:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/driver.cpp.o
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/driver.cpp.o
 .PHONY : driver.cpp.o
 
 driver.i: driver.cpp.i
@@ -219,7 +219,7 @@ driver.i: driver.cpp.i
 
 # target to preprocess a source file
 driver.cpp.i:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/driver.cpp.i
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/driver.cpp.i
 .PHONY : driver.cpp.i
 
 driver.s: driver.cpp.s
@@ -228,7 +228,7 @@ driver.s: driver.cpp.s
 
 # target to generate assembly for a file
 driver.cpp.s:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/driver.cpp.s
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/driver.cpp.s
 .PHONY : driver.cpp.s
 
 expressions/AddExpression.o: expressions/AddExpression.cpp.o
@@ -237,7 +237,7 @@ expressions/AddExpression.o: expressions/AddExpression.cpp.o
 
 # target to build an object file
 expressions/AddExpression.cpp.o:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/expressions/AddExpression.cpp.o
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/AddExpression.cpp.o
 .PHONY : expressions/AddExpression.cpp.o
 
 expressions/AddExpression.i: expressions/AddExpression.cpp.i
@@ -246,7 +246,7 @@ expressions/AddExpression.i: expressions/AddExpression.cpp.i
 
 # target to preprocess a source file
 expressions/AddExpression.cpp.i:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/expressions/AddExpression.cpp.i
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/AddExpression.cpp.i
 .PHONY : expressions/AddExpression.cpp.i
 
 expressions/AddExpression.s: expressions/AddExpression.cpp.s
@@ -255,8 +255,89 @@ expressions/AddExpression.s: expressions/AddExpression.cpp.s
 
 # target to generate assembly for a file
 expressions/AddExpression.cpp.s:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/expressions/AddExpression.cpp.s
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/AddExpression.cpp.s
 .PHONY : expressions/AddExpression.cpp.s
+
+expressions/AndExpression.o: expressions/AndExpression.cpp.o
+
+.PHONY : expressions/AndExpression.o
+
+# target to build an object file
+expressions/AndExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/AndExpression.cpp.o
+.PHONY : expressions/AndExpression.cpp.o
+
+expressions/AndExpression.i: expressions/AndExpression.cpp.i
+
+.PHONY : expressions/AndExpression.i
+
+# target to preprocess a source file
+expressions/AndExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/AndExpression.cpp.i
+.PHONY : expressions/AndExpression.cpp.i
+
+expressions/AndExpression.s: expressions/AndExpression.cpp.s
+
+.PHONY : expressions/AndExpression.s
+
+# target to generate assembly for a file
+expressions/AndExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/AndExpression.cpp.s
+.PHONY : expressions/AndExpression.cpp.s
+
+expressions/AssignmentExpression.o: expressions/AssignmentExpression.cpp.o
+
+.PHONY : expressions/AssignmentExpression.o
+
+# target to build an object file
+expressions/AssignmentExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/AssignmentExpression.cpp.o
+.PHONY : expressions/AssignmentExpression.cpp.o
+
+expressions/AssignmentExpression.i: expressions/AssignmentExpression.cpp.i
+
+.PHONY : expressions/AssignmentExpression.i
+
+# target to preprocess a source file
+expressions/AssignmentExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/AssignmentExpression.cpp.i
+.PHONY : expressions/AssignmentExpression.cpp.i
+
+expressions/AssignmentExpression.s: expressions/AssignmentExpression.cpp.s
+
+.PHONY : expressions/AssignmentExpression.s
+
+# target to generate assembly for a file
+expressions/AssignmentExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/AssignmentExpression.cpp.s
+.PHONY : expressions/AssignmentExpression.cpp.s
+
+expressions/ComparisonExpression.o: expressions/ComparisonExpression.cpp.o
+
+.PHONY : expressions/ComparisonExpression.o
+
+# target to build an object file
+expressions/ComparisonExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/ComparisonExpression.cpp.o
+.PHONY : expressions/ComparisonExpression.cpp.o
+
+expressions/ComparisonExpression.i: expressions/ComparisonExpression.cpp.i
+
+.PHONY : expressions/ComparisonExpression.i
+
+# target to preprocess a source file
+expressions/ComparisonExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/ComparisonExpression.cpp.i
+.PHONY : expressions/ComparisonExpression.cpp.i
+
+expressions/ComparisonExpression.s: expressions/ComparisonExpression.cpp.s
+
+.PHONY : expressions/ComparisonExpression.s
+
+# target to generate assembly for a file
+expressions/ComparisonExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/ComparisonExpression.cpp.s
+.PHONY : expressions/ComparisonExpression.cpp.s
 
 expressions/DivExpression.o: expressions/DivExpression.cpp.o
 
@@ -264,7 +345,7 @@ expressions/DivExpression.o: expressions/DivExpression.cpp.o
 
 # target to build an object file
 expressions/DivExpression.cpp.o:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/expressions/DivExpression.cpp.o
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/DivExpression.cpp.o
 .PHONY : expressions/DivExpression.cpp.o
 
 expressions/DivExpression.i: expressions/DivExpression.cpp.i
@@ -273,7 +354,7 @@ expressions/DivExpression.i: expressions/DivExpression.cpp.i
 
 # target to preprocess a source file
 expressions/DivExpression.cpp.i:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/expressions/DivExpression.cpp.i
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/DivExpression.cpp.i
 .PHONY : expressions/DivExpression.cpp.i
 
 expressions/DivExpression.s: expressions/DivExpression.cpp.s
@@ -282,7 +363,7 @@ expressions/DivExpression.s: expressions/DivExpression.cpp.s
 
 # target to generate assembly for a file
 expressions/DivExpression.cpp.s:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/expressions/DivExpression.cpp.s
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/DivExpression.cpp.s
 .PHONY : expressions/DivExpression.cpp.s
 
 expressions/IdentExpression.o: expressions/IdentExpression.cpp.o
@@ -291,7 +372,7 @@ expressions/IdentExpression.o: expressions/IdentExpression.cpp.o
 
 # target to build an object file
 expressions/IdentExpression.cpp.o:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/expressions/IdentExpression.cpp.o
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/IdentExpression.cpp.o
 .PHONY : expressions/IdentExpression.cpp.o
 
 expressions/IdentExpression.i: expressions/IdentExpression.cpp.i
@@ -300,7 +381,7 @@ expressions/IdentExpression.i: expressions/IdentExpression.cpp.i
 
 # target to preprocess a source file
 expressions/IdentExpression.cpp.i:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/expressions/IdentExpression.cpp.i
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/IdentExpression.cpp.i
 .PHONY : expressions/IdentExpression.cpp.i
 
 expressions/IdentExpression.s: expressions/IdentExpression.cpp.s
@@ -309,8 +390,35 @@ expressions/IdentExpression.s: expressions/IdentExpression.cpp.s
 
 # target to generate assembly for a file
 expressions/IdentExpression.cpp.s:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/expressions/IdentExpression.cpp.s
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/IdentExpression.cpp.s
 .PHONY : expressions/IdentExpression.cpp.s
+
+expressions/ModExpression.o: expressions/ModExpression.cpp.o
+
+.PHONY : expressions/ModExpression.o
+
+# target to build an object file
+expressions/ModExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/ModExpression.cpp.o
+.PHONY : expressions/ModExpression.cpp.o
+
+expressions/ModExpression.i: expressions/ModExpression.cpp.i
+
+.PHONY : expressions/ModExpression.i
+
+# target to preprocess a source file
+expressions/ModExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/ModExpression.cpp.i
+.PHONY : expressions/ModExpression.cpp.i
+
+expressions/ModExpression.s: expressions/ModExpression.cpp.s
+
+.PHONY : expressions/ModExpression.s
+
+# target to generate assembly for a file
+expressions/ModExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/ModExpression.cpp.s
+.PHONY : expressions/ModExpression.cpp.s
 
 expressions/MulExpression.o: expressions/MulExpression.cpp.o
 
@@ -318,7 +426,7 @@ expressions/MulExpression.o: expressions/MulExpression.cpp.o
 
 # target to build an object file
 expressions/MulExpression.cpp.o:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/expressions/MulExpression.cpp.o
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/MulExpression.cpp.o
 .PHONY : expressions/MulExpression.cpp.o
 
 expressions/MulExpression.i: expressions/MulExpression.cpp.i
@@ -327,7 +435,7 @@ expressions/MulExpression.i: expressions/MulExpression.cpp.i
 
 # target to preprocess a source file
 expressions/MulExpression.cpp.i:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/expressions/MulExpression.cpp.i
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/MulExpression.cpp.i
 .PHONY : expressions/MulExpression.cpp.i
 
 expressions/MulExpression.s: expressions/MulExpression.cpp.s
@@ -336,35 +444,89 @@ expressions/MulExpression.s: expressions/MulExpression.cpp.s
 
 # target to generate assembly for a file
 expressions/MulExpression.cpp.s:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/expressions/MulExpression.cpp.s
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/MulExpression.cpp.s
 .PHONY : expressions/MulExpression.cpp.s
 
-expressions/NumberExpression.o: expressions/NumberExpression.cpp.o
+expressions/NotExpression.o: expressions/NotExpression.cpp.o
 
-.PHONY : expressions/NumberExpression.o
+.PHONY : expressions/NotExpression.o
 
 # target to build an object file
-expressions/NumberExpression.cpp.o:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/expressions/NumberExpression.cpp.o
-.PHONY : expressions/NumberExpression.cpp.o
+expressions/NotExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/NotExpression.cpp.o
+.PHONY : expressions/NotExpression.cpp.o
 
-expressions/NumberExpression.i: expressions/NumberExpression.cpp.i
+expressions/NotExpression.i: expressions/NotExpression.cpp.i
 
-.PHONY : expressions/NumberExpression.i
+.PHONY : expressions/NotExpression.i
 
 # target to preprocess a source file
-expressions/NumberExpression.cpp.i:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/expressions/NumberExpression.cpp.i
-.PHONY : expressions/NumberExpression.cpp.i
+expressions/NotExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/NotExpression.cpp.i
+.PHONY : expressions/NotExpression.cpp.i
 
-expressions/NumberExpression.s: expressions/NumberExpression.cpp.s
+expressions/NotExpression.s: expressions/NotExpression.cpp.s
 
-.PHONY : expressions/NumberExpression.s
+.PHONY : expressions/NotExpression.s
 
 # target to generate assembly for a file
-expressions/NumberExpression.cpp.s:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/expressions/NumberExpression.cpp.s
-.PHONY : expressions/NumberExpression.cpp.s
+expressions/NotExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/NotExpression.cpp.s
+.PHONY : expressions/NotExpression.cpp.s
+
+expressions/ObjectExpression.o: expressions/ObjectExpression.cpp.o
+
+.PHONY : expressions/ObjectExpression.o
+
+# target to build an object file
+expressions/ObjectExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/ObjectExpression.cpp.o
+.PHONY : expressions/ObjectExpression.cpp.o
+
+expressions/ObjectExpression.i: expressions/ObjectExpression.cpp.i
+
+.PHONY : expressions/ObjectExpression.i
+
+# target to preprocess a source file
+expressions/ObjectExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/ObjectExpression.cpp.i
+.PHONY : expressions/ObjectExpression.cpp.i
+
+expressions/ObjectExpression.s: expressions/ObjectExpression.cpp.s
+
+.PHONY : expressions/ObjectExpression.s
+
+# target to generate assembly for a file
+expressions/ObjectExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/ObjectExpression.cpp.s
+.PHONY : expressions/ObjectExpression.cpp.s
+
+expressions/OrExpression.o: expressions/OrExpression.cpp.o
+
+.PHONY : expressions/OrExpression.o
+
+# target to build an object file
+expressions/OrExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/OrExpression.cpp.o
+.PHONY : expressions/OrExpression.cpp.o
+
+expressions/OrExpression.i: expressions/OrExpression.cpp.i
+
+.PHONY : expressions/OrExpression.i
+
+# target to preprocess a source file
+expressions/OrExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/OrExpression.cpp.i
+.PHONY : expressions/OrExpression.cpp.i
+
+expressions/OrExpression.s: expressions/OrExpression.cpp.s
+
+.PHONY : expressions/OrExpression.s
+
+# target to generate assembly for a file
+expressions/OrExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/OrExpression.cpp.s
+.PHONY : expressions/OrExpression.cpp.s
 
 expressions/SubstractExpression.o: expressions/SubstractExpression.cpp.o
 
@@ -372,7 +534,7 @@ expressions/SubstractExpression.o: expressions/SubstractExpression.cpp.o
 
 # target to build an object file
 expressions/SubstractExpression.cpp.o:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/expressions/SubstractExpression.cpp.o
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/SubstractExpression.cpp.o
 .PHONY : expressions/SubstractExpression.cpp.o
 
 expressions/SubstractExpression.i: expressions/SubstractExpression.cpp.i
@@ -381,7 +543,7 @@ expressions/SubstractExpression.i: expressions/SubstractExpression.cpp.i
 
 # target to preprocess a source file
 expressions/SubstractExpression.cpp.i:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/expressions/SubstractExpression.cpp.i
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/SubstractExpression.cpp.i
 .PHONY : expressions/SubstractExpression.cpp.i
 
 expressions/SubstractExpression.s: expressions/SubstractExpression.cpp.s
@@ -390,8 +552,62 @@ expressions/SubstractExpression.s: expressions/SubstractExpression.cpp.s
 
 # target to generate assembly for a file
 expressions/SubstractExpression.cpp.s:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/expressions/SubstractExpression.cpp.s
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/SubstractExpression.cpp.s
 .PHONY : expressions/SubstractExpression.cpp.s
+
+expressions/UnaryMinusExpression.o: expressions/UnaryMinusExpression.cpp.o
+
+.PHONY : expressions/UnaryMinusExpression.o
+
+# target to build an object file
+expressions/UnaryMinusExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/UnaryMinusExpression.cpp.o
+.PHONY : expressions/UnaryMinusExpression.cpp.o
+
+expressions/UnaryMinusExpression.i: expressions/UnaryMinusExpression.cpp.i
+
+.PHONY : expressions/UnaryMinusExpression.i
+
+# target to preprocess a source file
+expressions/UnaryMinusExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/UnaryMinusExpression.cpp.i
+.PHONY : expressions/UnaryMinusExpression.cpp.i
+
+expressions/UnaryMinusExpression.s: expressions/UnaryMinusExpression.cpp.s
+
+.PHONY : expressions/UnaryMinusExpression.s
+
+# target to generate assembly for a file
+expressions/UnaryMinusExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/UnaryMinusExpression.cpp.s
+.PHONY : expressions/UnaryMinusExpression.cpp.s
+
+expressions/XorExpression.o: expressions/XorExpression.cpp.o
+
+.PHONY : expressions/XorExpression.o
+
+# target to build an object file
+expressions/XorExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/XorExpression.cpp.o
+.PHONY : expressions/XorExpression.cpp.o
+
+expressions/XorExpression.i: expressions/XorExpression.cpp.i
+
+.PHONY : expressions/XorExpression.i
+
+# target to preprocess a source file
+expressions/XorExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/XorExpression.cpp.i
+.PHONY : expressions/XorExpression.cpp.i
+
+expressions/XorExpression.s: expressions/XorExpression.cpp.s
+
+.PHONY : expressions/XorExpression.s
+
+# target to generate assembly for a file
+expressions/XorExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/expressions/XorExpression.cpp.s
+.PHONY : expressions/XorExpression.cpp.s
 
 main.o: main.cpp.o
 
@@ -399,7 +615,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/main.cpp.o
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -408,7 +624,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/main.cpp.i
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -417,8 +633,35 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/main.cpp.s
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/main.cpp.s
 .PHONY : main.cpp.s
+
+objects/PascalObject.o: objects/PascalObject.cpp.o
+
+.PHONY : objects/PascalObject.o
+
+# target to build an object file
+objects/PascalObject.cpp.o:
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/objects/PascalObject.cpp.o
+.PHONY : objects/PascalObject.cpp.o
+
+objects/PascalObject.i: objects/PascalObject.cpp.i
+
+.PHONY : objects/PascalObject.i
+
+# target to preprocess a source file
+objects/PascalObject.cpp.i:
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/objects/PascalObject.cpp.i
+.PHONY : objects/PascalObject.cpp.i
+
+objects/PascalObject.s: objects/PascalObject.cpp.s
+
+.PHONY : objects/PascalObject.s
+
+# target to generate assembly for a file
+objects/PascalObject.cpp.s:
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/objects/PascalObject.cpp.s
+.PHONY : objects/PascalObject.cpp.s
 
 parser.o: parser.cpp.o
 
@@ -426,7 +669,7 @@ parser.o: parser.cpp.o
 
 # target to build an object file
 parser.cpp.o:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/parser.cpp.o
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/parser.cpp.o
 .PHONY : parser.cpp.o
 
 parser.i: parser.cpp.i
@@ -435,7 +678,7 @@ parser.i: parser.cpp.i
 
 # target to preprocess a source file
 parser.cpp.i:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/parser.cpp.i
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/parser.cpp.i
 .PHONY : parser.cpp.i
 
 parser.s: parser.cpp.s
@@ -444,7 +687,7 @@ parser.s: parser.cpp.s
 
 # target to generate assembly for a file
 parser.cpp.s:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/parser.cpp.s
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/parser.cpp.s
 .PHONY : parser.cpp.s
 
 scanner.o: scanner.cpp.o
@@ -453,7 +696,7 @@ scanner.o: scanner.cpp.o
 
 # target to build an object file
 scanner.cpp.o:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/scanner.cpp.o
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/scanner.cpp.o
 .PHONY : scanner.cpp.o
 
 scanner.i: scanner.cpp.i
@@ -462,7 +705,7 @@ scanner.i: scanner.cpp.i
 
 # target to preprocess a source file
 scanner.cpp.i:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/scanner.cpp.i
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/scanner.cpp.i
 .PHONY : scanner.cpp.i
 
 scanner.s: scanner.cpp.s
@@ -471,7 +714,7 @@ scanner.s: scanner.cpp.s
 
 # target to generate assembly for a file
 scanner.cpp.s:
-	$(MAKE) -f CMakeFiles/ParserExampleWithAst.dir/build.make CMakeFiles/ParserExampleWithAst.dir/scanner.cpp.s
+	$(MAKE) -f CMakeFiles/MiniJavaCompiler.dir/build.make CMakeFiles/MiniJavaCompiler.dir/scanner.cpp.s
 .PHONY : scanner.cpp.s
 
 # Help Target
@@ -482,7 +725,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... ParserExampleWithAst"
+	@echo "... MiniJavaCompiler"
 	@echo "... Program.o"
 	@echo "... Program.i"
 	@echo "... Program.s"
@@ -498,24 +741,51 @@ help:
 	@echo "... expressions/AddExpression.o"
 	@echo "... expressions/AddExpression.i"
 	@echo "... expressions/AddExpression.s"
+	@echo "... expressions/AndExpression.o"
+	@echo "... expressions/AndExpression.i"
+	@echo "... expressions/AndExpression.s"
+	@echo "... expressions/AssignmentExpression.o"
+	@echo "... expressions/AssignmentExpression.i"
+	@echo "... expressions/AssignmentExpression.s"
+	@echo "... expressions/ComparisonExpression.o"
+	@echo "... expressions/ComparisonExpression.i"
+	@echo "... expressions/ComparisonExpression.s"
 	@echo "... expressions/DivExpression.o"
 	@echo "... expressions/DivExpression.i"
 	@echo "... expressions/DivExpression.s"
 	@echo "... expressions/IdentExpression.o"
 	@echo "... expressions/IdentExpression.i"
 	@echo "... expressions/IdentExpression.s"
+	@echo "... expressions/ModExpression.o"
+	@echo "... expressions/ModExpression.i"
+	@echo "... expressions/ModExpression.s"
 	@echo "... expressions/MulExpression.o"
 	@echo "... expressions/MulExpression.i"
 	@echo "... expressions/MulExpression.s"
-	@echo "... expressions/NumberExpression.o"
-	@echo "... expressions/NumberExpression.i"
-	@echo "... expressions/NumberExpression.s"
+	@echo "... expressions/NotExpression.o"
+	@echo "... expressions/NotExpression.i"
+	@echo "... expressions/NotExpression.s"
+	@echo "... expressions/ObjectExpression.o"
+	@echo "... expressions/ObjectExpression.i"
+	@echo "... expressions/ObjectExpression.s"
+	@echo "... expressions/OrExpression.o"
+	@echo "... expressions/OrExpression.i"
+	@echo "... expressions/OrExpression.s"
 	@echo "... expressions/SubstractExpression.o"
 	@echo "... expressions/SubstractExpression.i"
 	@echo "... expressions/SubstractExpression.s"
+	@echo "... expressions/UnaryMinusExpression.o"
+	@echo "... expressions/UnaryMinusExpression.i"
+	@echo "... expressions/UnaryMinusExpression.s"
+	@echo "... expressions/XorExpression.o"
+	@echo "... expressions/XorExpression.i"
+	@echo "... expressions/XorExpression.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... objects/PascalObject.o"
+	@echo "... objects/PascalObject.i"
+	@echo "... objects/PascalObject.s"
 	@echo "... parser.o"
 	@echo "... parser.i"
 	@echo "... parser.s"

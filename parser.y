@@ -10,12 +10,23 @@
     #include <string>
     class Scanner;
     class Driver;
+
     class Expression;
-    class NumberExpression;
+    class ObjectExpression;
     class AddExpression;
     class SubstractExpression;
     class DivExpression;
     class IdentExpression;
+    class UnaryMinusExpression;
+
+    class ComparisonExpression;
+    class AndExpression;
+    class OrExpression;
+    class XorExpression;
+    class NotExpression;
+
+    class PascalObject;
+
     class Assignment;
     class AssignmentList;
 
@@ -31,12 +42,23 @@
     #include "driver.hh"
     #include "location.hh"
 
-    #include "expressions/NumberExpression.h"
+    #include "expressions/ObjectExpression.h"
     #include "expressions/AddExpression.h"
     #include "expressions/MulExpression.h"
     #include "expressions/DivExpression.h"
     #include "expressions/SubstractExpression.h"
     #include "expressions/IdentExpression.h"
+    #include "expressions/ModExpression.h"
+    #include "expressions/UnaryMinusExpression.h"
+
+    #include "expressions/ComparisonExpression.h"
+    #include "expressions/AndExpression.h"
+    #include "expressions/OrExpression.h"
+    #include "expressions/XorExpression.h"
+    #include "expressions/NotExpression.h"
+
+    #include "objects/PascalObject.h"
+
     #include "assignments/Assignment.h"
     #include "assignments/AssignmentList.h"
     #include "Program.h"
@@ -124,8 +146,8 @@ assignment:
 %left "*" "/";
 
 exp:
-    "integer" {$$ = new NumberExpression($1); }
-    | "identifier" {$$ = new IdentExpression($1); }
+    "integer" {$$ = new ObjectExpression($1); }
+    | "identifier" {$$ = new IdentExpression($1, driver.variables[$1]); }
     | exp "+" exp { $$ = new AddExpression($1, $3); }
     | exp "-" exp { $$ = new SubstractExpression($1, $3); }
     | exp "*" exp { $$ = new MulExpression($1, $3); }
