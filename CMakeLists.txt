@@ -58,8 +58,8 @@ add_executable(
         objects/DoubleObject.cpp
         objects/StringObject.cpp
 
-        #visitors/evalvisitor.cpp
-        #visitors/printvisitor.cpp
+        visitors/evalvisitor.cpp
+        visitors/printvisitor.cpp
 
 
         Program.cpp
