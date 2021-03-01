@@ -1,6 +1,6 @@
 #pragma once
-#include "expressions/Expression.h"
-#include "objects/PascalObject.h"
+
+#include "Expression.h"
 
 class ObjectExpression: public Expression {
 public:
