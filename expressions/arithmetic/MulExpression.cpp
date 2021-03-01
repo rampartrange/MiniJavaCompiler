@@ -1,7 +1,7 @@
 #include "MulExpression.h"
 
 MulExpression::MulExpression(Expression *lhs, Expression *rhs
-, const location_type &loc): BaseElement(loc),lhs(lhs), rhs(rhs) {}
+, const location_type &loc): Expression(loc),lhs(lhs), rhs(rhs) {}
 
 PascalObject MulExpression::eval() const {
     return lhs->eval() * rhs->eval();

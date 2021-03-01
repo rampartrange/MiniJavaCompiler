@@ -1,7 +1,7 @@
 #include "UnaryMinusExpression.h"
 
 
-UnaryMinusExpression::UnaryMinusExpression(Expression *lhs, const location_type &loc) : BaseElement(loc), lhs(lhs) {}
+UnaryMinusExpression::UnaryMinusExpression(Expression *lhs, const location_type &loc) : Expression(loc), lhs(lhs) {}
 
 PascalObject UnaryMinusExpression::eval() const{
     return -lhs->eval();

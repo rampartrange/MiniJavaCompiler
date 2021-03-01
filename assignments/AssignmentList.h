@@ -4,7 +4,7 @@
 #include "base_element/BaseElement.h"
 #include <vector>
 
-class AssignmentList : BaseElement {
+class AssignmentList : public BaseElement {
  public:
     AssignmentList(const location_type& loc) : BaseElement(loc){};
     void AddAssignment(Assignment* assignment);
