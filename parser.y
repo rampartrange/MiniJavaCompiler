@@ -26,6 +26,11 @@
     class NotExpression;
 
     class PascalObject;
+    class BaseObject;
+    class BooleanObject;
+    class DoubleObject;
+    class IntegerObject;
+    class StringObject;
 
     class Assignment;
     class AssignmentList;
@@ -58,9 +63,15 @@
     #include "expressions/NotExpression.h"
 
     #include "objects/PascalObject.h"
+    #include "objects/BaseObject.h"
+    #include "objects/IntegerObject.h"
+    #include "objects/DoubleObject.h"
+    #include "objects/BooleanObject.h"
+    #include "objects/StringObject.h"
 
     #include "assignments/Assignment.h"
     #include "assignments/AssignmentList.h"
+
     #include "Program.h"
 
     static yy::parser::symbol_type yylex(Scanner &scanner, Driver& driver) {
@@ -80,12 +91,14 @@
 %token
     EOF 0       "end of file"
 
-    BEGIN       "begin"
-    END         "end"
+    ASSIGN      "="
 
-    VAR         "var"
+    CLASS 	"class"
+    PUBLIC	"public"
+    STATIC	"static"
+    VOID	"void"
+    MAIN	"main"
 
-    ASSIGN      ":="
 
     MINUS       "-"
     PLUS        "+"
@@ -98,8 +111,12 @@
     XOR         "^"
     NOT         "!"
 
-    LPAREN      "("
-    RPAREN      ")"
+    LROUND      "("
+    RROUND      ")"
+    LCURLY	"{"
+    RCURLY	"}"
+    LSQUARE	"["
+    RSQUARE	"]"
 
     SEMICOLON   ";"
     POINT       "."
@@ -118,17 +135,25 @@
 %token <std::string> CMP
 
 
+//For debug purpuses
+%nterm <AssignmentList*> main_class
+
 %nterm <Expression*> exp
 %nterm <Assignment*> assignment
 %nterm <AssignmentList*> assignments
-%nterm <Program*> unit
+%nterm <Program*> program
 
 // %printer { yyo << $$; } <*>;
 
 %%
-%start unit;
+%start program;
 
-unit: assignments exp { $$ = new Program($1, $2); driver.program = $$; };
+program: main_class {$$ = new Program($1, NULL);  driver.program = $$; };
+
+main_class: "class" "identifier" "{"
+		"public" "static" "void" "main" "(" ")"  "{"
+		assignments "}" "}" {$$ = $11;};
+
 
 assignments:
     %empty { $$ = new AssignmentList(); /* A -> eps */}
@@ -137,7 +162,7 @@ assignments:
     };
 
 assignment:
-    "identifier" ":=" exp {
+    "identifier" "=" exp ";" {
         $$ = new Assignment($1, $3);
         driver.variables[$1] = $3->eval();
     };
