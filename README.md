@@ -28,7 +28,7 @@ cmake .. && make
 
 **REMARK!**
 
-Now support only such snippets of code:
+Now supports alike snippets of code:
 ```Java
 class Factorial {
   public static void main () {
@@ -55,7 +55,7 @@ PrintVisitor OK
 ### PrintVisitor:
 The output of PrintVisitor you can find in _build_ directory
 
-PrintVisitor result for the [_test_](test.txt) _snippet_:
+PrintVisitor's result for the [_test_](test.txt) _snippet_:
 ```
 Program (loc): 
 	AssignmentList (loc): ../test.txt:2.31 
