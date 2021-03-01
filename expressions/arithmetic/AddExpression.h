@@ -1,10 +1,11 @@
 #pragma once
-#include "Expression.h"
-#include "../objects/PascalObject.h"
+#include "expressions/Expression.h"
+#include "objects/PascalObject.h"
+
 
 class AddExpression: public Expression {
   public:
-    AddExpression(Expression* lhs, Expression* rhs);
+    AddExpression(Expression* lhs, Expression* rhs, const location_type& loc);
     PascalObject eval() const override;
     void Accept(Visitor* visitor) override;
 

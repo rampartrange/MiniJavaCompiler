@@ -1,4 +1,5 @@
 #pragma once
+
 #include "Expression.h"
 
 class ObjectExpression: public Expression {
@@ -13,3 +14,4 @@ public:
 
     PascalObject value;
 };
+

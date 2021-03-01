@@ -1,6 +1,6 @@
 #pragma once
-#include "Expression.h"
-#include "../objects/PascalObject.h"
+#include "expressions/Expression.h"
+#include "objects/PascalObject.h"
 
 class SubstractExpression: public Expression {
  public:
@@ -10,4 +10,6 @@ class SubstractExpression: public Expression {
 
     Expression* lhs;
     Expression* rhs;
+    location_type location;
 };
+

@@ -1,6 +1,6 @@
 #pragma once
-#include "Expression.h"
-#include "../objects/PascalObject.h"
+#include "expressions/Expression.h"
+#include "objects/PascalObject.h"
 
 class AndExpression: public Expression {
   public:
@@ -10,4 +10,5 @@ class AndExpression: public Expression {
 
     Expression* lhs;
     Expression* rhs;
+
 };

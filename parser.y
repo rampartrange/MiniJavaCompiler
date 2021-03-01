@@ -47,20 +47,21 @@
     #include "driver.hh"
     #include "location.hh"
 
-    #include "expressions/ObjectExpression.h"
-    #include "expressions/AddExpression.h"
-    #include "expressions/MulExpression.h"
-    #include "expressions/DivExpression.h"
-    #include "expressions/SubstractExpression.h"
-    #include "expressions/IdentExpression.h"
-    #include "expressions/ModExpression.h"
-    #include "expressions/UnaryMinusExpression.h"
+    #include "expressions/objects/ObjectExpression.h"
+    #include "expressions/objects/IdentExpression.h"
 
-    #include "expressions/ComparisonExpression.h"
-    #include "expressions/AndExpression.h"
-    #include "expressions/OrExpression.h"
-    #include "expressions/XorExpression.h"
-    #include "expressions/NotExpression.h"
+    #include "expressions/arithmetic/AddExpression.h"
+    #include "expressions/arithmetic/MulExpression.h"
+    #include "expressions/arithmetic/DivExpression.h"
+    #include "expressions/arithmetic/SubstractExpression.h"
+    #include "expressions/arithmetic/ModExpression.h"
+    #include "expressions/arithmetic/UnaryMinusExpression.h"
+
+    #include "expressions/logic/ComparisonExpression.h"
+    #include "expressions/logic/AndExpression.h"
+    #include "expressions/logic/OrExpression.h"
+    #include "expressions/logic/XorExpression.h"
+    #include "expressions/logic/NotExpression.h"
 
     #include "objects/PascalObject.h"
     #include "objects/BaseObject.h"
@@ -120,7 +121,7 @@
 
     SEMICOLON   ";"
     POINT       "."
-    COMMA       ","i
+    COMMA       ","
     COLON       ":"
 ;
 
@@ -145,6 +146,13 @@
 
 // %printer { yyo << $$; } <*>;
 
+%nonassoc CMP
+%right "="
+%left "+" "-" "||" "^"
+%left "*" "/" "%" "&&"
+%nonassoc UMINUS
+%nonassoc "!"
+
 %%
 %start program;
 
@@ -167,17 +175,33 @@ assignment:
         driver.variables[$1] = $3->eval();
     };
 
-%left "+" "-";
-%left "*" "/";
+
 
 exp:
     "integer" {$$ = new ObjectExpression($1); }
     | "identifier" {$$ = new IdentExpression($1, driver.variables[$1]); }
+    //exp binary_operator exp {}
     | exp "+" exp { $$ = new AddExpression($1, $3); }
     | exp "-" exp { $$ = new SubstractExpression($1, $3); }
     | exp "*" exp { $$ = new MulExpression($1, $3); }
     | exp "/" exp { $$ = new DivExpression($1, $3); }
     | "(" exp ")" { $$ = $2; };
+
+binary_operator:
+    "&&"
+    | "||"
+    | "^"
+    | "<"
+    | ">"
+    | ">="
+    | "<="
+    | "=="
+    | "!="
+    | "+"
+    | "-"
+    | "*"
+    | "/"
+    | "%";
 
 %%
 

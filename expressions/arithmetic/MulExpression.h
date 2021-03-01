@@ -1,7 +1,7 @@
 #pragma once
-#include "Expression.h"
+#include "expressions/Expression.h"
 #include <iostream>
-#include "../objects/PascalObject.h"
+#include "objects/PascalObject.h"
 
 class MulExpression: public Expression {
  public:

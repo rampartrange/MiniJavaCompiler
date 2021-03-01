@@ -34,20 +34,22 @@ add_executable(
         ${BISON_MyParser_OUTPUTS}
         ${FLEX_MyScanner_OUTPUTS}
 
-        expressions/ObjectExpression.cpp
-        expressions/MulExpression.cpp
-        expressions/AddExpression.cpp
-        expressions/SubstractExpression.cpp
-        expressions/UnaryMinusExpression.cpp
-        expressions/DivExpression.cpp
-        expressions/ModExpression.cpp
-        expressions/IdentExpression.cpp
-        expressions/ComparisonExpression.cpp
-        expressions/AndExpression.cpp
-        expressions/OrExpression.cpp
-        expressions/XorExpression.cpp
-        expressions/NotExpression.cpp
-        expressions/AssignmentExpression.cpp
+        expressions/objects/ObjectExpression.cpp
+        expressions/objects/IdentExpression.cpp
+        expressions/objects/AssignmentExpression.cpp
+
+        expressions/arithmetic/MulExpression.cpp
+        expressions/arithmetic/AddExpression.cpp
+        expressions/arithmetic/SubstractExpression.cpp
+        expressions/arithmetic/UnaryMinusExpression.cpp
+        expressions/arithmetic/DivExpression.cpp
+        expressions/arithmetic/ModExpression.cpp
+
+        expressions/logic/ComparisonExpression.cpp
+        expressions/logic/AndExpression.cpp
+        expressions/logic/OrExpression.cpp
+        expressions/logic/XorExpression.cpp
+        expressions/logic/NotExpression.cpp
 
         assignments/AssignmentList.cpp
         assignments/Assignment.cpp
