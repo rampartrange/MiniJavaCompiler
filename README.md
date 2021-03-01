@@ -10,7 +10,7 @@
 ### Done:
 1. [**Lexical analyser**](scanner.l)
 2. [**Parser**](parser.y) with a little snippet of [**MiniJava grammar**](https://github.com/akhtyamovpavel/CompilersCourse/blob/master/reqs-draft.md)
-3. [**PrintVisior**](visitors/printvisitor.h) which builds relevant AST + tracks each location in source code
+3. [**PrintVisior**](visitors/printvisitor.h) which builds relevant AST + tracks each AST node location in source code
 
 ### In Proccess:
 1. Adding semantics to JavaObjects and getting rid of temporary PascalObject made for debug purposes 
