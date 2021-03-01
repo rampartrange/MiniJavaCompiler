@@ -54,6 +54,8 @@ add_executable(
         assignments/AssignmentList.cpp
         assignments/Assignment.cpp
 
+        statements/statement.cpp
+
         objects/PascalObject.cpp
         objects/IntegerObject.cpp
         objects/BooleanObject.cpp
@@ -64,8 +66,7 @@ add_executable(
         visitors/printvisitor.cpp
 
 
-        Program.cpp
-)
+        Program.cpp)
 
 
 target_include_directories(

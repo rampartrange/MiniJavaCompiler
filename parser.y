@@ -166,25 +166,25 @@ main_class: "class" "identifier" "{"
 assignments:
     %empty { $$ = new AssignmentList(); /* A -> eps */}
     | assignments assignment {
-        $1->AddAssignment($2); $$ = $1;
+        $1->AddAssignment($2, @$); $$ = $1;
     };
 
 assignment:
     "identifier" "=" exp ";" {
-        $$ = new Assignment($1, $3);
+        $$ = new Assignment($1, $3, @$);
         driver.variables[$1] = $3->eval();
     };
 
 
 
 exp:
-    "integer" {$$ = new ObjectExpression($1); }
-    | "identifier" {$$ = new IdentExpression($1, driver.variables[$1]); }
+    "integer" {$$ = new ObjectExpression($1, @$); }
+    | "identifier" {$$ = new IdentExpression($1, driver.variables[$1], @$); }
     //exp binary_operator exp {}
-    | exp "+" exp { $$ = new AddExpression($1, $3); }
-    | exp "-" exp { $$ = new SubstractExpression($1, $3); }
-    | exp "*" exp { $$ = new MulExpression($1, $3); }
-    | exp "/" exp { $$ = new DivExpression($1, $3); }
+    | exp "+" exp { $$ = new AddExpression($1, $3, @$); }
+    | exp "-" exp { $$ = new SubstractExpression($1, $3, @$); }
+    | exp "*" exp { $$ = new MulExpression($1, $3, @$); }
+    | exp "/" exp { $$ = new DivExpression($1, $3, @$); }
     | "(" exp ")" { $$ = $2; };
 
 binary_operator:
