@@ -7,7 +7,8 @@ SymbolTreeVisitor::SymbolTreeVisitor(const std::string& filename) : stream_(file
 
 void SymbolTreeVisitor::SymbolTreeVisitor::Visit(Assignment* assignment) {
     PrintTabs();
-    stream_ << "Assignment:  (loc): " << assignment->GetLocation() << ' ' << assignment->variable_ << std::endl;
+    stream_ << "Assignment:  (loc): " << assignment->GetLocation() << " (var name): "
+             << assignment->variable_ << std::endl;
     ++num_tabs_;
     assignment->expression_->Accept(this);
     --num_tabs_;

@@ -21,8 +21,11 @@ int Driver::parse(const std::string& f) {
       std::cout << name.first << " " << name.second << std::endl;
     }
 
-    //SymbolTreeVisitor v("output.txt");
-    //v.Visit(program);
+    std::cout << "Compile OK\n";
+
+    SymbolTreeVisitor v("output.txt");
+    v.Visit(program);
+    std::cout << "PrintVisitor OK\n";
 
     return res;
 }
