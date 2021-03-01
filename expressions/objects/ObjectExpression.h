@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Expression.h"
+#include "../Expression.h"
 
 class ObjectExpression: public Expression {
 public:
