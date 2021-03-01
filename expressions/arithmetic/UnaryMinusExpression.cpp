@@ -10,7 +10,3 @@ PascalObject UnaryMinusExpression::eval() const{
 void UnaryMinusExpression::Accept(Visitor* visitor) {
     visitor->Visit(this);
 }
-
-//const location_type& UnaryMinusExpression::GetLocation() const {
-//    return location;
-//}

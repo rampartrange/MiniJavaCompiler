@@ -13,7 +13,6 @@ class IdentExpression;
 class ModExpression;
 class MulExpression;
 class NotExpression;
-class NumberExpression;
 class ObjectExpression;
 class OrExpression;
 class SubstractExpression;

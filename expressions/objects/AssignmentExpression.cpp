@@ -10,7 +10,3 @@ AssignmentExpression::AssignmentExpression(
 void AssignmentExpression::Accept(Visitor* visitor) {
     visitor->Visit(this);
 }
-
-//const location_type& AssignmentExpression::GetLocation() const {
-//    return location;
-//}

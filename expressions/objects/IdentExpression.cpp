@@ -11,7 +11,3 @@ PascalObject IdentExpression::eval() const {
 void IdentExpression::Accept(Visitor* visitor) {
     visitor->Visit(this);
 }
-
-//const location_type& IdentExpression::GetLocation() const {
-//    return location;
-//}

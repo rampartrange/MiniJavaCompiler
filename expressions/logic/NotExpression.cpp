@@ -9,7 +9,3 @@ PascalObject NotExpression::eval() const {
 void NotExpression::Accept(Visitor* visitor) {
     visitor->Visit(this);
 }
-
-//const location_type& NotExpression::GetLocation() const {
-//    return location;
-//}

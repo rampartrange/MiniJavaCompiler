@@ -1,11 +1,10 @@
 #pragma once
 
-#include "expressions/AddExpression.h"
-#include "expressions/SubstractExpression.h"
-#include "expressions/DivExpression.h"
-#include "expressions/IdentExpression.h"
-#include "expressions/MulExpression.h"
-#include "expressions/NumberExpression.h"
+#include "expressions/arithmetic/AddExpression.h"
+#include "expressions/arithmetic/SubstractExpression.h"
+#include "expressions/arithmetic/DivExpression.h"
+#include "expressions/objects/IdentExpression.h"
+#include "expressions/arithmetic/MulExpression.h"
 
 #include "assignments/Assignment.h"
 #include "assignments/AssignmentList.h"

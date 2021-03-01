@@ -11,7 +11,3 @@ PascalObject DivExpression::eval() const {
 void DivExpression::Accept(Visitor* visitor) {
     visitor->Visit(this);
 }
-
-//const location_type& DivExpression::GetLocation() const {
-//    return location;
-//}

@@ -1,6 +1,6 @@
 #pragma once
-#include "Expression.h"
-#include "../objects/PascalObject.h"
+#include "expressions/Expression.h"
+#include "objects/PascalObject.h"
 
 class ObjectExpression: public Expression {
 public:
@@ -11,9 +11,7 @@ public:
 
     PascalObject eval() const override;
     void Accept(Visitor* visitor) override;
-//    const location_type& GetLocation() const override;
 
     PascalObject value;
-//    location_type location;
 };
 

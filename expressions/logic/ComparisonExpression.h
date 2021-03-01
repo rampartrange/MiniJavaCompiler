@@ -1,7 +1,7 @@
 #pragma once
 #include "expressions/Expression.h"
 #include <string>
-#include "../objects/PascalObject.h"
+#include "objects/PascalObject.h"
 
 enum class ComparisonType {
     LT = 1,
@@ -18,7 +18,6 @@ public:
     ComparisonExpression(Expression* lhs, Expression* rhs, const std::string& sign);
     PascalObject eval() const override;
     void Accept(Visitor* visitor) override;
-    //const location_type& GetLocation() const override;
 
 
     ComparisonType DefineComparisonType(const std::string& sign) const;
@@ -29,5 +28,4 @@ public:
     ComparisonType type;
 
     PascalObject value;
-    //location_type location;
 };

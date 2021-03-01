@@ -17,7 +17,3 @@ PascalObject ObjectExpression::eval() const {
 void ObjectExpression::Accept(Visitor* visitor) {
     visitor->Visit(this);
 }
-
-//const location_type& ObjectExpression::GetLocation() const {
-//    return location;
-//}
