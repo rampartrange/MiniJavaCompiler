@@ -3,8 +3,6 @@
 #include "assignments/Assignment.h"
 #include "assignments/AssignmentList.h"
 
-#include "expressions/Expression.h"
-
 #include "expressions/arithmetic/AddExpression.h"
 #include "expressions/arithmetic/DivExpression.h"
 #include "expressions/arithmetic/SubstractExpression.h"

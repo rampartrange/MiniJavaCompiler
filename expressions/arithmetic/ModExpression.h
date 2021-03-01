@@ -2,7 +2,7 @@
 #include "expressions/Expression.h"
 #include "objects/PascalObject.h"
 
-class ModExpression: public Expression {
+class ModExpression: virtual public Expression {
 public:
     ModExpression(Expression* lhs, Expression* rhs, const location_type& loc);
     PascalObject eval() const override;

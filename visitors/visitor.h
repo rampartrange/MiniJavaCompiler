@@ -1,5 +1,4 @@
 #pragma once
-
 #include "forward_decl.h"
 
 class Visitor {
@@ -10,9 +9,8 @@ class Visitor {
     virtual void Visit(AddExpression* expression) = 0;
     virtual void Visit(AndExpression* expression) = 0;
     virtual void Visit(AssignmentExpression* expression) = 0;
-    virtual void Visit(ComparisomExpression* expression) = 0;
+    virtual void Visit(ComparisonExpression* expression) = 0;
     virtual void Visit(DivExpression* expression) = 0;
-    virtual void Visit(Expression* expression) = 0;
     virtual void Visit(IdentExpression* expression) = 0;
     virtual void Visit(ModExpression* expression) = 0;
     virtual void Visit(MulExpression* expression) = 0;

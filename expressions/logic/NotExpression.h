@@ -2,7 +2,7 @@
 #include "expressions/Expression.h"
 #include "objects/PascalObject.h"
 
-class NotExpression: public Expression {
+class NotExpression: virtual public Expression {
 public:
     NotExpression(Expression* lhs, const location_type& loc);
     PascalObject eval() const override;

@@ -1,14 +1,13 @@
 #include "printvisitor.h"
 
 #include "elements.h"
-
 #include <iostream>
 
 SymbolTreeVisitor::SymbolTreeVisitor(const std::string& filename) : stream_(filename) {}
 
 void SymbolTreeVisitor::SymbolTreeVisitor::Visit(Assignment* assignment) {
     PrintTabs();
-    stream_ << "Assignment: " << assignment->variable_ << std::endl;
+    stream_ << "Assignment:  (loc): " << assignment->GetLocation() << ' ' << assignment->variable_ << std::endl;
     ++num_tabs_;
     assignment->expression_->Accept(this);
     --num_tabs_;
@@ -16,7 +15,7 @@ void SymbolTreeVisitor::SymbolTreeVisitor::Visit(Assignment* assignment) {
 
 void SymbolTreeVisitor::Visit(AssignmentList* assignment_list) {
     PrintTabs();
-    stream_ << "AssignmentList: " << std::endl;
+    stream_ << "AssignmentList (loc): " << assignment_list->GetLocation() << ' ' << std::endl;
 
     ++num_tabs_;
     for (Assignment* assignment : assignment_list->assignments_) {
@@ -27,7 +26,7 @@ void SymbolTreeVisitor::Visit(AssignmentList* assignment_list) {
 
 void SymbolTreeVisitor::Visit(AddExpression* expression) {
     PrintTabs();
-    stream_ << "AddExpression is:" << std::endl;
+    stream_ << "AddExpression (loc): " << expression->GetLocation() << ' '  << std::endl;
 
     ++num_tabs_;
     expression->lhs->Accept(this);
@@ -36,7 +35,7 @@ void SymbolTreeVisitor::Visit(AddExpression* expression) {
 }
 void SymbolTreeVisitor::Visit(AndExpression* expression) {
     PrintTabs();
-    stream_ << "AndExpression is:" << std::endl;
+    stream_ << "AndExpression (loc): " << expression->GetLocation() << ' ' << std::endl;
 
     ++num_tabs_;
     expression->lhs->Accept(this);
@@ -45,37 +44,43 @@ void SymbolTreeVisitor::Visit(AndExpression* expression) {
 }
 void SymbolTreeVisitor::Visit(AssignmentExpression* expression) {
     PrintTabs();
-    stream_ << "Assignment expression: " << expression->variable_ << std::endl;
+    stream_ << "Assignment expression (loc): " << expression->GetLocation() << ' '  << expression->variable_ << std::endl;
 
     ++num_tabs_;
     expression->expression_->Accept(this);
     --num_tabs_;
 }
 
-void SymbolTreeVisitor::Visit(ComparisomExpression* expression) {
+void SymbolTreeVisitor::Visit(ComparisonExpression* expression) {
+    PrintTabs();
+    stream_ << "ComparisonExpression (loc): " << expression->GetLocation() << ' '  <<  std::endl;
 
+    ++num_tabs_;
+    expression->lhs->Accept(this);
+    stream_ << ComparisonTypeToString[(int)expression->type] << std::endl;
+    expression->rhs->Accept(this);
+    expression->value.Accept(this);
+    --num_tabs_;
 }
 
 void SymbolTreeVisitor::Visit(DivExpression* expression) {
     PrintTabs();
-    stream_ << "DivExpression: " << std::endl;
+    stream_ << "DivExpression (loc): " << expression->GetLocation() << ' '  << std::endl;
     ++num_tabs_;
     expression->lhs->Accept(this);
     expression->rhs->Accept(this);
     --num_tabs_;
 }
-void SymbolTreeVisitor::Visit(Expression* expression) {
 
-}
 void SymbolTreeVisitor::Visit(IdentExpression* expression) {
     PrintTabs();
 
-    stream_ << "IdentExpression: " << expression->ident_ << std::endl;
+    stream_ << "IdentExpression (loc): " << expression->GetLocation() << ' '  <<  expression->ident_ << std::endl;
 }
 void SymbolTreeVisitor::Visit(ModExpression* expression) {
     PrintTabs();
 
-    stream_ << "ModExpression: " << std::endl;
+    stream_ << "ModExpression: " << expression->GetLocation() << ' '  << std::endl;
     ++num_tabs_;
     expression->lhs->Accept(this);
     expression->rhs->Accept(this);
@@ -84,24 +89,25 @@ void SymbolTreeVisitor::Visit(ModExpression* expression) {
 void SymbolTreeVisitor::Visit(MulExpression* expression) {
     PrintTabs();
 
-    stream_ << "MulExpression: " << std::endl;
+    stream_ << "MulExpression (loc): " << expression->GetLocation() << ' '  << std::endl;
     ++num_tabs_;
     expression->lhs->Accept(this);
     expression->rhs->Accept(this);
     --num_tabs_;
 }
+
 void SymbolTreeVisitor::Visit(NotExpression* expression) {
-    /*
-     *
-     *
-     *
-     *
-     */
+    PrintTabs();
+
+    stream_ << "NotExpression (loc): " << expression->GetLocation() << ' ' << std::endl;
+    ++num_tabs_;
+    expression->lhs->Accept(this);
+    --num_tabs_;
 }
 
 void SymbolTreeVisitor::Visit(ObjectExpression* expression) {
     PrintTabs();
-    stream_ << "ObjectExpression: " << std::endl;
+    stream_ << "ObjectExpression (loc): " << expression->GetLocation() << ' '  << std::endl;
     ++num_tabs_;
     expression->value.Accept(this);
     --num_tabs_;
@@ -109,7 +115,7 @@ void SymbolTreeVisitor::Visit(ObjectExpression* expression) {
 void SymbolTreeVisitor::Visit(OrExpression* expression) {
     PrintTabs();
 
-    stream_ << "OrExpression: " << std::endl;
+    stream_ << "OrExpression (loc): " << expression->GetLocation() << ' ' << std::endl;
     ++num_tabs_;
     expression->lhs->Accept(this);
     expression->rhs->Accept(this);
@@ -119,25 +125,25 @@ void SymbolTreeVisitor::Visit(OrExpression* expression) {
 void SymbolTreeVisitor::Visit(SubstractExpression* expression) {
     PrintTabs();
 
-    stream_ << "SubExpression: " << std::endl;
+    stream_ << "SubExpression (loc): " << expression->GetLocation() << ' ' << std::endl;
     ++num_tabs_;
     expression->lhs->Accept(this);
     expression->rhs->Accept(this);
     --num_tabs_;
 }
 void SymbolTreeVisitor::Visit(UnaryMinusExpression* expression) {
-    /*PrintTabs();
+    PrintTabs();
 
-    stream_ << "UnaryMinusExpression: " << std::endl;
+    stream_ << "UnaryMinusExpression (loc): " << expression->GetLocation() << ' '  << std::endl;
     ++num_tabs_;
     expression->lhs->Accept(this);
-    expression->value->Accept(this);
-    --num_tabs_;*/
+    stream_ << expression->value << std::endl;
+    --num_tabs_;
 }
 void SymbolTreeVisitor::Visit(XorExpression* expression) {
     PrintTabs();
 
-    stream_ << "XorExpression: " << std::endl;
+    stream_ << "XorExpression (loc): " << expression->GetLocation() << ' ' << std::endl;
     ++num_tabs_;
     expression->lhs->Accept(this);
     expression->rhs->Accept(this);
@@ -145,19 +151,20 @@ void SymbolTreeVisitor::Visit(XorExpression* expression) {
 }
 
 void SymbolTreeVisitor::Visit(Program* program) {
-    stream_ << "Program:" << std::endl;
+    stream_ << "Program (loc): " << std::endl;
 
     ++num_tabs_;
 
     program->assignments_->Accept(this);
-    program->expression_->Accept(this);
+    if (program->expression_ != nullptr)
+        program->expression_->Accept(this);
 
     --num_tabs_;
 }
 
 void SymbolTreeVisitor::Visit(PascalObject* expression) {
     PrintTabs();
-    stream_ << "Pascal object:" << std::endl;
+    stream_ << "Pascal object (loc): " << expression->GetLocation() << ' '  << std::endl;
 
     ++num_tabs_;
 
@@ -166,16 +173,6 @@ void SymbolTreeVisitor::Visit(PascalObject* expression) {
 
     --num_tabs_;
 }
-/*
-void SymbolTreeVisitor::PrintArithmeticExpression(const std::string& name, * expression) {
-    PrintTabs();
-
-    stream_ << name << std::endl;
-    ++num_tabs_;
-    expression->lhs->Accept(this);
-    expression->rhs->Accept(this);
-    --num_tabs_;
-}*/
 
 void SymbolTreeVisitor::PrintTabs() {
     for (int i = 0; i < num_tabs_; ++i) {

@@ -2,7 +2,7 @@
 #include "expressions/Expression.h"
 #include "objects/PascalObject.h"
 
-class DivExpression: public Expression {
+class DivExpression: virtual public Expression {
  public:
     DivExpression(Expression* e1, Expression* e2, const location_type& loc);
     PascalObject eval() const override;

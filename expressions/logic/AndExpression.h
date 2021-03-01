@@ -2,7 +2,7 @@
 #include "expressions/Expression.h"
 #include "objects/PascalObject.h"
 
-class AndExpression: public Expression {
+class AndExpression: virtual public Expression {
   public:
     AndExpression(Expression* lhs, Expression* rhs, const location_type& loc);
     PascalObject eval() const override;

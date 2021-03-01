@@ -3,7 +3,7 @@
 #include "objects/PascalObject.h"
 #include <string>
 
-class IdentExpression: public Expression {
+class IdentExpression: virtual public Expression {
  public:
     IdentExpression(std::string  ident, PascalObject value, const location_type& loc);
     PascalObject eval() const override;

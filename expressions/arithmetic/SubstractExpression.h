@@ -2,7 +2,7 @@
 #include "expressions/Expression.h"
 #include "objects/PascalObject.h"
 
-class SubstractExpression: public Expression {
+class SubstractExpression: virtual public Expression {
  public:
     SubstractExpression(Expression* e1, Expression* e2, const location_type &loc);
     PascalObject eval() const override;

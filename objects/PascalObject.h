@@ -20,7 +20,7 @@ enum class BooleanConstant : int {
     True = 1
 };
 
-class PascalObject : virtual BaseElement {
+class PascalObject : virtual public BaseElement {
 public:
     PascalObject();
 

@@ -4,7 +4,7 @@
 
 #include <string>
 
-class AssignmentExpression : public Expression {
+class AssignmentExpression : virtual public Expression {
  public:
     AssignmentExpression(std::string  variable, Expression* expression, const location_type& loc);
     void Accept(Visitor* visitor) override;

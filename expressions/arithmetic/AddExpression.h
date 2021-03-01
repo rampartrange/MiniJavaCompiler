@@ -3,7 +3,7 @@
 #include "objects/PascalObject.h"
 
 
-class AddExpression: public Expression {
+class AddExpression: virtual public Expression {
   public:
     AddExpression(Expression* lhs, Expression* rhs, const location_type& loc);
     PascalObject eval() const override;

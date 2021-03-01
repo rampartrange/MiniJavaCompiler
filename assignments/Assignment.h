@@ -4,7 +4,7 @@
 #include "base_element/BaseElement.h"
 #include <string>
 
-class Assignment : BaseElement {
+class Assignment : public BaseElement {
  public:
     Assignment(const std::string& variable, Expression* expression, const location_type &loc);
     void Accept(Visitor* visitor) override;

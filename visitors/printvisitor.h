@@ -15,9 +15,8 @@ class SymbolTreeVisitor: public Visitor {
     virtual void Visit(AddExpression* expression) override;
     virtual void Visit(AndExpression* expression) override;
     virtual void Visit(AssignmentExpression* expression) override;
-    virtual void Visit(ComparisomExpression* expression) override;
+    virtual void Visit(ComparisonExpression* expression) override;
     virtual void Visit(DivExpression* expression) override;
-    virtual void Visit(Expression* expression) override;
     virtual void Visit(IdentExpression* expression) override;
     virtual void Visit(ModExpression* expression) override;
     virtual void Visit(MulExpression* expression) override;

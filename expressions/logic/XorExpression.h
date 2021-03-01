@@ -2,7 +2,7 @@
 #include "expressions/Expression.h"
 #include "objects/PascalObject.h"
 
-class XorExpression: public Expression {
+class XorExpression: virtual public Expression {
 public:
     XorExpression(Expression* lhs, Expression* rhs, const location_type& loc);
     PascalObject eval() const override;
