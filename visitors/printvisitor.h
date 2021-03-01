@@ -30,6 +30,7 @@ class SymbolTreeVisitor: public Visitor {
     virtual void Visit(XorExpression* expression) override;
 
     virtual void Visit(Program* program) override;
+    virtual void Visit(PascalObject* expression) override;
  private:
 
     //void PrintArithmeticExpression(const std::string& name, void* expression);
