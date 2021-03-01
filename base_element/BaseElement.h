@@ -7,8 +7,8 @@ using location_type = yy::parser::location_type;
 
 class BaseElement {
  public:
+    BaseElement() = default;
     BaseElement(const location_type& location) : location(location) {}
-
 
     virtual void Accept(Visitor* visitor) = 0;
 
@@ -19,6 +19,4 @@ class BaseElement {
     virtual ~BaseElement() = default;
 
     location_type location;
-
-
 }; 

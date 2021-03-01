@@ -3,7 +3,7 @@
 #include <utility>
 
 IdentExpression::IdentExpression(std::string  ident, PascalObject value, const location_type &loc):
-    BaseElement(loc),
+    Expression(loc),
     ident_(std::move(ident)),
     value_(value) {}
 

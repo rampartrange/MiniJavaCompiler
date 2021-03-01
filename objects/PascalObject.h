@@ -20,9 +20,9 @@ enum class BooleanConstant : int {
     True = 1
 };
 
-class PascalObject : BaseElement {
+class PascalObject : virtual BaseElement {
 public:
-    PascalObject(const location_type &loc);
+    PascalObject();
 
     explicit PascalObject(int);
     explicit PascalObject(double);

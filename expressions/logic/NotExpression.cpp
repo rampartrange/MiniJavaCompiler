@@ -1,7 +1,7 @@
 #include "NotExpression.h"
 
 NotExpression::NotExpression(Expression* lhs, const location_type &loc) :
-    BaseElement(loc),
+    Expression(loc),
     lhs(lhs) {}
 
 PascalObject NotExpression::eval() const {

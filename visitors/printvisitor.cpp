@@ -98,10 +98,7 @@ void SymbolTreeVisitor::Visit(NotExpression* expression) {
      *
      */
 }
-void SymbolTreeVisitor::Visit(NumberExpression* expression) {
-    PrintTabs();
-    stream_ << "NumExpression " << expression->value_ << std::endl;
-}
+
 void SymbolTreeVisitor::Visit(ObjectExpression* expression) {
     PrintTabs();
     stream_ << "ObjectExpression: " << std::endl;

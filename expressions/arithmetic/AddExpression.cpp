@@ -1,7 +1,7 @@
 #include "AddExpression.h"
 
 AddExpression::AddExpression(Expression *lhs, Expression *rhs, const location_type& loc):
-    BaseElement(loc),
+    Expression(loc),
     lhs(lhs),
     rhs(rhs) {}
 

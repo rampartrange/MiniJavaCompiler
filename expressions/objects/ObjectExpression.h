@@ -2,7 +2,7 @@
 
 #include "../Expression.h"
 
-class ObjectExpression: public Expression {
+class ObjectExpression: virtual public Expression {
 public:
     explicit ObjectExpression(int value, const location_type& loc);
     explicit ObjectExpression(double value, const location_type& loc);
