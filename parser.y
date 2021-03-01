@@ -164,9 +164,9 @@ main_class: "class" "identifier" "{"
 
 
 assignments:
-    %empty { $$ = new AssignmentList(); /* A -> eps */}
+    %empty { $$ = new AssignmentList(@$); /* A -> eps */}
     | assignments assignment {
-        $1->AddAssignment($2, @$); $$ = $1;
+        $1->AddAssignment($2); $$ = $1;
     };
 
 assignment:
