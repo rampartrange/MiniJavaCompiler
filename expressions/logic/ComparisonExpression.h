@@ -15,7 +15,7 @@ enum class ComparisonType {
 
 class ComparisonExpression: public Expression {
 public:
-    ComparisonExpression(Expression* lhs, Expression* rhs, const std::string& sign);
+    ComparisonExpression(Expression* lhs, Expression* rhs, const std::string& sign, const location_type& loc);
     PascalObject eval() const override;
     void Accept(Visitor* visitor) override;
 

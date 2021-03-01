@@ -6,6 +6,7 @@
 
 class AssignmentList : BaseElement {
  public:
+    AssignmentList(const location_type& loc) : BaseElement(loc){};
     void AddAssignment(Assignment* assignment);
     void Accept(Visitor* visitor) override;
 

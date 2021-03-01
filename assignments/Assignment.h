@@ -6,7 +6,7 @@
 
 class Assignment : BaseElement {
  public:
-    Assignment(const std::string& variable, Expression* expression);
+    Assignment(const std::string& variable, Expression* expression, const location_type &loc);
     void Accept(Visitor* visitor) override;
 
     std::string variable_;

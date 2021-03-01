@@ -22,7 +22,7 @@ enum class BooleanConstant : int {
 
 class PascalObject : BaseElement {
 public:
-    PascalObject();
+    PascalObject(const location_type &loc);
 
     explicit PascalObject(int);
     explicit PascalObject(double);

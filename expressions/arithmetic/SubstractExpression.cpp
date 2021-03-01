@@ -1,6 +1,6 @@
 #include "SubstractExpression.h"
 
-SubstractExpression::SubstractExpression(Expression *e1, Expression *e2, const location_type& loc, const location_type &loc):
+SubstractExpression::SubstractExpression(Expression *e1, Expression *e2, const location_type& loc):
     BaseElement(loc),
     lhs(e1),
     rhs(e2) {}

@@ -4,7 +4,7 @@
 
 class DivExpression: public Expression {
  public:
-    DivExpression(Expression* e1, Expression* e2);
+    DivExpression(Expression* e1, Expression* e2, const location_type& loc);
     PascalObject eval() const override;
     void Accept(Visitor* visitor) override;
 

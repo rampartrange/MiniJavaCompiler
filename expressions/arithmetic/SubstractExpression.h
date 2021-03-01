@@ -4,7 +4,7 @@
 
 class SubstractExpression: public Expression {
  public:
-    SubstractExpression(Expression* e1, Expression* e2);
+    SubstractExpression(Expression* e1, Expression* e2, const location_type &loc);
     PascalObject eval() const override;
     void Accept(Visitor* visitor) override;
 

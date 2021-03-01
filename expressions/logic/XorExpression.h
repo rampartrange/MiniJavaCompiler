@@ -4,7 +4,7 @@
 
 class XorExpression: public Expression {
 public:
-    XorExpression(Expression* lhs, Expression* rhs);
+    XorExpression(Expression* lhs, Expression* rhs, const location_type& loc);
     PascalObject eval() const override;
     void Accept(Visitor* visitor) override;
 

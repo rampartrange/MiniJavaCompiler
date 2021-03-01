@@ -4,7 +4,7 @@
 
 class NotExpression: public Expression {
 public:
-    NotExpression(Expression* lhs);
+    NotExpression(Expression* lhs, const location_type& loc);
     PascalObject eval() const override;
     void Accept(Visitor* visitor) override;
 

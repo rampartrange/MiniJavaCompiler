@@ -5,7 +5,7 @@
 
 class IdentExpression: public Expression {
  public:
-    IdentExpression(std::string  ident, PascalObject value);
+    IdentExpression(std::string  ident, PascalObject value, const location_type& loc);
     PascalObject eval() const override;
     void Accept(Visitor* visitor) override;
 

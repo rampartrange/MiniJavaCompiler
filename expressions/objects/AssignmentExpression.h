@@ -6,7 +6,7 @@
 
 class AssignmentExpression : public Expression {
  public:
-    AssignmentExpression(std::string  variable, Expression* expression);
+    AssignmentExpression(std::string  variable, Expression* expression, const location_type& loc);
     void Accept(Visitor* visitor) override;
 
     std::string variable_;

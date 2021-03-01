@@ -4,7 +4,7 @@
 
 class OrExpression: public Expression {
 public:
-    OrExpression(Expression* lhs, Expression* rhs);
+    OrExpression(Expression* lhs, Expression* rhs, const location_type& loc);
     PascalObject eval() const override;
     void Accept(Visitor* visitor) override;
 
