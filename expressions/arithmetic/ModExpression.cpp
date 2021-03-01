@@ -11,3 +11,7 @@ PascalObject ModExpression::eval() const {
 void ModExpression::Accept(Visitor* visitor) {
     visitor->Visit(this);
 }
+
+//const location_type& ModExpression::GetLocation() const {
+//    return location;
+//}

@@ -11,3 +11,7 @@ PascalObject AndExpression::eval() const {
 void AndExpression::Accept(Visitor* visitor) {
     visitor->Visit(this);
 }
+
+//const location_type& AndExpression::GetLocation() const {
+//    return location;
+//}

@@ -11,3 +11,7 @@ PascalObject OrExpression::eval() const {
 void OrExpression::Accept(Visitor* visitor) {
     visitor->Visit(this);
 }
+
+//const location_type& OrExpression::GetLocation() const {
+//    return location;
+//}

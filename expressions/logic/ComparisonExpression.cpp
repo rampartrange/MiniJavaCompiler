@@ -65,3 +65,7 @@ PascalObject ComparisonExpression::eval() const {
 void ComparisonExpression::Accept(Visitor* visitor) {
     visitor->Visit(this);
 }
+
+//const location_type& ComparisonExpression::GetLocation() const {
+//    return location;
+//}

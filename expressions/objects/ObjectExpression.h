@@ -11,6 +11,9 @@ public:
 
     PascalObject eval() const override;
     void Accept(Visitor* visitor) override;
+//    const location_type& GetLocation() const override;
 
     PascalObject value;
+//    location_type location;
 };
+

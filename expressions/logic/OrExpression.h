@@ -2,12 +2,15 @@
 #include "Expression.h"
 #include "../objects/PascalObject.h"
 
-class ModExpression: public Expression {
+class OrExpression: public Expression {
 public:
-    ModExpression(Expression* lhs, Expression* rhs);
+    OrExpression(Expression* lhs, Expression* rhs);
     PascalObject eval() const override;
     void Accept(Visitor* visitor) override;
+//    const location_type& GetLocation() const override;
+
 
     Expression* lhs;
     Expression* rhs;
+//    location_type location;
 };

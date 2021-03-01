@@ -18,6 +18,8 @@ public:
     ComparisonExpression(Expression* lhs, Expression* rhs, const std::string& sign);
     PascalObject eval() const override;
     void Accept(Visitor* visitor) override;
+    //const location_type& GetLocation() const override;
+
 
     ComparisonType DefineComparisonType(const std::string& sign) const;
     bool ComputeValue();
@@ -27,4 +29,5 @@ public:
     ComparisonType type;
 
     PascalObject value;
+    //location_type location;
 };

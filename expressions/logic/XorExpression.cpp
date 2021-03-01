@@ -11,3 +11,7 @@ PascalObject XorExpression::eval() const {
 void XorExpression::Accept(Visitor* visitor) {
     visitor->Visit(this);
 }
+
+//const location_type& XorExpression::GetLocation() const {
+//    return location;
+//}

@@ -9,3 +9,7 @@ PascalObject AddExpression::eval() const {
 void AddExpression::Accept(Visitor* visitor) {
     visitor->Visit(this);
 }
+
+//const location_type& AddExpression::GetLocation() const {
+//    return location;
+//}

@@ -11,3 +11,7 @@ PascalObject MulExpression::eval() const {
 void MulExpression::Accept(Visitor* visitor) {
     visitor->Visit(this);
 }
+
+//const location_type& MulExpression::GetLocation() const {
+//    return location;
+//}

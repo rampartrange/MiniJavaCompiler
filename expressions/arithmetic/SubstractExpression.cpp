@@ -9,3 +9,7 @@ PascalObject SubstractExpression::eval() const {
 void SubstractExpression::Accept(Visitor* visitor) {
     visitor->Visit(this);
 }
+
+//const location_type& SubstractExpression::GetLocation() const {
+//    return location;
+//}

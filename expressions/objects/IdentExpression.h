@@ -8,7 +8,10 @@ class IdentExpression: public Expression {
     IdentExpression(std::string  ident, PascalObject value);
     PascalObject eval() const override;
     void Accept(Visitor* visitor) override;
+//    const location_type& GetLocation() const override;
+
 
     std::string ident_;
     PascalObject value_;
+//    location_type location;
 };
