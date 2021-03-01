@@ -7,7 +7,8 @@
 class Assignment : BaseElement {
  public:
     Assignment(const std::string& variable, Expression* expression);
- private:
+    void Accept(Visitor* visitor) override;
+
     std::string variable_;
     Expression* expression_;
 };

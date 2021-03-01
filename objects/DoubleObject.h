@@ -2,7 +2,7 @@
 
 #include "BaseObject.h"
 
-class DoubleObject : BaseObject {
+class DoubleObject : public BaseObject {
 public:
     DoubleObject();
     explicit DoubleObject(double);

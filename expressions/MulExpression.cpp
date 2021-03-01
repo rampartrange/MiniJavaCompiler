@@ -7,3 +7,7 @@ MulExpression::MulExpression(
 PascalObject MulExpression::eval() const {
     return lhs->eval() * rhs->eval();
 }
+
+void MulExpression::Accept(Visitor* visitor) {
+    visitor->Visit(this);
+}

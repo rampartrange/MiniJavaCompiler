@@ -10,6 +10,7 @@ public:
     explicit ObjectExpression(bool value);
 
     PascalObject eval() const override;
-private:
+    void Accept(Visitor* visitor) override;
+
     PascalObject value;
 };

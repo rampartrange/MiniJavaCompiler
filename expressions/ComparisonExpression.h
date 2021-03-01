@@ -17,7 +17,8 @@ class ComparisonExpression: public Expression {
 public:
     ComparisonExpression(Expression* lhs, Expression* rhs, const std::string& sign);
     PascalObject eval() const override;
-private:
+    void Accept(Visitor* visitor) override;
+
     ComparisonType DefineComparisonType(const std::string& sign) const;
     bool ComputeValue();
 

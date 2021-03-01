@@ -61,3 +61,7 @@ bool ComparisonExpression::ComputeValue() {
 PascalObject ComparisonExpression::eval() const {
     return value;
 }
+
+void ComparisonExpression::Accept(Visitor* visitor) {
+    visitor->Visit(this);
+}

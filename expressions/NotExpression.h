@@ -6,6 +6,7 @@ class NotExpression: public Expression {
 public:
     NotExpression(Expression* lhs);
     PascalObject eval() const override;
-private:
+    void Accept(Visitor* visitor) override;
+
     Expression* lhs;
 };

@@ -7,7 +7,7 @@
 class Program {
  public:
     Program(AssignmentList* assignments, Expression* expression);
- private:
+
     AssignmentList* assignments_;
     Expression* expression_;
 };

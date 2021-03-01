@@ -7,3 +7,7 @@ OrExpression::OrExpression(
 PascalObject OrExpression::eval() const {
     return PascalObject(static_cast<bool>((lhs->eval()) || (rhs->eval())));
 }
+
+void OrExpression::Accept(Visitor* visitor) {
+    visitor->Visit(this);
+}

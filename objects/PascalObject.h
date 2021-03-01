@@ -59,6 +59,8 @@ public:
     friend std::istream& operator>>(std::istream& in, PascalObject& obj);
 
     explicit operator bool() const;
+
+    void Accept(Visitor* visitor) override;
 private:
 
     int intValue;

@@ -4,10 +4,11 @@
 
 #include <string>
 
-class AssignmentExpression {
+class AssignmentExpression : public Expression {
  public:
     AssignmentExpression(std::string  variable, Expression* expression);
- private:
+    void Accept(Visitor* visitor) override;
+
     std::string variable_;
     Expression* expression_;
 };

@@ -6,7 +6,8 @@ class UnaryMinusExpression: public Expression {
 public:
     UnaryMinusExpression(Expression* lhs);
     PascalObject eval() const override;
-private:
+    void Accept(Visitor* visitor) override;
+
     Expression* lhs;
     int value;
 };

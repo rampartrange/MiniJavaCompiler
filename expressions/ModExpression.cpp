@@ -7,3 +7,7 @@ ModExpression::ModExpression(
 PascalObject ModExpression::eval() const {
     return lhs->eval() % rhs->eval();
 }
+
+void ModExpression::Accept(Visitor* visitor) {
+    visitor->Visit(this);
+}

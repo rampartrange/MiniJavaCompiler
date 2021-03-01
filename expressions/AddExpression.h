@@ -3,10 +3,11 @@
 #include "../objects/PascalObject.h"
 
 class AddExpression: public Expression {
- public:
+  public:
     AddExpression(Expression* lhs, Expression* rhs);
     PascalObject eval() const override;
- private:
+    void Accept(Visitor* visitor) override;
+
     Expression* lhs;
     Expression* rhs;
 };

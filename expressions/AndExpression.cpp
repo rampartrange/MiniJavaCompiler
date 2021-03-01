@@ -7,3 +7,7 @@ AndExpression::AndExpression(
 PascalObject AndExpression::eval() const {
     return PascalObject(static_cast<bool>(lhs->eval() && rhs->eval()));
 }
+
+void AndExpression::Accept(Visitor* visitor) {
+    visitor->Visit(this);
+}

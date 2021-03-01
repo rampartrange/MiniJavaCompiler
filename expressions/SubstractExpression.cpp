@@ -1,7 +1,11 @@
 #include "SubstractExpression.h"
 
-SubstractExpression::SubstractExpression(Expression *e1, Expression *e2): first(e1), second(e2) {}
+SubstractExpression::SubstractExpression(Expression *e1, Expression *e2): lhs(e1), rhs(e2) {}
 
 PascalObject SubstractExpression::eval() const {
-    return first->eval() - second->eval();
+    return lhs->eval() - rhs->eval();
+}
+
+void SubstractExpression::Accept(Visitor* visitor) {
+    visitor->Visit(this);
 }

@@ -2,7 +2,7 @@
 
 #include "BaseObject.h"
 
-class BooleanObject : BaseObject {
+class BooleanObject : public BaseObject {
 public:
     BooleanObject();
     explicit BooleanObject(bool);

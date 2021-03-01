@@ -5,3 +5,7 @@ AddExpression::AddExpression(Expression *lhs, Expression *rhs): lhs(lhs), rhs(rh
 PascalObject AddExpression::eval() const {
     return lhs->eval() + rhs->eval();
 }
+
+void AddExpression::Accept(Visitor* visitor) {
+    visitor->Visit(this);
+}

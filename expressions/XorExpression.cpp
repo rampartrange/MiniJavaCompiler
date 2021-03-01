@@ -7,3 +7,7 @@ XorExpression::XorExpression(
 PascalObject XorExpression::eval() const {
     return PascalObject(static_cast<bool>(static_cast<bool>(lhs->eval()) ^ static_cast<bool>(rhs->eval())));
 }
+
+void XorExpression::Accept(Visitor* visitor) {
+    visitor->Visit(this);
+}

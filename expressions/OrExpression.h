@@ -6,7 +6,8 @@ class OrExpression: public Expression {
 public:
     OrExpression(Expression* lhs, Expression* rhs);
     PascalObject eval() const override;
-private:
+    void Accept(Visitor* visitor) override;
+
     Expression* lhs;
     Expression* rhs;
 };

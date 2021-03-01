@@ -9,16 +9,30 @@ class SymbolTreeVisitor: public Visitor {
  public:
     SymbolTreeVisitor(const std::string& filename);
     ~SymbolTreeVisitor();
-    void Visit(NumberExpression* expression) override;
-    void Visit(AddExpression* expression) override;
-    void Visit(SubstractExpression* expression) override;
-    void Visit(MulExpression* expression) override;
-    void Visit(DivExpression* expression) override;
-    void Visit(IdentExpression* expression) override;
-    void Visit(Assignment* assignment) override;
-    void Visit(AssignmentList* assignment_list) override;
-    void Visit(Program* program) override;
+    virtual void Visit(Assignment* assignment) override;
+    virtual void Visit(AssignmentList* expression) override;
+
+    virtual void Visit(AddExpression* expression) override;
+    virtual void Visit(AndExpression* expression) override;
+    virtual void Visit(AssignmentExpression* expression) override;
+    virtual void Visit(ComparisomExpression* expression) override;
+    virtual void Visit(DivExpression* expression) override;
+    virtual void Visit(Expression* expression) override;
+    virtual void Visit(IdentExpression* expression) override;
+    virtual void Visit(ModExpression* expression) override;
+    virtual void Visit(MulExpression* expression) override;
+    virtual void Visit(NotExpression* expression) override;
+    virtual void Visit(NumberExpression* expression) override;
+    virtual void Visit(ObjectExpression* expression) override;
+    virtual void Visit(OrExpression* expression) override;
+    virtual void Visit(SubstractExpression* expression) override;
+    virtual void Visit(UnaryMinusExpression* expression) override;
+    virtual void Visit(XorExpression* expression) override;
+
+    virtual void Visit(Program* program) override;
  private:
+
+    //void PrintArithmeticExpression(const std::string& name, void* expression);
 
     void PrintTabs();
     std::ofstream stream_;

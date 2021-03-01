@@ -13,3 +13,7 @@ ObjectExpression::ObjectExpression(bool value) : value(PascalObject(value)) {}
 PascalObject ObjectExpression::eval() const {
     return value;
 }
+
+void ObjectExpression::Accept(Visitor* visitor) {
+    visitor->Visit(this);
+}

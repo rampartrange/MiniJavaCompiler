@@ -6,7 +6,8 @@ class ModExpression: public Expression {
 public:
     ModExpression(Expression* lhs, Expression* rhs);
     PascalObject eval() const override;
-private:
+    void Accept(Visitor* visitor) override;
+
     Expression* lhs;
     Expression* rhs;
 };
