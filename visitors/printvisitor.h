@@ -22,7 +22,6 @@ class SymbolTreeVisitor: public Visitor {
     virtual void Visit(ModExpression* expression) override;
     virtual void Visit(MulExpression* expression) override;
     virtual void Visit(NotExpression* expression) override;
-    virtual void Visit(NumberExpression* expression) override;
     virtual void Visit(ObjectExpression* expression) override;
     virtual void Visit(OrExpression* expression) override;
     virtual void Visit(SubstractExpression* expression) override;

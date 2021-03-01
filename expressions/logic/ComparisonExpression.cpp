@@ -2,7 +2,8 @@
 
 ComparisonExpression::ComparisonExpression(Expression* lhs,
                                            Expression* rhs,
-                                           const std::string& sign) :
+                                           const std::string& sign, const location_type &loc) :
+                                           BaseElement(loc),
                                            lhs(lhs),
                                            rhs(rhs),
                                            type(DefineComparisonType(sign)),

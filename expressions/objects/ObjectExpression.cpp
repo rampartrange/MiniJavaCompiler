@@ -2,13 +2,13 @@
 
 #include <utility>
 
-ObjectExpression::ObjectExpression(int value) : value(PascalObject(value)) {}
+ObjectExpression::ObjectExpression(int value, const location_type &loc) : BaseElement(loc), value(PascalObject(value)) {}
 
-ObjectExpression::ObjectExpression(double value) : value(PascalObject(value)) {}
+ObjectExpression::ObjectExpression(double value, const location_type &loc) : BaseElement(loc), value(PascalObject(value)) {}
 
-ObjectExpression::ObjectExpression(std::string value) : value(PascalObject(std::move(value))) {}
+ObjectExpression::ObjectExpression(std::string value, const location_type &loc) : BaseElement(loc), value(PascalObject(std::move(value))) {}
 
-ObjectExpression::ObjectExpression(bool value) : value(PascalObject(value)) {}
+ObjectExpression::ObjectExpression(bool value, const location_type &loc) : BaseElement(loc), value(PascalObject(value)) {}
 
 PascalObject ObjectExpression::eval() const {
     return value;

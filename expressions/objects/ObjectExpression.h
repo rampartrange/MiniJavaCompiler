@@ -4,10 +4,10 @@
 
 class ObjectExpression: public Expression {
 public:
-    explicit ObjectExpression(int value);
-    explicit ObjectExpression(double value);
-    explicit ObjectExpression(std::string value);
-    explicit ObjectExpression(bool value);
+    explicit ObjectExpression(int value, const location_type& loc);
+    explicit ObjectExpression(double value, const location_type& loc);
+    explicit ObjectExpression(std::string value, const location_type& loc);
+    explicit ObjectExpression(bool value, const location_type& loc);
 
     PascalObject eval() const override;
     void Accept(Visitor* visitor) override;

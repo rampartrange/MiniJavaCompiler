@@ -17,7 +17,6 @@ class Visitor {
     virtual void Visit(ModExpression* expression) = 0;
     virtual void Visit(MulExpression* expression) = 0;
     virtual void Visit(NotExpression* expression) = 0;
-    virtual void Visit(NumberExpression* expression) = 0;
     virtual void Visit(ObjectExpression* expression) = 0;
     virtual void Visit(OrExpression* expression) = 0;
     virtual void Visit(SubstractExpression* expression) = 0;

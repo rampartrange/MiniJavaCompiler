@@ -1,8 +1,6 @@
 #include "OrExpression.h"
 
-OrExpression::OrExpression(
-        Expression *lhs, Expression *rhs
-): lhs(lhs), rhs(rhs) {}
+OrExpression::OrExpression(Expression *lhs, Expression *rhs, const location_type &loc): BaseElement(loc), lhs(lhs), rhs(rhs) {}
 
 PascalObject OrExpression::eval() const {
     return PascalObject(static_cast<bool>((lhs->eval()) || (rhs->eval())));

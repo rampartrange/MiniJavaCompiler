@@ -2,7 +2,10 @@
 
 #include <utility>
 
-IdentExpression::IdentExpression(std::string  ident, PascalObject value): ident_(std::move(ident)), value_(value) {}
+IdentExpression::IdentExpression(std::string  ident, PascalObject value, const location_type &loc):
+    BaseElement(loc),
+    ident_(std::move(ident)),
+    value_(value) {}
 
 PascalObject IdentExpression::eval() const {
     return value_;
