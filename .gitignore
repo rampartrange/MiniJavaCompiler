@@ -1,0 +1,11 @@
+*.idea
+location.hh
+scanner.cpp
+parser.cpp
+parser.hh
+
+.DS_Store
+
+build
+
+cmake-build-debug

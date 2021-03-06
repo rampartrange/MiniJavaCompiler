@@ -1,14 +1,12 @@
 #include "driver.hh"
 #include "parser.hh"
 
-
+#include "visitors/printvisitor.h"
 
 Driver::Driver() :
     trace_parsing(false),
     trace_scanning(false),
     scanner(*this), parser(scanner, *this) {
-    variables["one"] = 1;
-    variables["two"] = 2;
 }
 
 
@@ -18,9 +16,17 @@ int Driver::parse(const std::string& f) {
     scan_begin();
     parser.set_debug_level(trace_parsing);
     int res = parser();
-
-    std::cout << program << std::endl;
     scan_end();
+    for (const auto& name : variables) {
+      std::cout << name.first << " " << name.second << std::endl;
+    }
+
+    std::cout << "Compile OK\n";
+
+    SymbolTreeVisitor v("output.txt");
+    v.Visit(program);
+    std::cout << "PrintVisitor OK\n";
+
     return res;
 }
 

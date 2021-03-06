@@ -1,12 +1,12 @@
 #pragma once
 
 #include "expressions/Expression.h"
-#include "base_element/BaseElement.h"
+
 #include <string>
 
-class Assignment : public BaseElement {
+class AssignmentExpression : virtual public Expression {
  public:
-    Assignment(const std::string& variable, Expression* expression, const location_type &loc);
+    AssignmentExpression(std::string  variable, Expression* expression, const location_type& loc);
     void Accept(Visitor* visitor) override;
 
     std::string variable_;
