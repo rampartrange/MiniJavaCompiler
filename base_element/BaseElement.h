@@ -8,15 +8,23 @@ using location_type = yy::parser::location_type;
 class BaseElement {
  public:
     BaseElement() = default;
-    BaseElement(const location_type& location) : location(location) {}
+    BaseElement(const location_type& location, const std::string& name) :
+        location_(location),
+        name_(name) {}
 
     virtual void Accept(Visitor* visitor) = 0;
 
     const location_type& GetLocation() const {
-        return location;
+        return location_;
+    }
+
+    const std::string& GetName() const {
+        return name_;
     }
 
     virtual ~BaseElement() = default;
 
-    location_type location;
+private:
+    location_type location_;
+    std::string name_;
 }; 

@@ -3,6 +3,11 @@
 class Assignment;
 class AssignmentList;
 
+class Expression;
+class BinaryExpression;
+class UnaryExpression;
+
+
 class AddExpression;
 class AndExpression;
 class AssignmentExpression;

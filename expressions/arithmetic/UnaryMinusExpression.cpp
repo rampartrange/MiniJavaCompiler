@@ -1,10 +1,11 @@
 #include "UnaryMinusExpression.h"
 
 
-UnaryMinusExpression::UnaryMinusExpression(Expression *lhs, const location_type &loc) : Expression(loc), lhs(lhs) {}
+UnaryMinusExpression::UnaryMinusExpression(Expression* exp, const location_type &loc) :
+    UnaryExpression(exp, loc, "UnaryMinusExpression") {}
 
 PascalObject UnaryMinusExpression::eval() const{
-    return -lhs->eval();
+    return -exp->eval();
 }
 
 void UnaryMinusExpression::Accept(Visitor* visitor) {

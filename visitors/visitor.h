@@ -1,6 +1,8 @@
 #pragma once
 #include "forward_decl.h"
 
+#include <string>
+
 class Visitor {
  public:
     virtual void Visit(Assignment* assignment) = 0;
@@ -23,4 +25,8 @@ class Visitor {
 
     virtual void Visit(Program* expression) = 0;
     virtual void Visit(PascalObject* expression) = 0; //To remove
+
+protected:
+    virtual void VisitBinaryExpression(BinaryExpression* exp) = 0;
+    virtual void VisitUnaryExpression(UnaryExpression* exp) = 0;
 };

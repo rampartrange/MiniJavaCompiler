@@ -4,7 +4,7 @@
 
 class Expression : public BaseElement {
 public:
-    Expression(const location_type& loc) : BaseElement(loc) {};
+    Expression(const location_type& loc, const std::string& name) : BaseElement(loc, name) {};
     virtual PascalObject eval() const = 0;
     virtual ~Expression() = default;
 };

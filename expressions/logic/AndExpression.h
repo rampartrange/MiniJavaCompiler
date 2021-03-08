@@ -1,14 +1,9 @@
 #pragma once
-#include "expressions/Expression.h"
-#include "objects/PascalObject.h"
+#include "expressions/BinaryExpression.h"
 
-class AndExpression: virtual public Expression {
+class AndExpression: public BinaryExpression {
   public:
     AndExpression(Expression* lhs, Expression* rhs, const location_type& loc);
     PascalObject eval() const override;
     void Accept(Visitor* visitor) override;
-
-    Expression* lhs;
-    Expression* rhs;
-
 };

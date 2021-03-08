@@ -1,14 +1,9 @@
 #pragma once
-#include "expressions/Expression.h"
-#include "objects/PascalObject.h"
+#include "expressions/UnaryExpression.h"
 
-class UnaryMinusExpression: virtual public Expression {
+class UnaryMinusExpression: public UnaryExpression {
 public:
-    UnaryMinusExpression(Expression* lhs, const location_type& loc);
+    UnaryMinusExpression(Expression* exp, const location_type& loc);
     PascalObject eval() const override;
     void Accept(Visitor* visitor) override;
-
-
-    Expression* lhs;
-    int value;
 };

@@ -1,15 +1,10 @@
 #pragma once
-#include "expressions/Expression.h"
-#include "objects/PascalObject.h"
+#include "expressions/BinaryExpression.h"
 
-class SubstractExpression: virtual public Expression {
+class SubstractExpression: public BinaryExpression {
  public:
-    SubstractExpression(Expression* e1, Expression* e2, const location_type &loc);
+    SubstractExpression(Expression* lhs, Expression* rhs, const location_type &loc);
     PascalObject eval() const override;
     void Accept(Visitor* visitor) override;
-
-    Expression* lhs;
-    Expression* rhs;
-    location_type location;
 };
 

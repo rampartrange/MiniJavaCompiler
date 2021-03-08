@@ -1,10 +1,8 @@
 #include "DivExpression.h"
 
-DivExpression::DivExpression(Expression *e1, Expression *e2,
+DivExpression::DivExpression(Expression* lhs, Expression* rhs,
                              const location_type &loc) :
-    Expression(loc),
-    lhs(e1),
-    rhs(e2) {}
+    BinaryExpression(lhs, rhs, loc, "DivExpression") {}
 
 PascalObject DivExpression::eval() const {
     return lhs->eval() / rhs->eval();

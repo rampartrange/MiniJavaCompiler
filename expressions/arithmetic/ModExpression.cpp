@@ -1,7 +1,7 @@
 #include "ModExpression.h"
 
-ModExpression::ModExpression(Expression *lhs, Expression *rhs
-, const location_type &loc): Expression(loc), lhs(lhs), rhs(rhs) {}
+ModExpression::ModExpression(Expression* lhs, Expression* rhs
+, const location_type &loc): BinaryExpression(lhs, rhs, loc, "ModExpression") {}
 
 PascalObject ModExpression::eval() const {
     return lhs->eval() % rhs->eval();

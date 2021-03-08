@@ -1,12 +1,9 @@
 #pragma once
-#include "expressions/Expression.h"
-#include "objects/PascalObject.h"
+#include "expressions/UnaryExpression.h"
 
-class NotExpression: virtual public Expression {
+class NotExpression: public UnaryExpression {
 public:
-    NotExpression(Expression* lhs, const location_type& loc);
+    NotExpression(Expression* exp, const location_type& loc);
     PascalObject eval() const override;
     void Accept(Visitor* visitor) override;
-
-    Expression* lhs;
 };
