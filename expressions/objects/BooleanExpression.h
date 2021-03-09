@@ -1,0 +1,14 @@
+//
+// Created by Артем Андрианов on 09.03.2021.
+//
+
+#ifndef MINIJAVACOMPILER_BOOLEANEXPRESSION_H
+#define MINIJAVACOMPILER_BOOLEANEXPRESSION_H
+
+
+class BooleanExpression {
+
+};
+
+
+#endif //MINIJAVACOMPILER_BOOLEANEXPRESSION_H

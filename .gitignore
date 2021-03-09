@@ -9,3 +9,5 @@ parser.hh
 build
 
 cmake-build-debug
+
+CMakeLists.txt.user

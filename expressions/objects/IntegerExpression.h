@@ -1,0 +1,14 @@
+//
+// Created by Артем Андрианов on 09.03.2021.
+//
+
+#ifndef MINIJAVACOMPILER_INTEGEREXPRESSION_H
+#define MINIJAVACOMPILER_INTEGEREXPRESSION_H
+
+
+class IntegerExpression {
+
+};
+
+
+#endif //MINIJAVACOMPILER_INTEGEREXPRESSION_H
