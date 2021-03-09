@@ -37,6 +37,9 @@ add_executable(
         expressions/objects/ObjectExpression.cpp
         expressions/objects/IdentExpression.cpp
         expressions/objects/AssignmentExpression.cpp
+        expressions/objects/IntegerExpression.cpp
+        expressions/objects/BooleanExpression.cpp
+        expressions/objects/StringExpression.cpp
 
         expressions/arithmetic/MulExpression.cpp
         expressions/arithmetic/AddExpression.cpp

@@ -1,8 +1,16 @@
-//
-// Created by Артем Андрианов on 09.03.2021.
-//
+#pragma once
 
-#ifndef MINIJAVACOMPILER_STRINGEXPRESSION_H
-#define MINIJAVACOMPILER_STRINGEXPRESSION_H
+#include "../Expression.h"
+#include "../../objects/StringObject.h"
 
-#endif //MINIJAVACOMPILER_STRINGEXPRESSION_H
+class StringExpression : public Expression {
+public:
+    StringExpression(std::string value, const location_type& loc);
+
+    void Accept(Visitor* visitor) override;
+
+    const std::string& GetValue() const;
+
+private:
+    StringObject object;
+};

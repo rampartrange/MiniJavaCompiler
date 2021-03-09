@@ -1,11 +1,9 @@
 #include "BooleanObject.h"
 
-BooleanObject::BooleanObject() : value_(false) {};
+BooleanObject::BooleanObject() : BaseObject(SimpleType::BOOLEAN) {}
 
-BooleanObject::BooleanObject(bool value) : value_(value) {};
+BooleanObject::BooleanObject(bool value) : BaseObject(SimpleType::BOOLEAN), value(value) {}
 
-void BooleanObject::Accept() {}
-
-SimpleType BooleanObject::GetType() const {
-    return SimpleType::BOOLEAN;
+bool BooleanObject::GetValue() const {
+    return value;
 }

@@ -2,14 +2,12 @@
 
 #include <utility>
 
-IdentExpression::IdentExpression(std::string  ident, PascalObject value, const location_type &loc):
+IdentExpression::IdentExpression(std::string ident, Expression* exp, const location_type &loc):
     Expression(loc, "IdentExpression"),
-    ident_(std::move(ident)),
-    value_(value) {}
-
-PascalObject IdentExpression::eval() const {
-    return value_;
+    ident_(std::move(ident)) {
+    expression_ = exp;
 }
+
 
 void IdentExpression::Accept(Visitor* visitor) {
     visitor->Visit(this);

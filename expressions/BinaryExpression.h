@@ -1,6 +1,4 @@
-#ifndef BINARYARITHMETICEXPRESSION_H
-#define BINARYARITHMETICEXPRESSION_H
-
+#pragma once
 #include "expressions/Expression.h"
 
 class BinaryExpression: public Expression {
@@ -12,5 +10,3 @@ class BinaryExpression: public Expression {
     Expression* lhs;
     Expression* rhs;
 };
-
-#endif // BINARYARITHMETICEXPRESSION_H

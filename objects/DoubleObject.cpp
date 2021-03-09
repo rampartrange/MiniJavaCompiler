@@ -1,12 +1,10 @@
 #include "DoubleObject.h"
 
-DoubleObject::DoubleObject() : value_(0) {}
+DoubleObject::DoubleObject() : BaseObject(SimpleType::DOUBLE), value(0) {}
 
-DoubleObject::DoubleObject(double value) : value_(value) {}
+DoubleObject::DoubleObject(double value) : BaseObject(SimpleType::DOUBLE), value(value) {}
 
-void DoubleObject::Accept() {}
-
-SimpleType DoubleObject::GetType() const {
-    return SimpleType::DOUBLE;
+double DoubleObject::GetValue() const {
+    return value;
 }
 

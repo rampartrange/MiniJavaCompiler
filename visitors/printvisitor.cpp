@@ -135,6 +135,43 @@ void SymbolTreeVisitor::Visit(PascalObject* expression) {
     --num_tabs_;
 }
 
+void SymbolTreeVisitor::Visit(IntegerExpression* expression) {
+    PrintTabs();
+    stream_ << "Integer object (loc): " << expression->GetLocation() << ' '  << std::endl;
+
+    ++num_tabs_;
+
+    PrintTabs();
+    stream_ << expression->GetValue() << std::endl; //!!!!
+
+    --num_tabs_;
+}
+
+void SymbolTreeVisitor::Visit(BooleanExpression* expression) {
+    PrintTabs();
+    stream_ << "Boolean object (loc): " << expression->GetLocation() << ' '  << std::endl;
+
+    ++num_tabs_;
+
+    PrintTabs();
+    stream_ << expression->GetValue() << std::endl; //!!!!
+
+    --num_tabs_;
+}
+
+void SymbolTreeVisitor::Visit(StringExpression* expression) {
+    PrintTabs();
+    stream_ << "String object (loc): " << expression->GetLocation() << ' '  << std::endl;
+
+    ++num_tabs_;
+
+    PrintTabs();
+    stream_ << expression->GetValue() << std::endl; //!!!!
+
+    --num_tabs_;
+}
+
+
 void SymbolTreeVisitor::Visit(AssignmentExpression* expression) {
     PrintTabs();
     stream_ << "Assignment expression (loc): " << expression->GetLocation() << ' '  << expression->variable_ << std::endl;
@@ -156,6 +193,7 @@ void SymbolTreeVisitor::Visit(ObjectExpression* expression) {
     expression->value.Accept(this);
     --num_tabs_;
 }
+
 
 
 ///______________________________Program___________________________///

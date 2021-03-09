@@ -7,12 +7,10 @@ public:
     DoubleObject();
     explicit DoubleObject(double);
 
-    void Accept() override;
-
-    SimpleType GetType() const override;
+    double GetValue() const;
 
 private:
-    double value_;
+    double value;
 };
 
 

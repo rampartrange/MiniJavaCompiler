@@ -1,14 +1,16 @@
-//
-// Created by Артем Андрианов on 09.03.2021.
-//
+#pragma once
+#include "../Expression.h"
+#include "../../objects/BooleanObject.h"
 
-#ifndef MINIJAVACOMPILER_BOOLEANEXPRESSION_H
-#define MINIJAVACOMPILER_BOOLEANEXPRESSION_H
+class BooleanExpression : public Expression {
+public:
+    BooleanExpression(bool value, const location_type& loc);
 
+    void Accept(Visitor* visitor) override ;
 
-class BooleanExpression {
+    bool GetValue() const;
 
+private:
+    BooleanObject object;
 };
 
-
-#endif //MINIJAVACOMPILER_BOOLEANEXPRESSION_H

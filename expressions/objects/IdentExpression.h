@@ -1,14 +1,14 @@
 #pragma once
 #include "expressions/Expression.h"
-#include "objects/PascalObject.h"
+#include "objects/BaseObject.h"
 #include <string>
 
-class IdentExpression: virtual public Expression {
+class IdentExpression: public Expression {
  public:
-    IdentExpression(std::string  ident, PascalObject value, const location_type& loc);
-    PascalObject eval() const override;
+    IdentExpression(std::string ident, Expression* exp, const location_type& loc);
+
     void Accept(Visitor* visitor) override;
 
     std::string ident_;
-    PascalObject value_;
+    Expression* expression_;
 };

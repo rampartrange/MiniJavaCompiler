@@ -17,10 +17,6 @@ ObjectExpression::ObjectExpression(std::string value, const location_type &loc) 
 ObjectExpression::ObjectExpression(bool value, const location_type &loc) :
     Expression(loc, "ObjectExpression"), value(PascalObject(value)) {}
 
-PascalObject ObjectExpression::eval() const {
-    return value;
-}
-
 void ObjectExpression::Accept(Visitor* visitor) {
     visitor->Visit(this);
 }

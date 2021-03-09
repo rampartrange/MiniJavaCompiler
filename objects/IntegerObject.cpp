@@ -1,11 +1,10 @@
 #include "IntegerObject.h"
 
-IntegerObject::IntegerObject() : value_(0) {};
+IntegerObject::IntegerObject() : BaseObject(SimpleType::INT) {}
 
-IntegerObject::IntegerObject(int value) : value_(value) {};
+IntegerObject::IntegerObject(int value) : BaseObject(SimpleType::INT), value(value) {}
 
-void IntegerObject::Accept() {}
-
-SimpleType IntegerObject::GetType() const {
-    return SimpleType::INT;
+int IntegerObject::GetValue() const {
+    return value;
 }
+
