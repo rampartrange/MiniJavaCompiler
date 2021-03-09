@@ -17,9 +17,9 @@ int Driver::parse(const std::string& f) {
     parser.set_debug_level(trace_parsing);
     int res = parser();
     scan_end();
-    for (const auto& name : variables) {
-      std::cout << name.first << " " << name.second << std::endl;
-    }
+//    for (const auto& name : variables) {
+//      std::cout << name.first << " " << name.second << std::endl;
+//    }
 
     std::cout << "Compile OK\n";
 

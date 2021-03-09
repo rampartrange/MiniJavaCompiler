@@ -2,18 +2,15 @@
 
 #include "BaseObject.h"
 
-class IntegerObject : BaseObject {
+class IntegerObject : public BaseObject {
 public:
     IntegerObject();
     explicit IntegerObject(int);
 
-    void Accept() override;
-
-    SimpleType GetType() const override;
+    int GetValue() const;
 
 private:
-    int value_;
-
+    int value{0};
 };
 
 

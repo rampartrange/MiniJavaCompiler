@@ -1,13 +1,8 @@
 #pragma once
-#include "expressions/Expression.h"
-#include "objects/PascalObject.h"
+#include "expressions/BinaryExpression.h"
 
-class DivExpression: virtual public Expression {
+class DivExpression: public BinaryExpression {
  public:
-    DivExpression(Expression* e1, Expression* e2, const location_type& loc);
-    PascalObject eval() const override;
+    DivExpression(Expression* lhs, Expression* rhs, const location_type& loc);
     void Accept(Visitor* visitor) override;
-
-    Expression* lhs;
-    Expression* rhs;
 };

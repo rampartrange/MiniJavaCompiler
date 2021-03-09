@@ -1,14 +1,13 @@
-#pragma once
+#ifndef INTERPRETER_H
+#define INTERPRETER_H
 
 #include "visitor.h"
+#include <map>
 
-#include <fstream>
-#include <string>
-
-class SymbolTreeVisitor: public Visitor {
- public:
-    SymbolTreeVisitor(const std::string& filename);
-    ~SymbolTreeVisitor();
+class Interpreter : public Visitor {
+  public:
+    Interpreter();
+    ~Interpreter();
     virtual void Visit(Assignment* assignment) override;
     virtual void Visit(AssignmentList* expression) override;
 
@@ -22,9 +21,6 @@ class SymbolTreeVisitor: public Visitor {
     virtual void Visit(MulExpression* expression) override;
     virtual void Visit(NotExpression* expression) override;
     virtual void Visit(ObjectExpression* expression) override;
-    virtual void Visit(IntegerExpression* expression) override;
-    virtual void Visit(BooleanExpression* expression) override;
-    virtual void Visit(StringExpression* expression) override;
     virtual void Visit(OrExpression* expression) override;
     virtual void Visit(SubstractExpression* expression) override;
     virtual void Visit(UnaryMinusExpression* expression) override;
@@ -33,12 +29,18 @@ class SymbolTreeVisitor: public Visitor {
     virtual void Visit(Program* program) override;
     virtual void Visit(PascalObject* expression) override;
 
+    int GetResult(Program* program);
  private:
 
     virtual void VisitBinaryExpression(BinaryExpression* exp) override;
     virtual void VisitUnaryExpression(UnaryExpression *exp) override;
 
-    void PrintTabs();
-    std::ofstream stream_;
-    int num_tabs_ = 0;
+    std::map<std::string, int> variables_;
+    bool is_tos_expression_;
+    int tos_value_;
+
+    void SetTosValue(int value);
+    void UnsetTosValue();
 };
+
+#endif // INTERPRETER_H

@@ -1,13 +1,7 @@
 #include "SubstractExpression.h"
 
-SubstractExpression::SubstractExpression(Expression *e1, Expression *e2, const location_type& loc):
-    Expression(loc),
-    lhs(e1),
-    rhs(e2) {}
-
-PascalObject SubstractExpression::eval() const {
-    return lhs->eval() - rhs->eval();
-}
+SubstractExpression::SubstractExpression(Expression* lhs, Expression* rhs, const location_type& loc):
+    BinaryExpression(lhs, rhs, loc, "SubExpression") {}
 
 void SubstractExpression::Accept(Visitor* visitor) {
     visitor->Visit(this);

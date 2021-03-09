@@ -1,12 +1,7 @@
 #include "NotExpression.h"
 
-NotExpression::NotExpression(Expression* lhs, const location_type &loc) :
-    Expression(loc),
-    lhs(lhs) {}
-
-PascalObject NotExpression::eval() const {
-    return PascalObject(static_cast<bool>(!(lhs->eval())));
-}
+NotExpression::NotExpression(Expression* exp, const location_type &loc) :
+    UnaryExpression(exp, loc, "NotExpression") {}
 
 void NotExpression::Accept(Visitor* visitor) {
     visitor->Visit(this);

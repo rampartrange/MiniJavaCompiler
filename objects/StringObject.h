@@ -7,12 +7,9 @@ class StringObject : BaseObject {
 public:
     StringObject();
     explicit StringObject(std::string);
-
-    void Accept() override;
-
-    SimpleType GetType() const override;
+    const std::string& GetValue() const;
 
 private:
-    std::string value_;
+    std::string value{};
 };
 

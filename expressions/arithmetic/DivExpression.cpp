@@ -1,14 +1,8 @@
 #include "DivExpression.h"
 
-DivExpression::DivExpression(Expression *e1, Expression *e2,
+DivExpression::DivExpression(Expression* lhs, Expression* rhs,
                              const location_type &loc) :
-    Expression(loc),
-    lhs(e1),
-    rhs(e2) {}
-
-PascalObject DivExpression::eval() const {
-    return lhs->eval() / rhs->eval();
-}
+    BinaryExpression(lhs, rhs, loc, "DivExpression") {}
 
 void DivExpression::Accept(Visitor* visitor) {
     visitor->Visit(this);

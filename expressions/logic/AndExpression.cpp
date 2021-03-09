@@ -1,11 +1,7 @@
 #include "AndExpression.h"
 
-AndExpression::AndExpression(Expression *lhs, Expression *rhs
-, const location_type &loc): Expression(loc), lhs(lhs), rhs(rhs) {}
-
-PascalObject AndExpression::eval() const {
-    return PascalObject(static_cast<bool>(lhs->eval() && rhs->eval()));
-}
+AndExpression::AndExpression(Expression* lhs, Expression* rhs
+, const location_type &loc): BinaryExpression(lhs, rhs, loc, "AndExpression") {}
 
 void AndExpression::Accept(Visitor* visitor) {
     visitor->Visit(this);

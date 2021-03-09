@@ -3,6 +3,11 @@
 class Assignment;
 class AssignmentList;
 
+class Expression;
+class BinaryExpression;
+class UnaryExpression;
+
+
 class AddExpression;
 class AndExpression;
 class AssignmentExpression;
@@ -18,6 +23,14 @@ class SubstractExpression;
 class UnaryMinusExpression;
 class XorExpression;
 
+class IntegerExpression;
+class BooleanExpression;
+class StringExpression;
+
 class Program;
 
 class PascalObject; //To remove
+class BaseObject;
+class IntegerObject;
+class StringObject;
+class BooleanObject;

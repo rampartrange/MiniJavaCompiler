@@ -26,12 +26,10 @@ static std::vector<std::string> ComparisonTypeToString = {
 class ComparisonExpression: virtual public Expression {
 public:
     ComparisonExpression(Expression* lhs, Expression* rhs, const std::string& sign, const location_type& loc);
-    PascalObject eval() const override;
     void Accept(Visitor* visitor) override;
 
 
     ComparisonType DefineComparisonType(const std::string& sign) const;
-    bool ComputeValue();
 
     Expression* lhs;
     Expression* rhs;

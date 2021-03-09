@@ -1,11 +1,11 @@
 #pragma once
 #include "../objects/PascalObject.h"
 #include "base_element/BaseElement.h"
+#include "../objects/BaseObject.h"
 
 class Expression : public BaseElement {
 public:
-    Expression(const location_type& loc) : BaseElement(loc) {};
-    virtual PascalObject eval() const = 0;
+    Expression(const location_type& loc, const std::string& name) : BaseElement(loc, name) {};
     virtual ~Expression() = default;
 };
 

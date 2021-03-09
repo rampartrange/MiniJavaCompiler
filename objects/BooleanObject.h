@@ -6,13 +6,10 @@ class BooleanObject : public BaseObject {
 public:
     BooleanObject();
     explicit BooleanObject(bool);
-
-    void Accept() override;
-
-    SimpleType GetType() const override;
+    bool GetValue() const;
 
 private:
-    bool value_;
+    bool value{false};
 };
 
 
