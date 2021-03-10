@@ -25,6 +25,10 @@
     class XorExpression;
     class NotExpression;
 
+    class IntegerExpression;
+    class BooleanExpression;
+    class StringExpression;
+
     class PascalObject;
     class BaseObject;
     class BooleanObject;
@@ -49,6 +53,9 @@
 
     #include "expressions/objects/ObjectExpression.h"
     #include "expressions/objects/IdentExpression.h"
+    #include "expressions/objects/IntegerExpression.h"
+    #include "expressions/objects/BooleanExpression.h"
+    #include "expressions/objects/StringExpression.h"
 
     #include "expressions/arithmetic/AddExpression.h"
     #include "expressions/arithmetic/MulExpression.h"
@@ -172,13 +179,15 @@ assignments:
 assignment:
     "identifier" "=" exp ";" {
         $$ = new Assignment($1, $3, @$);
-        driver.variables[$1] = $3->eval();
+        driver.variables[$1] = $3;
     };
 
 
 
 exp:
-    "integer" {$$ = new ObjectExpression($1, @$); }
+    "integer" {$$ = new IntegerExpression($1, @$); }
+    | "string" {$$ = new StringExpression($1, @$); }
+    | "bool" {$$ = new BooleanExpression($1, @$); }
     | "identifier" {$$ = new IdentExpression($1, driver.variables[$1], @$); }
     //exp binary_operator exp {}
     | exp "+" exp { $$ = new AddExpression($1, $3, @$); }

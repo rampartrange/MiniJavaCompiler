@@ -1,5 +1,6 @@
 #pragma once
 
+
 enum class SimpleType {
     INT,
     BOOLEAN,
@@ -8,11 +9,16 @@ enum class SimpleType {
     VOID
 };
 
+
 class BaseObject {
 public:
-    virtual void Accept() = 0;
+    BaseObject(SimpleType type) : type(type) {}
 
-    virtual SimpleType GetType() const = 0;
 
-    virtual ~BaseObject() = default;
+    SimpleType GetType() const {
+        return type;
+    }
+
+private:
+    SimpleType type;
 };

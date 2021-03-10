@@ -4,7 +4,7 @@
 
 AssignmentExpression::AssignmentExpression(std::string  variable,
     Expression* expression, const location_type &loc) :
-    Expression(loc),
+    Expression(loc, "AssignmentExpression"),
     variable_(std::move(variable)),
     expression_(expression) {}
 

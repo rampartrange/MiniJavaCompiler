@@ -1,14 +1,16 @@
-//
-// Created by Артем Андрианов on 09.03.2021.
-//
+#pragma once
 
-#ifndef MINIJAVACOMPILER_INTEGEREXPRESSION_H
-#define MINIJAVACOMPILER_INTEGEREXPRESSION_H
+#include "../Expression.h"
+#include "../../objects/IntegerObject.h"
 
+class IntegerExpression : public Expression {
+public:
+    IntegerExpression(int value, const location_type& loc);
 
-class IntegerExpression {
+    void Accept(Visitor* visitor) override;
 
+    int GetValue() const;
+
+private:
+    IntegerObject object;
 };
-
-
-#endif //MINIJAVACOMPILER_INTEGEREXPRESSION_H

@@ -2,12 +2,10 @@
 
 #include <utility>
 
-StringObject::StringObject() : value_() {}
+StringObject::StringObject() : BaseObject(SimpleType::STRING) {}
 
-StringObject::StringObject(std::string value) : value_(std::move(value)) {}
+StringObject::StringObject(std::string value) : BaseObject(SimpleType::STRING), value(std::move(value)) {}
 
-void StringObject::Accept() {}
-
-SimpleType StringObject::GetType() const {
-    return SimpleType::STRING;
+const std::string& StringObject::GetValue() const {
+    return value;
 }

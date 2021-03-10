@@ -22,6 +22,9 @@ class SymbolTreeVisitor: public Visitor {
     virtual void Visit(MulExpression* expression) override;
     virtual void Visit(NotExpression* expression) override;
     virtual void Visit(ObjectExpression* expression) override;
+    virtual void Visit(IntegerExpression* expression) override;
+    virtual void Visit(BooleanExpression* expression) override;
+    virtual void Visit(StringExpression* expression) override;
     virtual void Visit(OrExpression* expression) override;
     virtual void Visit(SubstractExpression* expression) override;
     virtual void Visit(UnaryMinusExpression* expression) override;
@@ -29,6 +32,7 @@ class SymbolTreeVisitor: public Visitor {
 
     virtual void Visit(Program* program) override;
     virtual void Visit(PascalObject* expression) override;
+
  private:
 
     virtual void VisitBinaryExpression(BinaryExpression* exp) override;

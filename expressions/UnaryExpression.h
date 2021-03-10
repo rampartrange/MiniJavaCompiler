@@ -1,6 +1,4 @@
-#ifndef UNARYEXPRESSION_H
-#define UNARYEXPRESSION_H
-
+#pragma once
 #include "expressions/Expression.h"
 
 class UnaryExpression: public Expression {
@@ -10,5 +8,3 @@ class UnaryExpression: public Expression {
         exp(exp) {};
     Expression* exp;
 };
-
-#endif // UNARYEXPRESSION_H

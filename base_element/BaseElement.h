@@ -1,5 +1,7 @@
 #pragma once
 
+#include <utility>
+
 #include "visitors/visitor.h"
 #include "parser.hh"
 
@@ -8,9 +10,9 @@ using location_type = yy::parser::location_type;
 class BaseElement {
  public:
     BaseElement() = default;
-    BaseElement(const location_type& location, const std::string& name) :
+    BaseElement(const location_type& location, std::string  name) :
         location_(location),
-        name_(name) {}
+        name_(std::move(name)) {}
 
     virtual void Accept(Visitor* visitor) = 0;
 
