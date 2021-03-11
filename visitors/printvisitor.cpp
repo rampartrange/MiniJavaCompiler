@@ -21,6 +21,28 @@ void SymbolTreeVisitor::PrintTabs() {
     }
 }
 
+void SymbolTreeVisitor::PrintObjectValue(BaseObject* object_ptr) {
+    SimpleType type = object_ptr->GetType();
+    PrintTabs();
+    switch(type) {
+        case SimpleType::INT : {
+            auto* casted_ptr = dynamic_cast<IntegerObject*>(object_ptr);
+            stream_ << casted_ptr->GetValue() << std::endl;
+            break;
+        }
+        case SimpleType::BOOLEAN : {
+            auto* casted_ptr = dynamic_cast<BooleanObject*>(object_ptr);
+            stream_ << casted_ptr->GetValue() << std::endl;
+            break;
+        }
+        case SimpleType::STRING : {
+            auto* casted_ptr = dynamic_cast<StringObject*>(object_ptr);
+            stream_ << casted_ptr->GetValue() << std::endl;
+            break;
+        }
+    }
+}
+
 ///______________________VisitGeneralExpression_______________________________///
 
 void SymbolTreeVisitor::VisitBinaryExpression(BinaryExpression* exp) {
@@ -104,7 +126,6 @@ void SymbolTreeVisitor::Visit(ComparisonExpression* expression) {
     expression->lhs->Accept(this);
     stream_ << ComparisonTypeToString[(int)expression->type] << std::endl;
     expression->rhs->Accept(this);
-    expression->value.Accept(this);
     --num_tabs_;
 }
 
@@ -123,55 +144,6 @@ void SymbolTreeVisitor::Visit(XorExpression* expression) {
 
 ///__________________________Object_______________________________________///
 
-void SymbolTreeVisitor::Visit(PascalObject* expression) {
-    PrintTabs();
-    stream_ << "Pascal object (loc): " << expression->GetLocation() << ' '  << std::endl;
-
-    ++num_tabs_;
-
-    PrintTabs();
-    stream_ << expression->GetIntValue() << std::endl; //!!!!
-
-    --num_tabs_;
-}
-
-void SymbolTreeVisitor::Visit(IntegerExpression* expression) {
-    PrintTabs();
-    stream_ << "Integer object (loc): " << expression->GetLocation() << ' '  << std::endl;
-
-    ++num_tabs_;
-
-    PrintTabs();
-    stream_ << expression->GetValue() << std::endl; //!!!!
-
-    --num_tabs_;
-}
-
-void SymbolTreeVisitor::Visit(BooleanExpression* expression) {
-    PrintTabs();
-    stream_ << "Boolean object (loc): " << expression->GetLocation() << ' '  << std::endl;
-
-    ++num_tabs_;
-
-    PrintTabs();
-    stream_ << expression->GetValue() << std::endl; //!!!!
-
-    --num_tabs_;
-}
-
-void SymbolTreeVisitor::Visit(StringExpression* expression) {
-    PrintTabs();
-    stream_ << "String object (loc): " << expression->GetLocation() << ' '  << std::endl;
-
-    ++num_tabs_;
-
-    PrintTabs();
-    stream_ << expression->GetValue() << std::endl; //!!!!
-
-    --num_tabs_;
-}
-
-
 void SymbolTreeVisitor::Visit(AssignmentExpression* expression) {
     PrintTabs();
     stream_ << "Assignment expression (loc): " << expression->GetLocation() << ' '  << expression->variable_ << std::endl;
@@ -184,13 +156,16 @@ void SymbolTreeVisitor::Visit(AssignmentExpression* expression) {
 void SymbolTreeVisitor::Visit(IdentExpression* expression) {
     PrintTabs();
     stream_ << "IdentExpression (loc): " << expression->GetLocation() << ' '  <<  expression->ident_ << std::endl;
+    ++num_tabs_;
+    expression->expression_->Accept(this);
+    --num_tabs_;
 }
 
 void SymbolTreeVisitor::Visit(ObjectExpression* expression) {
     PrintTabs();
-    stream_ << "ObjectExpression (loc): " << expression->GetLocation() << ' '  << std::endl;
+    stream_ << expression->GetName() << " (loc): " << expression->GetLocation() << ' '  << std::endl;
     ++num_tabs_;
-    expression->value.Accept(this);
+    PrintObjectValue(expression->GetObjectPtr());
     --num_tabs_;
 }
 
@@ -208,3 +183,4 @@ void SymbolTreeVisitor::Visit(Program* program) {
 
     --num_tabs_;
 }
+

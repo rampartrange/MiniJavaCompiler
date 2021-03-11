@@ -87,10 +87,6 @@ void Interpreter::Visit(XorExpression* expression) {
 
 ///__________________________Object_______________________________________///
 
-void Interpreter::Visit(PascalObject* expression) {
-
-}
-
 void Interpreter::Visit(AssignmentExpression* expression) {
 
 }

@@ -20,7 +20,7 @@ enum class BooleanConstant : int {
     True = 1
 };
 
-class PascalObject : virtual public BaseElement {
+class PascalObject  {
 public:
     PascalObject();
 
@@ -60,7 +60,6 @@ public:
 
     explicit operator bool() const;
 
-    void Accept(Visitor* visitor) override;
 private:
 
     int intValue;
