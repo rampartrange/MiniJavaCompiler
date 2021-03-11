@@ -27,7 +27,6 @@ class Interpreter : public Visitor {
     virtual void Visit(XorExpression* expression) override;
 
     virtual void Visit(Program* program) override;
-    virtual void Visit(PascalObject* expression) override;
 
     int GetResult(Program* program);
  private:

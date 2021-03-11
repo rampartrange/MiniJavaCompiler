@@ -35,5 +35,5 @@ public:
     Expression* rhs;
     ComparisonType type;
 
-    PascalObject value;
+    bool value;
 };

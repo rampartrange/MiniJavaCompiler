@@ -1,5 +1,6 @@
 #pragma once
-
+#include <string>
+#include <typeinfo>
 
 enum class SimpleType {
     INT,
@@ -12,13 +13,21 @@ enum class SimpleType {
 
 class BaseObject {
 public:
-    BaseObject(SimpleType type) : type(type) {}
+    BaseObject(SimpleType type, std::string name) :
+        type_(type), name_(std::move(name)) {}
 
 
     SimpleType GetType() const {
-        return type;
+        return type_;
     }
 
+    const std::string& GetName() const {
+        return name_;
+    }
+
+    virtual ~BaseObject() = default;
+
 private:
-    SimpleType type;
+    SimpleType type_;
+    std::string name_;
 };

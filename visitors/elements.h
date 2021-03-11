@@ -19,12 +19,8 @@
 #include "expressions/objects/ObjectExpression.h"
 #include "expressions/objects/AssignmentExpression.h"
 #include "expressions/objects/IdentExpression.h"
-#include "expressions/objects/IntegerExpression.h"
-#include "expressions/objects/BooleanExpression.h"
-#include "expressions/objects/StringExpression.h"
 
 #include "Program.h"
-#include "objects/PascalObject.h"
 #include "objects/BaseObject.h"
 #include "objects/IntegerObject.h"
 #include "objects/BooleanObject.h"
