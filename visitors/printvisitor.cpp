@@ -40,6 +40,9 @@ void SymbolTreeVisitor::PrintObjectValue(BaseObject* object_ptr) {
             stream_ << casted_ptr->GetValue() << std::endl;
             break;
         }
+        default: {
+            stream_ << "Unexpected type\n";
+        }
     }
 }
 

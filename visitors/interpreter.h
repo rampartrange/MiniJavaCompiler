@@ -3,9 +3,13 @@
 
 #include "visitor.h"
 #include <map>
+#include <variant>
 
 class Interpreter : public Visitor {
   public:
+
+    using BasicTypes = std::variant<int, bool, std::string>;
+
     Interpreter();
     ~Interpreter();
     virtual void Visit(Assignment* assignment) override;
@@ -34,12 +38,16 @@ class Interpreter : public Visitor {
     virtual void VisitBinaryExpression(BinaryExpression* exp) override;
     virtual void VisitUnaryExpression(UnaryExpression *exp) override;
 
-    std::map<std::string, int> variables_;
+    std::map<std::string, BasicTypes> variables_;
     bool is_tos_expression_;
-    int tos_value_;
+    BasicTypes tos_value_;
 
-    void SetTosValue(int value);
+    void SetTosValue(BasicTypes value);
     void UnsetTosValue();
+
+    int GetInt(BasicTypes object);
+
+    void ExitWithError(const std::string& message);
 };
 
 #endif // INTERPRETER_H

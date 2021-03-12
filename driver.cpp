@@ -2,6 +2,7 @@
 #include "parser.hh"
 
 #include "visitors/printvisitor.h"
+#include "visitors/interpreter.h"
 
 Driver::Driver() :
     trace_parsing(false),
@@ -26,6 +27,10 @@ int Driver::parse(const std::string& f) {
     SymbolTreeVisitor v("output.txt");
     v.Visit(program);
     std::cout << "PrintVisitor OK\n";
+
+    Interpreter interpret;
+    std::cout << interpret.GetResult(program) << std::endl;
+    std::cout << "Interpreter OK\n";
 
     return res;
 }
