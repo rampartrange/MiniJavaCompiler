@@ -29,3 +29,5 @@ class BaseObject;
 class IntegerObject;
 class StringObject;
 class BooleanObject;
+
+class VariantProcessor;

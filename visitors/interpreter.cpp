@@ -21,26 +21,18 @@ void Interpreter::UnsetTosValue() {
     is_tos_expression_ = false;
 }
 
-int Interpreter::GetResult(Program *program) {
+const std::map<std::string, BasicTypes>& Interpreter::GetResult(Program *program) {
     UnsetTosValue();
     Visit(program);
-
-    return GetInt(tos_value_);
+    return variables_;
 }
 
-int Interpreter::GetInt(BasicTypes object) {
-    if (auto* int_val = std::get_if<int>(&object)) {
-        return *int_val;
-    }
-    ExitWithError("Expected Integer");
-}
-
-
-
-void Interpreter::ExitWithError(const std::string &message) {
-    std::cout << "Error: " << message << std::endl;
-    exit(0);
-}
+//int Interpreter::GetInt(BasicTypes object) {
+//    if (auto* int_val = std::get_if<int>(&object)) {
+//        return *int_val;
+//    }
+//    ExitWithError("Expected Integer");
+//}
 
 ///______________________VisitGeneralExpression_______________________________///
 
@@ -72,57 +64,57 @@ void Interpreter::Visit(AssignmentList* assignment_list) {
 
 void Interpreter::Visit(AddExpression* expression) {
     expression->lhs->Accept(this);
-    int value = GetInt(tos_value_);
+    int value = VariantProcessor::GetValue<int>(tos_value_);
 
     expression->rhs->Accept(this);
-    value += GetInt(tos_value_);
+    value += VariantProcessor::GetValue<int>(tos_value_);
 
     SetTosValue(value);
 }
 
 void Interpreter::Visit(DivExpression* expression) {
     expression->lhs->Accept(this);
-    int value = GetInt(tos_value_);
+    int value = VariantProcessor::GetValue<int>(tos_value_);
 
     expression->rhs->Accept(this);
-    value /= GetInt(tos_value_);
+    value /= VariantProcessor::GetValue<int>(tos_value_);
 
     SetTosValue(value);
 }
 
 void Interpreter::Visit(ModExpression* expression) {
     expression->lhs->Accept(this);
-    int value = GetInt(tos_value_);
+    int value = VariantProcessor::GetValue<int>(tos_value_);
 
     expression->rhs->Accept(this);
-    value %= GetInt(tos_value_);
+    value %= VariantProcessor::GetValue<int>(tos_value_);
 
     SetTosValue(value);
 }
 
 void Interpreter::Visit(MulExpression* expression) {
     expression->lhs->Accept(this);
-    int value = GetInt(tos_value_);
+    int value = VariantProcessor::GetValue<int>(tos_value_);
 
     expression->rhs->Accept(this);
-    value *= GetInt(tos_value_);
+    value *= VariantProcessor::GetValue<int>(tos_value_);
 
     SetTosValue(value);
 }
 
 void Interpreter::Visit(SubstractExpression* expression) {
     expression->lhs->Accept(this);
-    int value = GetInt(tos_value_);
+    int value = VariantProcessor::GetValue<int>(tos_value_);
 
     expression->rhs->Accept(this);
-    value -= GetInt(tos_value_);
+    value -= VariantProcessor::GetValue<int>(tos_value_);
 
     SetTosValue(value);
 }
 
 void Interpreter::Visit(UnaryMinusExpression* expression) {
     expression->exp->Accept(this);
-    int value = -GetInt(tos_value_);
+    int value = -VariantProcessor::GetValue<int>(tos_value_);
 
     SetTosValue(value);
 }
@@ -130,7 +122,13 @@ void Interpreter::Visit(UnaryMinusExpression* expression) {
 ///________________________logic_________________________________///
 
 void Interpreter::Visit(AndExpression* expression) {
-    ///!!!!!!!!!!!!!!!!
+    expression->lhs->Accept(this);
+    bool value = VariantProcessor::GetValue<bool>(tos_value_);
+
+    expression->rhs->Accept(this);
+    value = value && VariantProcessor::GetValue<bool>(tos_value_);
+
+    SetTosValue(value);
 }
 
 void Interpreter::Visit(ComparisonExpression* expression) {
@@ -138,21 +136,37 @@ void Interpreter::Visit(ComparisonExpression* expression) {
 }
 
 void Interpreter::Visit(NotExpression* expression) {
-    ///!!!!!!!!!!!!!!!!
+    expression->Accept(this);
+    bool value = VariantProcessor::GetValue<bool>(tos_value_);
+
+    SetTosValue(value);
 }
 
 void Interpreter::Visit(OrExpression* expression) {
-    ///!!!!!!!!!!!!!!!!
+    expression->lhs->Accept(this);
+    bool value = VariantProcessor::GetValue<bool>(tos_value_);
+
+    expression->rhs->Accept(this);
+    value = value || VariantProcessor::GetValue<bool>(tos_value_);
+
+    SetTosValue(value);
 }
 
 void Interpreter::Visit(XorExpression* expression) {
-    ///!!!!!!!!!!!!!!!!
+    expression->lhs->Accept(this);
+    bool value = VariantProcessor::GetValue<bool>(tos_value_);
+
+    expression->rhs->Accept(this);
+    value = value ^ VariantProcessor::GetValue<bool>(tos_value_);
+
+    SetTosValue(value);
 }
 
 
 ///__________________________Object_______________________________________///
 void Interpreter::Visit(AssignmentExpression* expression) {
-   ///!!!!!!!!!!!!!!!!
+   expression->expression_->Accept(this);
+   variables_[expression->variable_] = tos_value_;
 }
 
 void Interpreter::Visit(IdentExpression* expression) {

@@ -25,3 +25,5 @@
 #include "objects/IntegerObject.h"
 #include "objects/BooleanObject.h"
 #include "objects/StringObject.h"
+
+#include "helpers/VariantProcessor.h"
