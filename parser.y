@@ -186,6 +186,9 @@ exp:
     | exp "-" exp { $$ = new SubstractExpression($1, $3, @$); }
     | exp "*" exp { $$ = new MulExpression($1, $3, @$); }
     | exp "/" exp { $$ = new DivExpression($1, $3, @$); }
+    | exp "&&" exp { $$ = new AndExpression($1, $3, @$); }
+    | exp "||" exp { $$ = new OrExpression($1, $3, @$); }
+    | exp "^" exp { $$ = new XorExpression($1, $3, @$); }
     | "(" exp ")" { $$ = $2; };
 
 binary_operator:

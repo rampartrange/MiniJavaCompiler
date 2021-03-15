@@ -1,14 +1,13 @@
-#ifndef INTERPRETER_H
-#define INTERPRETER_H
+#pragma once
 
 #include "visitor.h"
+#include "elements.h"
 #include <map>
 #include <variant>
+#include <iostream>
 
 class Interpreter : public Visitor {
   public:
-
-    using BasicTypes = std::variant<int, bool, std::string>;
 
     Interpreter();
     ~Interpreter();
@@ -32,7 +31,7 @@ class Interpreter : public Visitor {
 
     virtual void Visit(Program* program) override;
 
-    int GetResult(Program* program);
+    const std::map<std::string, BasicTypes>& GetResult(Program* program);
  private:
 
     virtual void VisitBinaryExpression(BinaryExpression* exp) override;
@@ -45,9 +44,5 @@ class Interpreter : public Visitor {
     void SetTosValue(BasicTypes value);
     void UnsetTosValue();
 
-    int GetInt(BasicTypes object);
-
-    void ExitWithError(const std::string& message);
+    //int GetInt(BasicTypes object);
 };
-
-#endif // INTERPRETER_H
