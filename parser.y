@@ -159,7 +159,7 @@ program: main_class {$$ = new Program($1, NULL);  driver.program = $$; };
 
 main_class: "class" "identifier" "{"
 		"public" "static" "void" "main" "(" ")"  "{"
-		assignments "}" "}" {$$ = $11;};
+		assignments[assign] "}" "}" {$$ = $assign;};
 
 
 assignments:
@@ -175,13 +175,12 @@ assignment:
     };
 
 
-
 exp:
     "integer" {$$ = new ObjectExpression($1, @$); }
     | "string" {$$ = new ObjectExpression($1, @$); }
     | "bool" {$$ = new ObjectExpression($1, @$); }
     | "identifier" {$$ = new IdentExpression($1, driver.variables[$1], @$); }
-    //exp binary_operator exp {}
+    | exp CMP exp { $$ = new ComparisonExpression($1, $3, $2, @$); }
     | exp "+" exp { $$ = new AddExpression($1, $3, @$); }
     | exp "-" exp { $$ = new SubstractExpression($1, $3, @$); }
     | exp "*" exp { $$ = new MulExpression($1, $3, @$); }
@@ -189,23 +188,10 @@ exp:
     | exp "&&" exp { $$ = new AndExpression($1, $3, @$); }
     | exp "||" exp { $$ = new OrExpression($1, $3, @$); }
     | exp "^" exp { $$ = new XorExpression($1, $3, @$); }
+    | "!" exp     { $$ = new NotExpression($2, @$); }
     | "(" exp ")" { $$ = $2; };
+    | "-" exp %prec UMINUS { $$ = new UnaryMinusExpression($2, @$); };
 
-binary_operator:
-    "&&"
-    | "||"
-    | "^"
-    | "<"
-    | ">"
-    | ">="
-    | "<="
-    | "=="
-    | "!="
-    | "+"
-    | "-"
-    | "*"
-    | "/"
-    | "%";
 
 %%
 

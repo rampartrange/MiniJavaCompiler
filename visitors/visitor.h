@@ -26,9 +26,4 @@ class Visitor {
     virtual void Visit(XorExpression* expression) = 0;
 
     virtual void Visit(Program* expression) = 0;
-
-
-protected:
-    virtual void VisitBinaryExpression(BinaryExpression* exp) = 0;
-    virtual void VisitUnaryExpression(UnaryExpression* exp) = 0;
 };

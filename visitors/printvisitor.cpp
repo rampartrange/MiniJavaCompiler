@@ -127,7 +127,8 @@ void SymbolTreeVisitor::Visit(ComparisonExpression* expression) {
 
     ++num_tabs_;
     expression->lhs->Accept(this);
-    stream_ << ComparisonTypeToString[(int)expression->type] << std::endl;
+    PrintTabs();
+    stream_ << "type : " << expression->GetSign() << std::endl;
     expression->rhs->Accept(this);
     --num_tabs_;
 }

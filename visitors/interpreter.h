@@ -33,9 +33,8 @@ class Interpreter : public Visitor {
 
     const std::map<std::string, BasicTypes>& GetResult(Program* program);
  private:
-
-    virtual void VisitBinaryExpression(BinaryExpression* exp) override;
-    virtual void VisitUnaryExpression(UnaryExpression *exp) override;
+    template <typename T>
+    std::pair<T, T> VisitBinaryExpression(BinaryExpression* exp);
 
     std::map<std::string, BasicTypes> variables_;
     bool is_tos_expression_;
@@ -43,6 +42,9 @@ class Interpreter : public Visitor {
 
     void SetTosValue(BasicTypes value);
     void UnsetTosValue();
+    bool CalculateComparison(const BasicTypes& lhs, const BasicTypes& rhs, ComparisonType type, BinaryExpression* expression);
+    template <typename T>
+    bool CompareTwoElements(const BasicTypes& lhs, const BasicTypes& rhs, ComparisonType type, BinaryExpression* expression);
 
     //int GetInt(BasicTypes object);
 };

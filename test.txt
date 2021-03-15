@@ -1,6 +1,7 @@
 class Factorial {
   public static void main () {
-    vitalik = true && false;
-    b = vitalik ^ true;
+    vitalik = 3 + 5;
+    b = -vitalik;
+    c = 3 < 5;
   }
 }
