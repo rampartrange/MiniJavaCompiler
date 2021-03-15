@@ -11,7 +11,7 @@ Interpreter::Interpreter() :
 
 Interpreter::~Interpreter() {}
 
-///________________________Helper_____________________________________________///
+///________________________Helpers____________________________________________///
 void Interpreter::SetTosValue(BasicTypes value) {
     tos_value_ = value;
     is_tos_expression_ = true;
@@ -27,21 +27,63 @@ const std::map<std::string, BasicTypes>& Interpreter::GetResult(Program *program
     return variables_;
 }
 
-//int Interpreter::GetInt(BasicTypes object) {
-//    if (auto* int_val = std::get_if<int>(&object)) {
-//        return *int_val;
-//    }
-//    ExitWithError("Expected Integer");
-//}
+template <typename T>
+bool Interpreter::CompareTwoElements(const BasicTypes& lhs, const BasicTypes& rhs, ComparisonType type, BinaryExpression* expression) {
+    T lhs_value = VariantProcessor::GetValue<T>(lhs, expression->lhs->GetLocation());
+    T rhs_value = VariantProcessor::GetValue<T>(rhs, expression->rhs->GetLocation());
 
-///______________________VisitGeneralExpression_______________________________///
-
-void Interpreter::VisitBinaryExpression(BinaryExpression* exp) {
-    return;
+    bool result;
+    switch (type) {
+        case ComparisonType::LT : {
+            result = lhs_value < rhs_value;
+            break;
+        }
+        case ComparisonType::GT : {
+            result = lhs_value > rhs_value;
+            break;
+        }
+        case ComparisonType::LE : {
+            result = lhs_value <= rhs_value;
+            break;
+        }
+        case ComparisonType::GE : {
+            result = lhs_value >= rhs_value;
+            break;
+        }
+        case ComparisonType::EQ : {
+            result = lhs_value == rhs_value;
+            break;
+        }
+        default: {
+            result = lhs_value != rhs_value;
+            break;
+        }
+    }
+    return result;
 }
 
-void Interpreter::VisitUnaryExpression(UnaryExpression* exp) {
-    return;
+bool Interpreter::CalculateComparison(const BasicTypes& lhs, const BasicTypes& rhs, ComparisonType type, BinaryExpression* expression) {
+    bool result = false;
+    if (std::holds_alternative<int>(lhs) && std::holds_alternative<int>(rhs)) {
+        result = CompareTwoElements<int>(lhs, rhs, type, expression);
+    } else if (std::holds_alternative<bool>(lhs) && std::holds_alternative<bool>(rhs)) {
+        result = CompareTwoElements<bool>(lhs, rhs, type, expression);
+    } else if (std::holds_alternative<std::string>(lhs) && std::holds_alternative<std::string>(rhs)) {
+        result = CompareTwoElements<std::string>(lhs, rhs, type, expression);
+    } else {
+        VariantProcessor::ExitWithError("Cannot compare elements", expression->GetLocation());
+    }
+    return result;
+}
+
+///______________________VisitGeneralExpression_______________________________///
+template <typename T>
+std::pair<T, T> Interpreter::VisitBinaryExpression(BinaryExpression* expression) {
+    expression->lhs->Accept(this);
+    T lhs = VariantProcessor::GetValue<T>(tos_value_, expression->lhs->GetLocation());
+    expression->rhs->Accept(this);
+    T rhs = VariantProcessor::GetValue<T>(tos_value_, expression->rhs->GetLocation());
+    return std::make_pair(lhs, rhs);
 }
 
 ///___________________________Assignment_______________________________________///
@@ -63,58 +105,33 @@ void Interpreter::Visit(AssignmentList* assignment_list) {
 ///___________________________Arithmetic_______________________________________///
 
 void Interpreter::Visit(AddExpression* expression) {
-    expression->lhs->Accept(this);
-    int value = VariantProcessor::GetValue<int>(tos_value_);
-
-    expression->rhs->Accept(this);
-    value += VariantProcessor::GetValue<int>(tos_value_);
-
-    SetTosValue(value);
+    auto const& [lhs, rhs] = VisitBinaryExpression<int>(expression);
+    SetTosValue(lhs + rhs);
 }
 
 void Interpreter::Visit(DivExpression* expression) {
-    expression->lhs->Accept(this);
-    int value = VariantProcessor::GetValue<int>(tos_value_);
-
-    expression->rhs->Accept(this);
-    value /= VariantProcessor::GetValue<int>(tos_value_);
-
-    SetTosValue(value);
+    auto const& [lhs, rhs] = VisitBinaryExpression<int>(expression);
+    SetTosValue(lhs / rhs);
 }
 
 void Interpreter::Visit(ModExpression* expression) {
-    expression->lhs->Accept(this);
-    int value = VariantProcessor::GetValue<int>(tos_value_);
-
-    expression->rhs->Accept(this);
-    value %= VariantProcessor::GetValue<int>(tos_value_);
-
-    SetTosValue(value);
+    auto const& [lhs, rhs] = VisitBinaryExpression<int>(expression);
+    SetTosValue(lhs % rhs);
 }
 
 void Interpreter::Visit(MulExpression* expression) {
-    expression->lhs->Accept(this);
-    int value = VariantProcessor::GetValue<int>(tos_value_);
-
-    expression->rhs->Accept(this);
-    value *= VariantProcessor::GetValue<int>(tos_value_);
-
-    SetTosValue(value);
+    auto const& [lhs, rhs] = VisitBinaryExpression<int>(expression);
+    SetTosValue(lhs * rhs);
 }
 
 void Interpreter::Visit(SubstractExpression* expression) {
-    expression->lhs->Accept(this);
-    int value = VariantProcessor::GetValue<int>(tos_value_);
-
-    expression->rhs->Accept(this);
-    value -= VariantProcessor::GetValue<int>(tos_value_);
-
-    SetTosValue(value);
+    auto const& [lhs, rhs] = VisitBinaryExpression<int>(expression);
+    SetTosValue(lhs - rhs);
 }
 
 void Interpreter::Visit(UnaryMinusExpression* expression) {
     expression->exp->Accept(this);
-    int value = -VariantProcessor::GetValue<int>(tos_value_);
+    int value = -VariantProcessor::GetValue<int>(tos_value_, expression->exp->GetLocation());
 
     SetTosValue(value);
 }
@@ -122,44 +139,33 @@ void Interpreter::Visit(UnaryMinusExpression* expression) {
 ///________________________logic_________________________________///
 
 void Interpreter::Visit(AndExpression* expression) {
-    expression->lhs->Accept(this);
-    bool value = VariantProcessor::GetValue<bool>(tos_value_);
-
-    expression->rhs->Accept(this);
-    value = value && VariantProcessor::GetValue<bool>(tos_value_);
-
-    SetTosValue(value);
+    auto const& [lhs, rhs] = VisitBinaryExpression<bool>(expression);
+    SetTosValue(lhs && rhs);
 }
 
 void Interpreter::Visit(ComparisonExpression* expression) {
-    ///!!!!!!!!!!!!!!!!
+    expression->lhs->Accept(this);
+    BasicTypes lhs = tos_value_;
+    expression->rhs->Accept(this);
+    BasicTypes rhs = tos_value_;
+    ComparisonType type = expression->GetType();
+    SetTosValue(CalculateComparison(lhs, rhs, type, expression));
 }
 
 void Interpreter::Visit(NotExpression* expression) {
-    expression->Accept(this);
-    bool value = VariantProcessor::GetValue<bool>(tos_value_);
-
+    expression->exp->Accept(this);
+    bool value = !VariantProcessor::GetValue<bool>(tos_value_, expression->exp->GetLocation());
     SetTosValue(value);
 }
 
 void Interpreter::Visit(OrExpression* expression) {
-    expression->lhs->Accept(this);
-    bool value = VariantProcessor::GetValue<bool>(tos_value_);
-
-    expression->rhs->Accept(this);
-    value = value || VariantProcessor::GetValue<bool>(tos_value_);
-
-    SetTosValue(value);
+    auto const& [lhs, rhs] = VisitBinaryExpression<bool>(expression);
+    SetTosValue(lhs || rhs);
 }
 
 void Interpreter::Visit(XorExpression* expression) {
-    expression->lhs->Accept(this);
-    bool value = VariantProcessor::GetValue<bool>(tos_value_);
-
-    expression->rhs->Accept(this);
-    value = value ^ VariantProcessor::GetValue<bool>(tos_value_);
-
-    SetTosValue(value);
+    auto const& [lhs, rhs] = VisitBinaryExpression<bool>(expression);
+    SetTosValue(static_cast<bool>(lhs ^ rhs)); // Made because of specific xor behaviour
 }
 
 

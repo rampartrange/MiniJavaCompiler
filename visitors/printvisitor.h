@@ -31,8 +31,8 @@ class SymbolTreeVisitor: public Visitor {
 
  private:
 
-    virtual void VisitBinaryExpression(BinaryExpression* exp) override;
-    virtual void VisitUnaryExpression(UnaryExpression *exp) override;
+    void VisitBinaryExpression(BinaryExpression* exp);
+    void VisitUnaryExpression(UnaryExpression *exp);
 
     void PrintTabs();
 
