@@ -23,14 +23,11 @@ class SubstractExpression;
 class UnaryMinusExpression;
 class XorExpression;
 
-class IntegerExpression;
-class BooleanExpression;
-class StringExpression;
-
 class Program;
 
-class PascalObject; //To remove
 class BaseObject;
 class IntegerObject;
 class StringObject;
 class BooleanObject;
+
+class VariantProcessor;

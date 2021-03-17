@@ -22,23 +22,21 @@ class SymbolTreeVisitor: public Visitor {
     virtual void Visit(MulExpression* expression) override;
     virtual void Visit(NotExpression* expression) override;
     virtual void Visit(ObjectExpression* expression) override;
-    virtual void Visit(IntegerExpression* expression) override;
-    virtual void Visit(BooleanExpression* expression) override;
-    virtual void Visit(StringExpression* expression) override;
     virtual void Visit(OrExpression* expression) override;
     virtual void Visit(SubstractExpression* expression) override;
     virtual void Visit(UnaryMinusExpression* expression) override;
     virtual void Visit(XorExpression* expression) override;
 
     virtual void Visit(Program* program) override;
-    virtual void Visit(PascalObject* expression) override;
 
  private:
 
-    virtual void VisitBinaryExpression(BinaryExpression* exp) override;
-    virtual void VisitUnaryExpression(UnaryExpression *exp) override;
+    void VisitBinaryExpression(BinaryExpression* exp);
+    void VisitUnaryExpression(UnaryExpression *exp);
 
     void PrintTabs();
+
+    void PrintObjectValue(BaseObject* object_ptr);
     std::ofstream stream_;
     int num_tabs_ = 0;
 };

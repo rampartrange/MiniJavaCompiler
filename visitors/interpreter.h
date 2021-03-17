@@ -1,11 +1,14 @@
-#ifndef INTERPRETER_H
-#define INTERPRETER_H
+#pragma once
 
 #include "visitor.h"
+#include "elements.h"
 #include <map>
+#include <variant>
+#include <iostream>
 
 class Interpreter : public Visitor {
   public:
+
     Interpreter();
     ~Interpreter();
     virtual void Visit(Assignment* assignment) override;
@@ -27,20 +30,21 @@ class Interpreter : public Visitor {
     virtual void Visit(XorExpression* expression) override;
 
     virtual void Visit(Program* program) override;
-    virtual void Visit(PascalObject* expression) override;
 
-    int GetResult(Program* program);
+    const std::map<std::string, BasicTypes>& GetResult(Program* program);
  private:
+    template <typename T>
+    std::pair<T, T> VisitBinaryExpression(BinaryExpression* exp);
 
-    virtual void VisitBinaryExpression(BinaryExpression* exp) override;
-    virtual void VisitUnaryExpression(UnaryExpression *exp) override;
-
-    std::map<std::string, int> variables_;
+    std::map<std::string, BasicTypes> variables_;
     bool is_tos_expression_;
-    int tos_value_;
+    BasicTypes tos_value_;
 
-    void SetTosValue(int value);
+    void SetTosValue(BasicTypes value);
     void UnsetTosValue();
-};
+    bool CalculateComparison(const BasicTypes& lhs, const BasicTypes& rhs, ComparisonType type, BinaryExpression* expression);
+    template <typename T>
+    bool CompareTwoElements(const BasicTypes& lhs, const BasicTypes& rhs, ComparisonType type, BinaryExpression* expression);
 
-#endif // INTERPRETER_H
+    //int GetInt(BasicTypes object);
+};

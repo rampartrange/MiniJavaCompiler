@@ -2,6 +2,8 @@
 #include "parser.hh"
 
 #include "visitors/printvisitor.h"
+#include "visitors/interpreter.h"
+#include "helpers/VariantProcessor.h"
 
 Driver::Driver() :
     trace_parsing(false),
@@ -17,15 +19,21 @@ int Driver::parse(const std::string& f) {
     parser.set_debug_level(trace_parsing);
     int res = parser();
     scan_end();
-//    for (const auto& name : variables) {
-//      std::cout << name.first << " " << name.second << std::endl;
-//    }
 
     std::cout << "Compile OK\n";
 
     SymbolTreeVisitor v("output.txt");
     v.Visit(program);
     std::cout << "PrintVisitor OK\n";
+
+    Interpreter interpret;
+    auto calculated_map = interpret.GetResult(program);
+    std::cout << "Interpreter OK\n\n";
+    std::cout << "Variables values: \n";
+    for (auto const&[name, value] : calculated_map) {
+        std::cout << name << " ";
+        VariantProcessor::PrintValue(value);
+    }
 
     return res;
 }

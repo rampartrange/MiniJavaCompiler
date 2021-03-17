@@ -320,7 +320,3 @@ PascalObject::operator bool() const {
     }
     return result;
 }
-
-void PascalObject::Accept(Visitor* visitor) {
-    visitor->Visit(this);
-}

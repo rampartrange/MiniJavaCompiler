@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.15)
 project(MiniJavaCompiler)
 
-set (CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(
     HEADERS
@@ -9,7 +10,7 @@ set(
     parser.hh
     )
 
-find_package(BISON REQUIRED)
+find_package(BISON 3.5 REQUIRED)
 BISON_TARGET(
     MyParser
     parser.y
@@ -17,7 +18,7 @@ BISON_TARGET(
     DEFINES_FILE ${MiniJavaCompiler_SOURCE_DIR}/parser.hh
 )
 
-find_package(FLEX REQUIRED)
+find_package(FLEX 2.6.4 REQUIRED)
 FLEX_TARGET(
     MyScanner
     scanner.l
@@ -37,9 +38,6 @@ add_executable(
         expressions/objects/ObjectExpression.cpp
         expressions/objects/IdentExpression.cpp
         expressions/objects/AssignmentExpression.cpp
-        expressions/objects/IntegerExpression.cpp
-        expressions/objects/BooleanExpression.cpp
-        expressions/objects/StringExpression.cpp
 
         expressions/arithmetic/MulExpression.cpp
         expressions/arithmetic/AddExpression.cpp
@@ -62,7 +60,6 @@ add_executable(
         objects/PascalObject.cpp
         objects/IntegerObject.cpp
         objects/BooleanObject.cpp
-        objects/DoubleObject.cpp
         objects/StringObject.cpp
 
         visitors/printvisitor.cpp
@@ -74,6 +71,7 @@ add_executable(
 target_include_directories(
         MiniJavaCompiler PRIVATE ${MiniJavaCompiler_SOURCE_DIR}
 )
+target_include_directories(MiniJavaCompiler PUBLIC ${FLEX_INCLUDE_DIRS})
 
 
 

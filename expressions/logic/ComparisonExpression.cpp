@@ -3,11 +3,9 @@
 ComparisonExpression::ComparisonExpression(Expression* lhs,
                                            Expression* rhs,
                                            const std::string& sign, const location_type &loc) :
-                                           Expression(loc, "ComparisonExpression"),
-                                           lhs(lhs),
-                                           rhs(rhs),
-                                           type(DefineComparisonType(sign)),
-                                           value(false /*fix*/) {}
+                                           BinaryExpression(lhs, rhs, loc, "MulExpression"),
+                                           sign_(sign),
+                                           type_(DefineComparisonType(sign)) {}
 
 ComparisonType ComparisonExpression::DefineComparisonType(const std::string &sign) const{
     ComparisonType comparisonType;
@@ -19,7 +17,7 @@ ComparisonType ComparisonExpression::DefineComparisonType(const std::string &sig
         comparisonType = ComparisonType::LE;
     } else if (sign == ">=") {
         comparisonType = ComparisonType::GE;
-    } else if (sign == "=") {
+    } else if (sign == "==") {
         comparisonType = ComparisonType::EQ;
     } else {
         comparisonType = ComparisonType::NE;
@@ -27,7 +25,14 @@ ComparisonType ComparisonExpression::DefineComparisonType(const std::string &sig
     return comparisonType;
 }
 
+const std::string& ComparisonExpression::GetSign() const {
+    return sign_;
+}
 
 void ComparisonExpression::Accept(Visitor* visitor) {
     visitor->Visit(this);
+}
+
+ComparisonType ComparisonExpression::GetType() const {
+    return type_;
 }

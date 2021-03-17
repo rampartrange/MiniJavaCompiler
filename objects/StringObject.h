@@ -3,7 +3,7 @@
 #include <string>
 #include "BaseObject.h"
 
-class StringObject : BaseObject {
+class StringObject : virtual public BaseObject {
 public:
     StringObject();
     explicit StringObject(std::string);
