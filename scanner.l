@@ -39,7 +39,7 @@ id    [a-zA-Z][a-zA-Z_0-9]*
 int   [0-9]+
 blank [ \t\r]
 real  {int}"."{int}([eE][+-]{int})?
-string "\'"([^\n\'\\]*(\\[.\n])*)*"\'"
+string "\""([^\n\'\\]*(\\[.\n])*)*"\""
 cmp   "<"|">"|"<="|">="|"=="|"!="
 type  integer|boolean|real|string
 

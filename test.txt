@@ -2,6 +2,8 @@ class Factorial {
   public static void main () {
     vitalik = 3 + 5;
     b = -vitalik;
-    c = 3 < 5;
+    c = "asd";
+    d = "abc";
+    b = c < d;
   }
 }
