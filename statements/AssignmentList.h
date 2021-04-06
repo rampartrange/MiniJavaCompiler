@@ -1,12 +1,13 @@
 #pragma once
 
-#include "assignments/Assignment.h"
+#include "statements//Assignment.h"
 #include "base_element/BaseElement.h"
+#include <statements/Statement.h>
 #include <vector>
 
-class AssignmentList : public BaseElement {
+class AssignmentList : public Statement {
  public:
-    AssignmentList(const location_type& loc) : BaseElement(loc, "AssignmentList"){};
+    AssignmentList(const location_type& loc);
     void AddAssignment(Assignment* assignment);
     void Accept(Visitor* visitor) override;
 

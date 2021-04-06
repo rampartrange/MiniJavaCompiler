@@ -1,6 +1,6 @@
 #include "Program.h"
 
 Program::Program(
-    AssignmentList* assignments,
+    StatementList* statementList,
     Expression* expression
-): assignments_(assignments), expression_(expression) {}
+): statementList_(statementList), expression_(expression) {}

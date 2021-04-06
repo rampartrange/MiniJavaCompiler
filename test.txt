@@ -1,9 +1,11 @@
 class Factorial {
   public static void main () {
-    vitalik = 3 + 5;
-    b = -vitalik;
-    c = "asd";
-    d = "abc";
-    b = c < d;
+    bool a;
+    a = false;
+
+    if (a == true)
+        b = 3;
+    else
+        a = false;
   }
 }

@@ -1,13 +1,13 @@
 #pragma once
 
-#include "assignments/AssignmentList.h"
+#include "visitors/elements.h"
 #include "expressions/Expression.h"
 #include "driver.hh"
 
 class Program {
  public:
-    Program(AssignmentList* assignments, Expression* expression);
+    Program(StatementList* statementList, Expression* expression);
 
-    AssignmentList* assignments_;
+    StatementList* statementList_;
     Expression* expression_;
 };

@@ -1,8 +1,5 @@
 #pragma once
 
-class Assignment;
-class AssignmentList;
-
 class Expression;
 class BinaryExpression;
 class UnaryExpression;
@@ -10,7 +7,6 @@ class UnaryExpression;
 
 class AddExpression;
 class AndExpression;
-class AssignmentExpression;
 class ComparisonExpression;
 class DivExpression;
 class IdentExpression;
@@ -29,5 +25,15 @@ class BaseObject;
 class IntegerObject;
 class StringObject;
 class BooleanObject;
+
+class Statement;
+class StatementList;
+class Assignment;
+class AssignmentList;
+class Declaration;
+class DeclarationList;
+class IfStatement;
+class WhileStatement;
+
 
 class VariantProcessor;

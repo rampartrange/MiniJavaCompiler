@@ -9,6 +9,7 @@
 #include "objects/BaseObject.h"
 #include "Program.h"
 #include "expressions/Expression.h"
+#include "visitors/elements.h"
 
 class Driver {
  public:

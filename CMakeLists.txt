@@ -37,7 +37,6 @@ add_executable(
 
         expressions/objects/ObjectExpression.cpp
         expressions/objects/IdentExpression.cpp
-        expressions/objects/AssignmentExpression.cpp
 
         expressions/arithmetic/MulExpression.cpp
         expressions/arithmetic/AddExpression.cpp
@@ -52,11 +51,6 @@ add_executable(
         expressions/logic/XorExpression.cpp
         expressions/logic/NotExpression.cpp
 
-        assignments/AssignmentList.cpp
-        assignments/Assignment.cpp
-
-        statements/statement.cpp
-
         objects/PascalObject.cpp
         objects/IntegerObject.cpp
         objects/BooleanObject.cpp
@@ -65,7 +59,15 @@ add_executable(
         visitors/printvisitor.cpp
         visitors/interpreter.cpp
 
-        Program.cpp)
+        statements/Assignment.cpp
+        statements/AssignmentList.cpp
+        statements/Declaration.cpp
+        statements/DeclarationList.cpp
+        statements/IfStatement.cpp
+        statements/WhileStatement.cpp
+        statements/StatementList.cpp
+
+        Program.cpp )
 
 
 target_include_directories(

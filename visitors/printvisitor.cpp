@@ -6,22 +6,22 @@
 
 ///______________________Constructor/Destructor_______________________________///
 
-SymbolTreeVisitor::SymbolTreeVisitor(const std::string& filename) :
+PrintVisitor::PrintVisitor(const std::string& filename) :
     stream_(filename) {}
 
-SymbolTreeVisitor::~SymbolTreeVisitor() {
+PrintVisitor::~PrintVisitor() {
     stream_.close();
 }
 
 ///________________________Helper_____________________________________________///
 
-void SymbolTreeVisitor::PrintTabs() {
+void PrintVisitor::PrintTabs() {
     for (int i = 0; i < num_tabs_; ++i) {
         stream_ << '\t';
     }
 }
 
-void SymbolTreeVisitor::PrintObjectValue(BaseObject* object_ptr) {
+void PrintVisitor::PrintObjectValue(BaseObject* object_ptr) {
     SimpleType type = object_ptr->GetType();
     PrintTabs();
     switch(type) {
@@ -48,7 +48,7 @@ void SymbolTreeVisitor::PrintObjectValue(BaseObject* object_ptr) {
 
 ///______________________VisitGeneralExpression_______________________________///
 
-void SymbolTreeVisitor::VisitBinaryExpression(BinaryExpression* exp) {
+void PrintVisitor::VisitBinaryExpression(BinaryExpression* exp) {
     PrintTabs();
     stream_ << exp->GetName() << " (loc): " << exp->GetLocation() << ' '  << std::endl;
 
@@ -58,7 +58,7 @@ void SymbolTreeVisitor::VisitBinaryExpression(BinaryExpression* exp) {
     --num_tabs_;
 }
 
-void SymbolTreeVisitor::VisitUnaryExpression(UnaryExpression* exp) {
+void PrintVisitor::VisitUnaryExpression(UnaryExpression* exp) {
     PrintTabs();
 
     stream_ << exp->GetName() << " (loc): " << exp->GetLocation() << ' '  << std::endl;
@@ -67,9 +67,9 @@ void SymbolTreeVisitor::VisitUnaryExpression(UnaryExpression* exp) {
     --num_tabs_;
 }
 
-///___________________________Assignment_______________________________________///
+///___________________________Statement_______________________________________///
 
-void SymbolTreeVisitor::SymbolTreeVisitor::Visit(Assignment* assignment) {
+void PrintVisitor::Visit(Assignment* assignment) {
     PrintTabs();
     stream_ << "Assignment:  (loc): " << assignment->GetLocation() << " (var name): "
              << assignment->variable_ << std::endl;
@@ -78,7 +78,7 @@ void SymbolTreeVisitor::SymbolTreeVisitor::Visit(Assignment* assignment) {
     --num_tabs_;
 }
 
-void SymbolTreeVisitor::Visit(AssignmentList* assignment_list) {
+void PrintVisitor::Visit(AssignmentList* assignment_list) {
     PrintTabs();
     stream_ << "AssignmentList (loc): " << assignment_list->GetLocation() << ' ' << std::endl;
 
@@ -89,39 +89,110 @@ void SymbolTreeVisitor::Visit(AssignmentList* assignment_list) {
     --num_tabs_;
 }
 
+void PrintVisitor::Visit(Declaration* declaration) {
+    PrintTabs();
+    stream_ << "Declaration:  (loc): " << declaration->GetLocation() << " (var name): "
+            << declaration->variable_ << std::endl;
+    ++num_tabs_;
+    PrintTabs();
+    stream_ << "Type : " << declaration->type_ << std::endl;
+    --num_tabs_;
+}
+
+void PrintVisitor::Visit(DeclarationList* declarationList) {
+    PrintTabs();
+    stream_ << "DeclarationList (loc): " << declarationList->GetLocation() << ' ' << std::endl;
+
+    ++num_tabs_;
+    for (Declaration* declaration : declarationList->declarations_) {
+        declaration->Accept(this);
+    }
+    --num_tabs_;
+}
+
+void PrintVisitor::Visit(IfStatement* statement) {
+    PrintTabs();
+    stream_ << "IfStatement (loc):" << statement->GetLocation() << std::endl;
+
+    ++num_tabs_;
+    PrintTabs();
+    stream_ << "if :" << std::endl;
+    statement->expression_->Accept(this);
+    --num_tabs_;
+
+    ++num_tabs_;
+    PrintTabs();
+    stream_ << "statement: " << std::endl;
+    statement->statement_->Accept(this);
+    --num_tabs_;
+
+    if (statement->elseStatement_) {
+        ++num_tabs_;
+        PrintTabs();
+        stream_ << "else :" << std::endl;
+        statement->elseStatement_->Accept(this);
+        --num_tabs_;
+    }
+}
+
+void PrintVisitor::Visit(WhileStatement *statement) {
+    PrintTabs();
+    stream_ << "WhileStatement (loc):" << statement->GetLocation() << std::endl;
+
+    ++num_tabs_;
+    stream_ << "while :" << std::endl;
+    statement->expression_->Accept(this);
+    --num_tabs_;
+
+    ++num_tabs_;
+    stream_ << "statement: " << std::endl;
+    statement->statement_->Accept(this);
+    --num_tabs_;
+}
+
+void PrintVisitor::Visit(StatementList* statementList) {
+    PrintTabs();
+    stream_ << "AssignmentList (loc): " << statementList->GetLocation() << ' ' << std::endl;
+
+    ++num_tabs_;
+    for (Statement* statement : statementList->statements_) {
+        statement->Accept(this);
+    }
+    --num_tabs_;
+}
 ///___________________________Arithmetic_______________________________________///
 
-void SymbolTreeVisitor::Visit(AddExpression* expression) {
+void PrintVisitor::Visit(AddExpression* expression) {
     VisitBinaryExpression(expression);
 }
 
-void SymbolTreeVisitor::Visit(DivExpression* expression) {
+void PrintVisitor::Visit(DivExpression* expression) {
     VisitBinaryExpression(expression);
 }
 
-void SymbolTreeVisitor::Visit(ModExpression* expression) {
+void PrintVisitor::Visit(ModExpression* expression) {
     VisitBinaryExpression(expression);
 }
 
-void SymbolTreeVisitor::Visit(MulExpression* expression) {
+void PrintVisitor::Visit(MulExpression* expression) {
     VisitBinaryExpression(expression);
 }
 
-void SymbolTreeVisitor::Visit(SubstractExpression* expression) {
+void PrintVisitor::Visit(SubstractExpression* expression) {
     VisitBinaryExpression(expression);
 }
-void SymbolTreeVisitor::Visit(UnaryMinusExpression* expression) {
+void PrintVisitor::Visit(UnaryMinusExpression* expression) {
     VisitUnaryExpression(expression);
 }
 
 ///________________________logic_________________________________///
 
-void SymbolTreeVisitor::Visit(AndExpression* expression) {
+void PrintVisitor::Visit(AndExpression* expression) {
     VisitBinaryExpression(expression);
 }
 
 
-void SymbolTreeVisitor::Visit(ComparisonExpression* expression) {
+void PrintVisitor::Visit(ComparisonExpression* expression) {
     PrintTabs();
     stream_ << "ComparisonExpression (loc): " << expression->GetLocation() << ' '  <<  std::endl;
 
@@ -133,31 +204,22 @@ void SymbolTreeVisitor::Visit(ComparisonExpression* expression) {
     --num_tabs_;
 }
 
-void SymbolTreeVisitor::Visit(NotExpression* expression) {
+void PrintVisitor::Visit(NotExpression* expression) {
     VisitUnaryExpression(expression);
 }
 
-void SymbolTreeVisitor::Visit(OrExpression* expression) {
+void PrintVisitor::Visit(OrExpression* expression) {
     VisitBinaryExpression(expression);
 }
 
-void SymbolTreeVisitor::Visit(XorExpression* expression) {
+void PrintVisitor::Visit(XorExpression* expression) {
     VisitBinaryExpression(expression);
 }
 
 
 ///__________________________Object_______________________________________///
 
-void SymbolTreeVisitor::Visit(AssignmentExpression* expression) {
-    PrintTabs();
-    stream_ << "Assignment expression (loc): " << expression->GetLocation() << ' '  << expression->variable_ << std::endl;
-
-    ++num_tabs_;
-    expression->expression_->Accept(this);
-    --num_tabs_;
-}
-
-void SymbolTreeVisitor::Visit(IdentExpression* expression) {
+void PrintVisitor::Visit(IdentExpression* expression) {
     PrintTabs();
     stream_ << "IdentExpression (loc): " << expression->GetLocation() << ' '  <<  expression->ident_ << std::endl;
     ++num_tabs_;
@@ -165,7 +227,7 @@ void SymbolTreeVisitor::Visit(IdentExpression* expression) {
     --num_tabs_;
 }
 
-void SymbolTreeVisitor::Visit(ObjectExpression* expression) {
+void PrintVisitor::Visit(ObjectExpression* expression) {
     PrintTabs();
     stream_ << expression->GetName() << " (loc): " << expression->GetLocation() << ' '  << std::endl;
     ++num_tabs_;
@@ -176,12 +238,12 @@ void SymbolTreeVisitor::Visit(ObjectExpression* expression) {
 
 
 ///______________________________Program___________________________///
-void SymbolTreeVisitor::Visit(Program* program) {
+void PrintVisitor::Visit(Program* program) {
     stream_ << "Program (loc): " << std::endl;
 
     ++num_tabs_;
 
-    program->assignments_->Accept(this);
+    program->statementList_->Accept(this);
     if (program->expression_ != nullptr)
         program->expression_->Accept(this);
 

@@ -89,6 +89,9 @@ type  integer|boolean|real|string
 "static"   return yy::parser::make_STATIC       (loc);
 "void"     return yy::parser::make_VOID         (loc);
 "main"     return yy::parser::make_MAIN         (loc);
+"if"       return yy::parser::make_IF           (loc);
+"else"     return yy::parser::make_ELSE         (loc);
+"while"    return yy::parser::make_WHILE        (loc);
 
 {bool}     return make_BOOL                     (yytext, loc);
 {type}     return yy::parser::make_TYPE         (yytext, loc);

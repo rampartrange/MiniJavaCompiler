@@ -102,6 +102,33 @@ void Interpreter::Visit(AssignmentList* assignment_list) {
     UnsetTosValue();
 }
 
+void Interpreter::Visit(Declaration* declaration) {
+//    variables_[declaration->variable_] = tos_value_;
+//
+//    UnsetTosValue();
+}
+
+void Interpreter::Visit(DeclarationList* declarationList) {
+    for (Declaration* declaration: declarationList->declarations_) {
+        declaration->Accept(this);
+    }
+    UnsetTosValue();
+}
+
+void Interpreter::Visit(IfStatement* statement) {
+
+}
+
+void Interpreter::Visit(WhileStatement* statement) {
+
+}
+
+void Interpreter::Visit(StatementList* statementList) {
+    for (Statement* statement : statementList->statements_) {
+        statement->Accept(this);
+    }
+}
+
 ///___________________________Arithmetic_______________________________________///
 
 void Interpreter::Visit(AddExpression* expression) {
@@ -170,11 +197,6 @@ void Interpreter::Visit(XorExpression* expression) {
 
 
 ///__________________________Object_______________________________________///
-void Interpreter::Visit(AssignmentExpression* expression) {
-   expression->expression_->Accept(this);
-   variables_[expression->variable_] = tos_value_;
-}
-
 void Interpreter::Visit(IdentExpression* expression) {
     BasicTypes value = variables_[expression->ident_];
     SetTosValue(value);
@@ -207,6 +229,6 @@ void Interpreter::Visit(ObjectExpression* expression) {
 
 ///______________________________Program___________________________///
 void Interpreter::Visit(Program* program) {
-    program->assignments_->Accept(this);
+    program->statementList_->Accept(this);
     //program->expression_->Accept(this); // tos value is called
 }

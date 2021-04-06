@@ -32,8 +32,14 @@
     class IntegerObject;
     class StringObject;
 
+    class Statement;
     class Assignment;
     class AssignmentList;
+    class Declaration;
+    class DeclarationList;
+    class IfStatement;
+    class WhileStatement;
+    class StatementList;
 
     class Program;
 }
@@ -47,32 +53,7 @@
     #include "driver.hh"
     #include "location.hh"
 
-    #include "expressions/objects/ObjectExpression.h"
-    #include "expressions/objects/IdentExpression.h"
-
-    #include "expressions/arithmetic/AddExpression.h"
-    #include "expressions/arithmetic/MulExpression.h"
-    #include "expressions/arithmetic/DivExpression.h"
-    #include "expressions/arithmetic/SubstractExpression.h"
-    #include "expressions/arithmetic/ModExpression.h"
-    #include "expressions/arithmetic/UnaryMinusExpression.h"
-
-    #include "expressions/logic/ComparisonExpression.h"
-    #include "expressions/logic/AndExpression.h"
-    #include "expressions/logic/OrExpression.h"
-    #include "expressions/logic/XorExpression.h"
-    #include "expressions/logic/NotExpression.h"
-
-    #include "objects/PascalObject.h"
-    #include "objects/BaseObject.h"
-    #include "objects/IntegerObject.h"
-    #include "objects/BooleanObject.h"
-    #include "objects/StringObject.h"
-
-    #include "assignments/Assignment.h"
-    #include "assignments/AssignmentList.h"
-
-    #include "Program.h"
+ 	#include "visitors/elements.h"
 
     static yy::parser::symbol_type yylex(Scanner &scanner, Driver& driver) {
         return scanner.ScanToken();
@@ -99,6 +80,9 @@
     VOID	"void"
     MAIN	"main"
 
+	IF 		"if"
+	ELSE 	"else"
+	WHILE	"while"
 
     MINUS       "-"
     PLUS        "+"
@@ -127,21 +111,28 @@
 %token <std::string>
     IDENTIFIER "identifier"
     TYPE       "type"
+    CMP
 
 %token <int> INTEGER "integer"
 %token <double> REAL "real"
 %token <std::string> STRING "string"
 %token <bool> BOOL "bool"
-%token <std::string> CMP
+
 
 
 //For debug purpuses
-%nterm <AssignmentList*> main_class
+%nterm <StatementList*> main_class
 
 %nterm <Expression*> exp
+%nterm <Statement*> statement;
+%nterm <StatementList*> statement_list;
 %nterm <Assignment*> assignment
 %nterm <AssignmentList*> assignments
+%nterm <Declaration*> declaration
+%nterm <Declaration*> variable_declaration
+%nterm <DeclarationList*> declaration_list
 %nterm <Program*> program
+%nterm <std::string> type
 
 // %printer { yyo << $$; } <*>;
 
@@ -157,10 +148,40 @@
 
 program: main_class {$$ = new Program($1, NULL);  driver.program = $$; };
 
-main_class: "class" "identifier" "{"
-		"public" "static" "void" "main" "(" ")"  "{"
-		assignments[assign] "}" "}" {$$ = $assign;};
+class_declaration:
+	"class" "identifier" "{" declaration_list "}" {}
 
+main_class: "class" "identifier" "{"
+	"public" "static" "void" "main" "(" ")"  "{"
+	statement_list[statements] "}" "}" { $$ = $statements; };
+
+declaration_list:
+	%empty { $$ = new DeclarationList(@$); }
+	| declaration_list declaration {
+		$1->AddDeclaration($2); $$ = $1;
+	};
+
+declaration:
+	variable_declaration { $$ = $1 };
+
+variable_declaration: type "identifier" ";" { $$ = new Declaration($2, $1, @$); };
+
+type:
+	TYPE {$$ = $1; }
+	| "identifier" {$$ = $1;};
+
+statement_list:
+	%empty { $$ = new StatementList(@$); }
+	| statement_list statement {
+		$1->AddStatement($2); $$ = $1;
+	};
+
+statement:
+	variable_declaration {$$ = $1;}
+	| "if" "(" exp ")" statement { $$ = new IfStatement($3, $5, @$); }
+	| "if" "(" exp ")" statement "else" statement { $$ = new IfStatement($3, $5, $7, @$); }
+	| "while" "(" exp ")" statement { $$ = new WhileStatement($3, $5, @$); }
+	| assignment {$$ = $1; };
 
 assignments:
     %empty { $$ = new AssignmentList(@$); /* A -> eps */}
@@ -173,7 +194,6 @@ assignment:
         $$ = new Assignment($1, $3, @$);
         driver.variables[$1] = $3;
     };
-
 
 exp:
     "integer" {$$ = new ObjectExpression($1, @$); }

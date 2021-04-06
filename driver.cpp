@@ -22,7 +22,7 @@ int Driver::parse(const std::string& f) {
 
     std::cout << "Compile OK\n";
 
-    SymbolTreeVisitor v("output.txt");
+    PrintVisitor v("output.txt");
     v.Visit(program);
     std::cout << "PrintVisitor OK\n";
 
