@@ -58,6 +58,7 @@ add_executable(
 
         visitors/printvisitor.cpp
         visitors/interpreter.cpp
+        visitors/symboltreevisitor.cpp
 
         statements/Assignment.cpp
         statements/AssignmentList.cpp
@@ -66,6 +67,11 @@ add_executable(
         statements/IfStatement.cpp
         statements/WhileStatement.cpp
         statements/StatementList.cpp
+        
+        symbol_table/Symbol.cpp
+        symbol_table/Table.cpp
+        symbol_table/ScopeLayer.cpp
+        symbol_table/ScopeLayerTree.cpp
 
         Program.cpp )
 
@@ -74,6 +80,3 @@ target_include_directories(
         MiniJavaCompiler PRIVATE ${MiniJavaCompiler_SOURCE_DIR}
 )
 target_include_directories(MiniJavaCompiler PUBLIC ${FLEX_INCLUDE_DIRS})
-
-
-

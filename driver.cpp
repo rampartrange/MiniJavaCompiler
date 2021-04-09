@@ -3,6 +3,7 @@
 
 #include "visitors/printvisitor.h"
 #include "visitors/interpreter.h"
+#include "visitors/symboltreevisitor.h"
 #include "helpers/VariantProcessor.h"
 
 Driver::Driver() :
@@ -25,6 +26,9 @@ int Driver::parse(const std::string& f) {
     PrintVisitor v("output.txt");
     v.Visit(program);
     std::cout << "PrintVisitor OK\n";
+
+    SymbolTreeVisitor STV;
+    STV.Visit(program);
 
     Interpreter interpret;
     auto calculated_map = interpret.GetResult(program);
