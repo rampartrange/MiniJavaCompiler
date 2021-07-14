@@ -5,8 +5,8 @@
 | Checkpoints                                                                                                                          | Status         | 
 | -------------                                                                                                                        |:-------------: |
 | [AST + locations](https://github.com/akhtyamovpavel/CompilersCourse/blob/master/milestones/milestones-2021/01-ast-locations.md)      | DONE		| 
-| [Visitors + Semantics](https://github.com/akhtyamovpavel/CompilersCourse/blob/master/milestones/milestones-2021/02-visitors-table.md)	| Pending Review |
-| [Symbol table + Type system](https://github.com/akhtyamovpavel/CompilersCourse/blob/master/milestones/milestones-2021/03-pair-symbol-table-types.md) | In process|
+| [Visitors + Semantics](https://github.com/akhtyamovpavel/CompilersCourse/blob/master/milestones/milestones-2021/02-visitors-table.md)	| DONE |
+| [Symbol table + Type system](https://github.com/akhtyamovpavel/CompilersCourse/blob/master/milestones/milestones-2021/03-pair-symbol-table-types.md) | Pending Review|
 
 ### Done:
 1. [**Lexical analyser**](scanner.l)
